@@ -3,7 +3,7 @@ const form = document.getElementById('add-new-task')
 
 // Add a new task
 const addTask = async (tasks) => { 
-  await fetch("http://localhost:3000/tasks", {
+  await fetch("https://apitaskmanager.herokuapp.com/tasks", {
     method: "POST",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -20,7 +20,7 @@ const addTask = async (tasks) => {
 }
 
 const modifyTask = async (tasks) => { 
-  await fetch(`http://localhost:3000/tasks/${tasks.id}`, {
+  await fetch(`https://apitaskmanager.herokuapp.com/tasks/${tasks.id}`, {
         method: "PUT",
         body: JSON.stringify({
           "taskNum": tasks.taskNum,
@@ -40,7 +40,7 @@ const modifyTask = async (tasks) => {
 
 // Made to show in form the existing information
 const editTask = async (id) => {
-  const apiResponse = await fetch(`http://localhost:3000/tasks/${id}`)
+  const apiResponse = await fetch(`https://apitaskmanager.herokuapp.com/tasks/${id}`)
   const tasks = await apiResponse.json()
 
     let title = document.getElementById("modal-header-text")
@@ -110,7 +110,7 @@ const eraseTask = async (id, num) => {
 </div>`
 
   confirmExclude.addEventListener('click',(event) => {
-    fetch(`http://localhost:3000/tasks/${id}`, {
+    fetch(`https://apitaskmanager.herokuapp.com/tasks/${id}`, {
       method: "DELETE",
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -122,7 +122,7 @@ const eraseTask = async (id, num) => {
    
 
 const getTasks = async () => { 
-  const apiResponse = await fetch('http://localhost:3000/tasks')
+  const apiResponse = await fetch('https://apitaskmanager.herokuapp.com/tasks')
   const tasks = await apiResponse.json()
   // Sort Tasks by task numbers
   let tasksSorted = tasks.sort((a,b) => a.taskNum - b.taskNum);

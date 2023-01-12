@@ -1,0 +1,83 @@
+* {
+    background-color: #dedede;
+}
+.container {
+    display: flex;
+    position: relative;
+    width: 20%;
+    left: 40%;
+    height: 70%;
+    border: 1px solid black;
+    flex-direction: column;
+    background-color: white;
+    top: 50px;
+    border-radius: 15px;
+    flex-wrap: wrap;
+}
+img {
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+#logo {
+    align-self: center;
+    top: -25px;
+    position: absolute;
+    background: none;
+}
+#nome {
+    position: absolute;
+    align-self: center;
+    background-color: white;
+    color: #535151;
+    font-size: large;
+    font-weight: bolder;
+    top: 50px;
+}
+#funcao {
+    position: absolute;
+    align-self: center;
+    background-color: white;
+    color: #535151;
+    font-size: large;
+    font-weight: bold;
+    top: 80px;
+}
+.tipos {
+    position: absolute;
+    align-self: center;
+    background-color: white;
+    width: 80%;
+    height: 50%;
+    left: 10%;
+    bottom: 25%;
+    display: flex; 
+    flex-wrap: wrap;
+}
+.frame {
+    background-color: white;
+    width: 50%;
+    height: 25%;
+    line-height: 50px;
+    text-align: center;
+    color: #0a66c2;
+    font-weight: bold;
+}
+#botao {
+    position: absolute;
+    align-self: center;
+    width: 70%;
+    height: 70px;
+    border-radius: 20px;
+    background-color: #0a66c2;
+    bottom: 10px;
+    line-height: 70px;
+    text-align: center;
+}
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: #0a66c2;
+}

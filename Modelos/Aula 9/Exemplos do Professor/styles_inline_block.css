@@ -1,0 +1,54 @@
+.example {
+  color: #FFF;
+  text-align: justify;
+}
+
+/*
+  O after adiciona um elemento na tela após a escrita
+  do elemento em que está sendo referenciado o seletor.
+  Neste caso aqui, o after tem a responsabilidade de ser
+  um elemento vazio de altura 0 e width 100%, o que faz
+  com que ele TEORICAMENTE ocupe um bloco inteiro na tela,
+  mas praticamente não ocupa nada, por causa da altura 0.
+  Com o conteúdo sendo vazio, ele provoca uma nova linha na 
+  tela, sem atrapalhar o que estava escrito nela anteriormente.
+  E assim, o justify funciona pois ele só não é aplicado na 
+  última linha, que agora é o elemento do after.
+*/
+.example:after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+  height: 0;
+}
+
+.example-item {
+  /*
+    Quando utilizamos inline-block, o elemento ganha
+    a propriedade de width e height do display: block.
+    Mas somente isso!
+  */
+  width: 20%;
+  height: 150px;
+  display: inline-block;
+}
+.example-item_first {
+  background-color: #FAA116;
+}
+.example-item_second {
+  background-color: #57C7C3;
+}
+.example-item_third {
+  background-color: #3B97D3;
+}
+
+/*
+  Neste caso, pode-se adicionar uma nova li na ul com 
+  esta classe, e terá o mesmo efeito do :after
+*/
+
+.example-item_fourth {
+ width: 100%;
+ height: 0;
+ display: inline-block;
+}

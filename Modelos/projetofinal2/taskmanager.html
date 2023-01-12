@@ -1,0 +1,88 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css"/>
+
+    <script src="doc.js" defer ></script>
+    <title>Gerenciador de Tarefas</title>
+</head>
+<body onload="getTasks()">    
+    <div class="b-example-divider" id="fixedsidebar"></div>
+    <div class="b-example-divider" id="fixedsidebar-under"></div>
+<div class="header">
+    <div id="logo"><img src="img/Asset 3@4x 1.png" alt=""></div>   
+    <div class="titulo"><img src="img/ícone.png" id="icon">Gerenciador de Tarefas</div>
+    <button hover="click" class="addTarefa" onclick="buttonADD()" data-bs-toggle="modal" data-bs-target="#exampleModal">+ Adicionar nova Tarefa</button>
+</div>
+<div id="userName">Usuário: </div>
+<div id="exitbutton">Sair</div>
+    <div class="container-list" id="content">
+        <div class="row cabecalho">
+            <div class="col-2">Núm</div>
+            <div class="col-3">Descrição</div>
+            <div class="col-3">Data de Entrega</div>
+            <div class="col-3">Status</div>
+            <div class="col-1">Ação</div>
+        </div>
+        
+        
+    </div>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" >
+        <div class="modal-content" id="modal-container">
+          <div>
+            <h1 class="modal-title fs-5" id="modal-header-text">Adicionar nova tarefa</h1>
+          </div>
+          <div class="modal-body">
+              <form action="input-text" id="add-new-task" method="post" >
+                  <label for="task-number">Número</label>
+                  <input class="form-control" type="number" name="task-number" id="task-number" value="">
+                  <label for="descriptionSET">Descrição</label>
+                  <input class="form-control" type="text" name="descriptionSET" id="descriptionSET" value="">
+                  <label for="task-date">Data</label>
+                  <input class="form-control" type="date" name="task-date" id="task-date">
+                  <label for="task-status" value="">Status</label>
+                  <div class="form-floating">
+                      <select class="form-select" id="task-status" aria-label="Floating label select example">
+                          <option selected="true" disabled="true"></option>
+                          <option value="Concluído">Concluído</option>
+                          <option value="Em-Andamento">Em andamento</option>
+                          <option value="Stopped">Stopped</option>
+                      </select>
+                    </div>
+          </div>
+          <div id="modal-footer">
+            <button type="button" id="close-button" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" id="save-button">Salvar</button>
+          </div>
+        </form>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Excluir Tarefa?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalexclude">
+            Tem certeza que deseja excluir esta tarefa?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" id="confirmExclude">Excluir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="vetorlateral"></div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</html>

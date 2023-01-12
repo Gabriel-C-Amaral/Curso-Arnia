@@ -1,0 +1,72 @@
+/*
+  Container:
+    justify-content - Alinha horizontalmente em row e verticalmente em column os elementos que estão dentro do container flex
+      - flex-start (padrão)
+      - flex-end
+      - center
+      - space-between
+      - space-evenly
+      - space-around
+    align-items - Alinha verticalmente em row e horizontalmente em column os elementos que estão dentro do container flex
+      - flex-start (padrão)
+      - flex-end
+      - center
+      - baseline
+      - stretch 
+    flex-direction - Define a direção dos elementos de um container flex
+      - row (padrão)
+      - column
+      - row-reverse
+      - column-reverse
+    flex-wrap - Define se o container permitirá a quebra dos elementos em mais de uma linha ou não.
+      - nowrap (padrão)
+      - wrap
+      - wrap-reverse
+    align-content - SÓ FUNCIONA SE flex-wrap FOR wrap. Faz o alinhamento entre as linhas dos itens do container.
+      - initial (padrão)
+      - flex-start
+      - flex-end
+      - center
+      - space-between
+      - space-evenly
+      - space-around
+    gap - Define um espaço padrão entre itens do flex
+
+  Elementos:
+    order - Define a ordenação do elemento no container flex. Todos os elementos começam com order: 0
+    align-self - Alinha verticalmente em row e horizontalmente em column os elementos que estão dentro do container flex
+*/
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  text-align: center;
+  color: white;
+}
+
+.minorBlock {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+}
+
+.block1 {
+  background-color: aquamarine;
+  order: 1;
+}
+.block2 {
+  background-color: blueviolet;
+}
+.block3 {
+  background-color: chartreuse;
+}
+.block4 {
+  background-color: gray;
+}
+

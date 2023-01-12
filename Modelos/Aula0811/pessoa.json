@@ -1,0 +1,12 @@
+{
+  "nome": "Alberto",
+  "idade": 28,
+  "ehSexoMasculino": true,
+  "formacao": "Ensino superior completo",
+  "veiculos": ["carro", "moto"],
+  "conjuge": {
+    "nome": "Raquel",
+    "idade": null
+  },
+  "dinheiro": 1000
+}

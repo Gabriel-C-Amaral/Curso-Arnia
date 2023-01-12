@@ -1,0 +1,30 @@
+/*
+  O display block sempre vai ocupar 100% do width.
+  Para posicionar elementos que estão DENTRO do elemento
+  que é block, devemos utilizar margin. Para posicionar 
+  no extremo direito da tela, utilizamos margin-left: auto.
+  Para posicionar no meio, utilizamos margin-left: auto e margin-right:auto
+  de forma que automaticamente o elemento vai adquirir de margin
+  o exato número de pixels necessários para completar a tela.
+*/
+
+.example {
+  color: #FFF;
+}
+
+.example-item {
+  width: 20%;
+  height: 150px;
+}
+.example-item_first {
+  background-color: #FAA116;
+}
+.example-item_second {
+  background-color: #57C7C3;
+  margin-left: auto;
+}
+.example-item_third {
+  background-color: #3B97D3;
+  margin-left: auto;
+  margin-right: auto;
+}

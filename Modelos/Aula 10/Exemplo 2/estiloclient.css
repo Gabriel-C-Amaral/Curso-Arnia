@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body {
+    font-family: 'Poppins';
+    background-color:#ffffc8;
+    color: #a10303;
+    display: inline;
+    text-align: center;
+
+}
+h1 {
+    size: 32px;
+
+}
+.link {
+    text-decoration: underline;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    size: 24px;
+}
+a {
+    text-decoration: none;
+}
+.back {
+    color:grey;
+    margin-top: 100px;
+}
+#pratos2 {
+    margin-top: 20px;
+}
+#entrar {
+    text-decoration: underline;
+    color: #a10303;
+    position: relative;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 60px;
+
+}
+#logo {
+    width: 10%;
+    margin-left: 45%;
+    display: block;
+}
+.titulos {
+    font-size: 32px;
+    font-weight: bold;
+
+}
+.itens {
+    padding: 30px;
+    display: inline-block;
+    text-align: justify;
+}
+.pratos {
+    font-size: 28px;
+    text-decoration: underline;
+    padding-bottom: 10px;
+}
+.descricao {
+    font-style: italic;
+}
+.preco {
+    font-size: 24px;
+}
+.central {
+    display: inline;
+    text-align: center;
+}
+.linhas {
+    display: inline-block;
+    text-align: justify;
+}
+#corpo {
+    display: block;
+}

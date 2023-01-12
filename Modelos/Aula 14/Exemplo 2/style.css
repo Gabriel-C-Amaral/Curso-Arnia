@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font-family: 'Poppins';
+}
+.cabecalho {
+    width: 100%;
+    height: 301px;
+    background-color: #6950A1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.setorne {
+    width: 743px;
+    height: 108px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 54px;
+    color: white;
+    align-self: center;
+    text-align: center;
+}
+#logo {
+    width: "128px";
+    height: "38px";
+}
+.texto {
+    display: flex;
+    flex-wrap: wrap;
+    color: black;
+    margin-left: 40px;
+    margin-top: 30px;
+    flex-direction: column;
+}
+.vcsabia {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    width: 785px;
+    height: 109px;
+    margin-bottom: 51px;
+}
+.baixeaki {
+    width: 860px;
+    height: 210px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+ul {
+    margin: 40px;
+}
+@media (max-width: 480px) {
+    .setorne {
+        width: 360px;
+        height: 156px;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 39px;
+        padding: 10px;     
+    }
+    .texto {
+        width: 311px;
+        height: 690px;
+        margin: 10px;
+        justify-content: space-around;
+    }
+    .vcsabia {
+        width: 280px;
+    }
+    .baixeaki {
+        width: 280px;
+    }
+}

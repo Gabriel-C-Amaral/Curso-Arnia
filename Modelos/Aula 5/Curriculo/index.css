@@ -1,0 +1,43 @@
+.menu {
+    background-color: rgb(71, 71, 110);
+    width: 170px;
+    padding: 5px;
+    border-left: 1px solid rgb(50, 50, 105);
+    border-right: 1px solid rgb(50, 50, 105);
+    border-bottom: 1px solid rgb(50, 50, 105);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.first {
+    border-top: 1px solid rgb(50, 50, 105);
+}
+a {
+    text-decoration: none;
+}
+p{
+    width: 700px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: rgb(71, 71, 110);
+    color: white;
+}
+h1{
+    color: white;
+    
+}
+body{
+    width: 1000px;
+    background-image: url(https://www.einerd.com.br/wp-content/uploads/2019/08/O-que-%C3%A9-a-Matrix-capa-890x466.jpg);
+}
+.corpo {
+    border: 2px solid black;
+    width: 200px;
+    padding: 10px;
+    background-color: grey;
+}
+#odin {
+    border-radius: 50px;
+    margin: 50px;
+}

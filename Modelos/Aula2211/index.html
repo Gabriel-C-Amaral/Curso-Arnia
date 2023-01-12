@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="doc.js"></script>
+
+    <title>Blog Arnia</title>
+</head>
+<body onload="getPosts()">
+    <header><img id="logo" src="image 1 (1).png"/></header>
+    <div id="container">
+        <div id="h1">Novo Post</div>
+        <form>
+            <div class="formu"><div><label for="titulo">Título</label></div>
+            <input type="text" name="titulo" id="titulo"/></div>
+            <div class="formu"><label for="autor">Autor(a)</label></div>
+            <div class="formu"><input type="text" name="autor" id="autor"/></div>
+            <div class="formu"><label for="imagem">Imagem de destaque</label></div>
+            <div class="formu"><input type="url" name="imagem" id="imagem"/></div>
+            <div class="formu"><label for="texto">Texto</label></div>
+            <div class="formu"> <input type="text" name="texto" id="texto"/> </div>
+            <div class="formu"><button type="submit" onclick="addPost()">SALVAR</button></div>    
+        </form>
+    </div>    
+</body>
+</html>

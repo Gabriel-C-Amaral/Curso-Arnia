@@ -1,0 +1,40 @@
+.corpo {
+    width: 300px;
+    height: 300px;
+    border: 3px;
+    position: relative;
+    left: 20%;
+    background-color: antiquewhite;
+}
+.one {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-color: rgb(42, 97, 67);
+    left: -10px;
+    top: 15px;
+}
+.two {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-color: blue;
+    top: 80px;
+    left: 10px;
+}
+.three {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-color: brown;
+    bottom: 80px;
+    left: 10px;
+}
+.four {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    background-color: purple;
+    bottom: 15px;
+    left: 10px;
+}

@@ -1,0 +1,215 @@
+<html>
+  <head>
+    <title>Arquivo de Testes</title>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <!-- Input de texto -->
+      <label for="nome">Digite seu nome:</label>
+      <input id="nome" name="nome" class="input" placeholder="Alberto T" />
+      <br /><br />
+
+      <!-- Input numérico -->
+      <label for="idade">Digite sua idade: </label>
+      <input id="idade" name="idade" type="number" min="0" max="99" />
+      <br /><br />
+
+      <!-- Input de e-mail -->
+      Digite seu e-mail:
+      <input id="email" name="email" type="email" />
+      <br /><br />
+
+      <!-- Radio Buttons -->
+      Escolha sua preferência
+      <br />
+      <label for="frontend">Frontend</label>
+      <input id="frontend" name="preferencia" type="radio" />
+      <br />
+      Backend
+      <input id="backend" name="preferencia" type="radio" />
+      <br /><br />
+
+      <!-- Checkbox -->
+      Marque os que você mais gosta
+      <br />
+      Futebol
+      <input id="futebol" name="gosto" type="checkbox" />
+      <br />
+      Programação
+      <input id="programação" name="gosto" type="checkbox" />
+      <br /><br />
+
+      <!-- Password -->
+      Digite a sua senha
+      <input id="senha" name="senha" type="password" />
+      <br /><br />
+
+      <!-- Data -->
+      Escolha a data
+      <input
+        id="date"
+        name="date"
+        type="date"
+        min="2022-01-01"
+        max="2022-10-13"
+      />
+      <br /><br />
+
+      <!-- Data + Tempo -->
+      Escolha a data e a hora
+      <input id="datetime" name="datetime" type="datetime-local" />
+      <br /><br />
+
+      <!-- Mês -->
+      Escolha o mês
+      <input id="mes" name="mes" type="month" />
+      <br /><br />
+
+      <!-- Semana -->
+      Escolha a semana
+      <input id="semana" name="semana" type="week" />
+      <br /><br />
+
+      <!-- Tempo -->
+      Escolha o tempo
+      <input id="tempo" name="tempo" type="time" />
+      <br /><br />
+
+      <!-- Submit -->
+      <input id="submit" type="submit" value="Enviar formulário" />
+      <br /><br />
+
+      <!-- Button -->
+      <input id="button" type="button" value="Clicar no botão" />
+      <br /><br />
+
+      <!-- Color -->
+      <input id="cor" name="cor" type="color" />
+      <br /><br />
+
+      <!-- Imagem -->
+      <input
+        id="image"
+        name="image"
+        src="button.png"
+        type="image"
+        width="50"
+        height="50"
+      />
+      <br /><br />
+
+      <!-- Escala -->
+      <input id="range" list="range-list" name="range" type="range" />
+      <datalist id="range-list">
+        <option value="0" label="0"></option>
+        <option value="25" label="25"></option>
+        <option value="50" label="50"></option>
+        <option value="75" label="75"></option>
+        <option value="100" label="100"></option>
+      </datalist>
+      <br /><br />
+
+      <!-- Telefone -->
+      Digite o telefone
+      <input id="telefone" name="telefone" type="tel" />
+      <br /><br />
+
+      <!-- Arquivo -->
+      Faça o upload do arquivo
+      <input
+        id="arquivo"
+        name="arquivo"
+        type="file"
+        accept=".txt , .pdf, image/*"
+      />
+      <br /><br />
+
+      <!-- Escondido -->
+      Label do escondido
+      <input id="escondido" name="escondido" type="hidden" />
+      <br /><br />
+
+      <!-- Reset -->
+      <input id="reset" name="reset" type="reset" value="Limpar formulário" />
+      <br /><br />
+
+      <!-- Procurar -->
+      Faça sua busca
+      <input id="procurar" name="procurar" type="search" />
+      <br /><br />
+
+      <!-- URL -->
+      Digite uma URL
+      <input id="url" name="url" type="url" />
+      <br /><br />
+
+      <!-- Área de textos -->
+      <label for="textarea">Digite um texto</label>
+      <textarea
+        id="textarea"
+        name="textarea"
+        rows="6"
+        cols="30"
+        maxlength="150"
+        placeholder="Digite o texto"
+      ></textarea>
+      <br /><br />
+
+      <!-- Button -->
+      <button type="button">Clique</button>
+      <button type="submit">Enviar formulário!</button>
+      <button type="reset">resetar formulário!</button>
+      <button type="menu">Teste</button>
+      <br /><br />
+
+      <!-- Select -->
+      <select id="pet" name="pet">
+        <option value="" disabled selected>Escolha seu pet</option>
+        <option value="cachorro">Cachorro</option>
+        <option value="gato">Gato</option>
+        <option value="peixe">Peixe</option>
+      </select>
+      <br /><br />
+
+      <!-- OptGroup -->
+      <select id="escolha" name="escolha">
+        <option>Selecione...</option>
+        <optgroup label="Cordas">
+          <option value="violino">Violino</option>
+          <option value="viola">Viola</option>
+          <option value="violoncelo">Violoncelo</option>
+        </optgroup>
+        <optgroup label="Sopros">
+          <option value="flauta">Flauta</option>
+          <option value="oboe">Oboé</option>
+          <option value="clarinete">Clarinete</option>
+        </optgroup>
+      </select>
+      <br /><br />
+
+      <!-- DataList -->
+      <label for="ice-cream-choice">Choose a flavor:</label>
+      <input
+        list="ice-cream-flavors"
+        id="ice-cream-choice"
+        name="ice-cream-choice"
+      />
+
+      <datalist id="ice-cream-flavors">
+        <option value="Chocolate"></option>
+        <option value="Coconut"></option>
+        <option value="Mint"></option>
+        <option value="Strawberry"></option>
+        <option value="Vanilla"></option>
+      </datalist>
+    </form>
+  </body>
+</html>

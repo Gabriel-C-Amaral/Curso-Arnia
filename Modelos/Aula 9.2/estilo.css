@@ -1,0 +1,15 @@
+.pratos {
+    display: inline-block;
+    width: 30%;
+}
+.bebidas {
+    display: inline-block;
+    width: 30%;
+}
+.telalog{
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+}

@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins';
+}
+
+#fixedsidebar {
+    position: absolute;
+    height: 823px;
+    width: 51px;
+    left: 0px;
+    top: 0px;
+    background-color: #68519D;
+    z-index: 2;
+}
+#fixedsidebar-under {
+    position: absolute;
+    z-index: 1;
+    width: 51px;
+    height: 823px;
+    left: 9px;
+    top: 0px;
+    background-color: #D7CAE5;
+    
+}
+
+#logo {
+    position: relative;
+    width: 216px;
+    height: 64px;
+}
+#icon {
+    position: relative;
+    height: 22px;
+    width: 24px;
+    margin-right: 5px;
+
+
+}
+.titulo {
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 30px;
+color: #68519D;
+position: relative;
+width: 280px;
+height: 30px;
+display: block;
+margin-top: 70px;
+margin-bottom: 23px;
+
+}
+.addTarefa {
+    width: 225px;
+    height: 36px;
+    color: #68519D;
+    border: 1px solid #68519D;
+    border-radius: 20px;
+    position: relative;
+    background-color: white;  
+    cursor: pointer;  
+}
+.header {
+    
+    display: flex;
+    left: 133px;
+    top: 10%;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 100px;
+}
+.container-list {
+    width: 950px;
+    left: 133px;
+    position: relative;
+
+}
+.cabecalho {
+    font-family: 'Poppins';
+    font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 22px;
+color: #2C2661;
+}
+.items {
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 37px;
+height: fit-content;
+color: #2C2661;
+align-items: center;
+}
+#edit-button {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+#deletebutton {
+    width: 14px;
+    height: 15px;
+}
+.grey {
+    background-color: #F5F5F5;
+}
+#modal-container {
+    position: fixed;
+width: 661px;
+height: 581px;
+background-color: white;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 10px;
+color: #68519D;
+right: 30%;
+top: 10px;
+z-index: 2;
+
+}
+#modal-header-text {
+    position: relative;
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 30px;
+left: 48px;
+top: 43px;
+}
+
+#task-number {
+    border: 1px solid #000000;
+border-radius: 10px;
+height: 50px;
+}
+#descriptionSET {
+    border: 1px solid #000000;
+    border-radius: 10px;
+    height: 50px;
+}
+.modal-body {
+    width: 555px;
+    left: 53px;
+    position: relative;
+    top: 28px;
+}
+#task-date {
+    width: 222px;
+height: 50px;
+border: 1px solid #000000;
+border-radius: 10px;
+}
+#task-status {
+    width: 222px;
+    height: 50px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    text-align: center;
+    padding: 14px;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 22px;
+}
+label {
+    margin-top: 20px;
+    margin-bottom: 11px;
+}
+#close-button {
+    width: 65px;
+    height: 21px;
+    border: none;
+    background-color: white;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+position: relative;
+left: 48px;
+bottom: 21px;
+color: #828282;
+}
+#edit1 {
+    width: 65px;
+    height: 21px;
+    border: none;
+    background-color: white;
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 21px;
+position: relative;
+left: 48px;
+bottom: 21px;
+color: #828282;
+}
+#save-button {
+    background: #68519D;
+border-radius: 20px;
+width: 121px;
+height: 36px;
+border: none;
+color: white;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+position: relative;
+left: 400px;
+bottom: 40px;
+text-align: center;
+line-height: 36px;
+cursor: pointer;
+}
+.hiddenButton {
+color: #000000;
+background-color: white;
+border: none;
+width: 17px;
+}
+#concluido {
+    color: #27AE60;
+}
+#ongoing {
+   color: #F8B04E;
+}
+#stopped {
+    color: #EB5757;
+}
+
+#vetorlateral {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    z-index: -1;
+}
+#loginSpace {
+    width: 300px;
+    height: 50%;
+    position: fixed;
+    left: 30%;
+    bottom: 10%;
+    background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20%;
+    text-align: center;
+     font-family: 'Poppins';
+font-style: normal;
+font-weight: bolder;
+color: #68519D;
+
+}
+#loginSubmit {
+    position: absolute;
+    bottom: 21px;
+    right: 10px;
+}
+#createUser {
+    position: absolute;
+    bottom: 21px;
+    left: 10px;
+}
+.submitButton {
+    background: #68519D;
+    border-radius: 20px;
+    width: 121px;
+    height: 36px;
+    border: none;
+    color: white;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+.inputField {
+    border: 1px solid #00000038;
+    border-radius: 10px;
+    height: 40px;
+    text-align: center;
+    
+}
+#vetorlateral {
+    position: fixed;
+  right: 0;
+  bottom: 0;
+  min-height: 634px;
+  height: 75%;
+  width: 23%;
+  background-color: #F8B04E;
+  clip-path: polygon(0 100%, 0 45%, 45% 0, 100% 0);
+  transform: rotate(180deg);
+  z-index: -1;
+}
+#userName {
+    position: fixed;
+    top: 5px;
+    right: 250px;
+    width: fit-content;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 3px solid #68519D;
+    border-radius: 10px;
+}
+
+#exitbutton {
+    position: fixed;
+    top: 5px;
+    left: 90px;
+    width: 100px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
+    background-color: #68519D;
+    color: white;
+    line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+}

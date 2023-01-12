@@ -13,4 +13,4 @@ function convertDateBack(inputFormat) {
   return [d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate())];
 }
 
-console.log(convertDateBack('10/10/1994'))
+console.log(convertDateBack('10/10/1995'))

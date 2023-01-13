@@ -109,16 +109,20 @@ const eraseTask = async (id, num) => {
 </div>`
 
   confirmExclude.addEventListener('click',(event) => {
-        fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`, {
-      method: "DELETE",
-      headers: {
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
-      } 
-    })
-    window.open('index.html', '_self')
-  })  
+    confirmingExclude(id)
+  })
+     
 }  
+
+const confirmingExclude = async (id) => {
+  await  fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`, {
+    method: "DELETE",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    } 
+  })
+  window.open('index.html', '_self')}
    
    
 

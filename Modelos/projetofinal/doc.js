@@ -34,7 +34,6 @@ const modifyTask = async (tasks) => {
       })    
       window.open('index.html', '_self')
 
-      console.log("testando")
 }
 
 
@@ -117,9 +116,10 @@ const eraseTask = async (id, num) => {
         'Content-Type': 'application/json'
       } 
     })
-    window.open('index.html', '_self')
 
-  })    
+  })  
+  window.open('index.html', '_self')
+  
 }     
    
 

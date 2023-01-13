@@ -101,32 +101,25 @@ const buttonADD = async () => {
 }
 
 const eraseTask = async (id, num) => { 
+  let confirmExclude = document.getElementById("confirmExclude")
   let modalExclude = document.getElementById("modalexclude")
 
   modalExclude.innerHTML = `<div class="modal-body" id="modalexclude">
   Tem certeza que deseja excluir a tarefa ${num}?
 </div>`
 
-confirmexcluding(id)
- 
-}  
-
-const confirmexcluding = async (id) => {
-  let confirmExclude = document.getElementById("confirmExclude")
-
   confirmExclude.addEventListener('click',(event) => {
-    fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`, {
-  method: "DELETE",
-  headers: {
-    'Accept': 'application/json, text/plain, */*',
-    'Content-Type': 'application/json'
-  } 
-})
-window.open('index.html', '_self')
-})  
-
-
-}
+        fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+      } 
+    })
+    window.open('index.html', '_self')
+  })  
+}  
+   
    
 
 const getTasks = async () => { 

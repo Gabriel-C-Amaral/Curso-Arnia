@@ -3,22 +3,31 @@ const loginForm = document.getElementById('loginForm')
 
 
 // Add a new task
-const addTask = async (tasks) => { 
+const addTask = async (Newtasks) => { 
   let currentUSER = localStorage.getItem("currentUserID")
+  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}`)
+  const user = await apiResponse.json()
+  const tasks = user.tasks.map(JSON.stringify).join(",")
+ 
 
-  await fetch(`http://localhost:3000/user/${currentUSER}/tasks`, {
-    method: "PUT",
+  await fetch(`http://localhost:3000/user/${currentUSER}`, {
+    method: "PATCH",
     headers: {
-      'Accept': 'application/json, text/plain, */*',
+      'Accept': 'application/json, text/plain',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(
-      [{
-      "taskNum": tasks.taskNum,
-      "description": tasks.description,
-      "taskDate": tasks.taskDate,
-      "taskStatus": tasks.taskStatus
-    }])
+      {
+        "password": user.password,
+        "email": user.email,
+        "tasks": [tasks + "," +{
+          "taskNum": Newtasks.taskNum,
+          "description": Newtasks.description,
+          "taskDate": Newtasks.taskDate,
+          "taskStatus": Newtasks.taskStatus
+        }],
+        "id": user.id
+      })
   })
   window.open('taskmanager.html', '_self')
 }

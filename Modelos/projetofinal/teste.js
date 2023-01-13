@@ -1,16 +1,6 @@
-// function convertDate(inputFormat) {
-//     function pad(s) { return (s < 10) ? '0' + s : s; }
-//     var d = new Date(inputFormat);
-//     return [pad(d.getUTCDate()), pad(d.getUTCMonth()+1), d.getUTCFullYear()].join('/');
-//   }
-  
-//   console.log(convertDate('2022-12-31')); // output: "01/03/2022"
-  
-
-function convertDateBack(inputFormat) {
-  function pad(s) { return (s < 10) ? '0' + s : s; }
-  var d = new Date(inputFormat);
-  return [d.getUTCFullYear() + "-" + pad(d.getUTCMonth()+1) + "-" + pad(d.getUTCDate())];
-}
-
-console.log(convertDateBack('10/10/1995'))
+let arr = [{"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"},
+{"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"},
+{"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"},{"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"},
+{"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"}];
+let str = arr.map(JSON.stringify).join(",");
+console.log(str); // Output: {"taskNum":"01","description":"01","taskDate":"01/01/2001","taskStatus":"Concluído"}

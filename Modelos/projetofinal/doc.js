@@ -116,9 +116,7 @@ const eraseTask = async (id, num) => {
         'Content-Type': 'application/json'
       } 
     })
-
   })  
-  window.open('index.html', '_self')
 }     
    
 

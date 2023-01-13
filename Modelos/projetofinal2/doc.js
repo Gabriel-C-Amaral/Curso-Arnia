@@ -29,7 +29,6 @@ const loginButton = async() => {
     verifyUser({tryEmail, tryPassword})
   
 }
-const currentUserID = 2
 
 
 const verifyUser = async (tryUser) => { 
@@ -43,21 +42,24 @@ const verifyUser = async (tryUser) => {
   })
 
   if (findEmail === undefined) {
-    console.log("email não encontrado")
+    alert("email não encontrado")
   } else {
     if (findEmail.password === tryUser.tryPassword) {
-      console.log("usuario valido")
+     let currentUserID = findEmail.id
+      localStorage.setItem("currentUserID", currentUserID)
       window.open('taskmanager.html', '_self')
+      
 
     } else {
-      console.log("Senha incorreta")
+      alert("Senha incorreta")
     }
   }
 }
 
 const form = document.getElementById('add-new-task')
 const getTasks = async () => { 
-  const apiResponse = await fetch(`http://localhost:3000/user/${currentUserID}`)
+  let currentUSER = localStorage.getItem("currentUserID")
+  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}`)
   const user = await apiResponse.json()
   const tasks = user.tasks
   const email = user.email

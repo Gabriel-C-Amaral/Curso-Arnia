@@ -24,11 +24,12 @@
             <input type="email" name="loginEmail" id="loginEmail" class="inputField" autocomplete="username">
             <label for="loginPassword">Digite sua senha</label> 
             <input type="password" name="loginPassword" id="loginPassword" class="inputField" autocomplete="current-password">
-            <button id="loginSubmit"  class="submitButton"  type="submit">Entrar</button>
+            <button id="loginSubmit"  class="submitButton"  onclick="loginButton()">Entrar</button>
         </form>     
+        <button id="loginSubmit"  class="submitButton"  onclick="loginButton()">Entrar</button>
+
         <button id="createUser" class="submitButton" data-bs-toggle="modal" data-bs-target="#exampleModal">Criar Usuário</button>
     </div>
-    <button onclick="loginButton()">botao de teste</button>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" >
         <div class="modal-content" id="modal-container">

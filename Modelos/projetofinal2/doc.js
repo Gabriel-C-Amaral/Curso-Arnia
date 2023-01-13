@@ -2,13 +2,145 @@ const formAdduser = document.getElementById('add-new-user')
 const loginForm = document.getElementById('loginForm')
 
 
+// Add a new task
+const addTask = async (tasks) => { 
+  let currentUSER = localStorage.getItem("currentUserID")
+
+  await fetch(`http://localhost:3000/user/${currentUSER}/tasks`, {
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(
+      [{
+      "taskNum": tasks.taskNum,
+      "description": tasks.description,
+      "taskDate": tasks.taskDate,
+      "taskStatus": tasks.taskStatus
+    }])
+  })
+  window.open('taskmanager.html', '_self')
+}
+
+const modifyTask = async (tasks) => { 
+  await fetch(`http://localhost:3000/user/${currentUSER}/${tasks.id}`, {
+        method: "PUT",
+        body: JSON.stringify({
+          "taskNum": tasks.taskNum,
+      "description": tasks.description,
+      "taskDate": tasks.taskDate,
+      "taskStatus": tasks.taskStatus
+        }         
+        ), 
+        headers: {
+          "Content-Type": "application/json"}
+      })    
+      window.open('taskmanager.html', '_self')
+
+}
+
+// Made to show in form the existing information
+const editTask = async (id) => {
+  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}/${id}`)
+  const tasks = await apiResponse.json()
+
+    let title = document.getElementById("modal-header-text")
+    title.innerHTML = "Editar tarefa"
+    let taskDescription = document.getElementById("descriptionSET")
+    taskDescription.setAttribute("value", tasks.description)
+    let TaskNumber = document.getElementById("task-number")
+    TaskNumber.setAttribute("value", tasks.taskNum)
+    let taskDate = document.getElementById("task-date")
+    let taskdateformat = convertDateBack(tasks.taskDate)
+    taskDate.setAttribute("value", taskdateformat)
+    let taskStatus = document.getElementById("task-status")
+    if (tasks.taskStatus === "Em Andamento") {
+      tasks.taskStatus = "Em-Andamento" 
+    }
+    taskStatus.value = tasks.taskStatus
+
+    
+    form.addEventListener('submit', (event) => {
+      event.preventDefault()
+    
+      const taskNum = form.elements['task-number'].value
+      const description = form.elements['descriptionSET'].value
+      let taskDate = form.elements['task-date'].value
+      let taskStatus = form.elements['task-status'].value
+      let taskDateFormatted = convertDate(taskDate)
+      taskDate = taskDateFormatted
+      
+
+         modifyTask ({id, taskNum, description, taskDate, taskStatus})
+    })
+}
+
+const buttonADD = async () => {
+  let title = document.getElementById("modal-header-text")
+  title.innerHTML = "Adicionar nova tarefa"
+  form.addEventListener('submit', (event) => {
+    event.preventDefault()
+   
+  
+    const taskNum = form.elements['task-number'].value
+    const description = form.elements['descriptionSET'].value
+    let taskDate = form.elements['task-date'].value
+    let taskStatus = form.elements['task-status'].value
+    let taskDateFormatted = convertDate(taskDate)
+    taskDate = taskDateFormatted
+  
+       addTask({ taskNum, description, taskDate, taskStatus})
+  })
+  let taskDescription = document.getElementById("descriptionSET")
+  taskDescription.setAttribute("value", "")
+  let TaskNumber = document.getElementById("task-number")
+  TaskNumber.setAttribute("value", "")
+  let taskDate = document.getElementById("task-date")
+  taskDate.setAttribute("value", "")
+  let taskStatus = document.getElementById("task-status")
+  taskStatus.value = ""
+}
+
+const eraseTask = async (id, num) => { 
+  let confirmExclude = document.getElementById("confirmExclude")
+  let modalExclude = document.getElementById("modalexclude")
+
+  modalExclude.innerHTML = `<div class="modal-body" id="modalexclude">
+  Tem certeza que deseja excluir a tarefa ${num}?
+</div>`
+
+  confirmExclude.addEventListener('click',(event) => {
+    confirmingExclude(id)
+  })
+     
+}  
+
+const confirmingExclude = async (id) => {
+  await  fetch(`http://localhost:3000/user/${currentUSER}/${id}`, {
+    method: "DELETE",
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    } 
+  })
+  window.open('taskmanager.html', '_self')}
+
 const buttonAddUser = async () => {
+  const apiResponse = await fetch('http://localhost:3000/user')
+  const users = await apiResponse.json()
   const newUserMail = formAdduser.elements['newUserMail'].value
   const newUserpassword = formAdduser.elements['newUserPassword'].value
+  const newUserPasswordConfirming = formAdduser.elements['newUserPasswordConfirm'].value
 
-  console.log(newUserMail, newUserpassword)
+  let findEmail = users.find(function (valor) {
+    if (valor.email === newUserMail) return true
+    return false
+  })
 
-  await fetch("http://localhost:3000/user", {
+  if (findEmail === undefined) {
+    if (newUserpassword === newUserPasswordConfirming) {
+      await fetch("http://localhost:3000/user", {
     method: "POST",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -20,6 +152,15 @@ const buttonAddUser = async () => {
       "tasks": []
     })
   })
+    } else { 
+      alert("As senhas não são iguais")
+    }
+  } else {
+    alert("Esse email já está cadastrado")
+  }
+
+  location.reload();
+  
 }
 
 const loginButton = async() => {

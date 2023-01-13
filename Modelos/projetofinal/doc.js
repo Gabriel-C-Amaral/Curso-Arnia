@@ -118,7 +118,8 @@ const eraseTask = async (id, num) => {
       } 
     })
   })    
-    }     
+  window.open('index.html', '_self')
+}     
    
 
 const getTasks = async () => { 

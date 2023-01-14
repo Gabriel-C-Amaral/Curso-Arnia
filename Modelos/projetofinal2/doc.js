@@ -4,7 +4,7 @@ const loginForm = document.getElementById('loginForm')
 
 // Add a new task
 const addTask = async (Newtasks) => { 
-  await fetch(`http://localhost:3000/tasks`, {
+  await fetch(`https://jsonrepository-production.up.railway.app/tasks`, {
     method: "POST",
     headers: {
       'Accept': 'application/json, text/plain',
@@ -23,7 +23,7 @@ const addTask = async (Newtasks) => {
 }
 
 const modifyTask = async (tasks) => { 
-  await fetch(`http://localhost:3000/tasks/${tasks.id}`, {
+  await fetch(`https://jsonrepository-production.up.railway.app/tasks/${tasks.id}`, {
         method: "PUT",
         body: JSON.stringify({
           "email": tasks.eemail,
@@ -42,7 +42,7 @@ const modifyTask = async (tasks) => {
 
 // Made to show in form the existing information
 const editTask = async (id) => {
-  const apiResponse = await fetch(`http://localhost:3000/tasks/${id}`)
+  const apiResponse = await fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`)
   const tasks = await apiResponse.json()
   
 
@@ -79,7 +79,7 @@ const editTask = async (id) => {
 }
 
 const buttonADD = async () => {
-  const apiResponse = await fetch(`http://localhost:3000/tasks/`)
+  const apiResponse = await fetch(`https://jsonrepository-production.up.railway.app/tasks/`)
   const user = await apiResponse.json()
   let currentUSER = localStorage.getItem("currentUserID")
   let currentUSEREmail = user[currentUSER-1].email
@@ -123,7 +123,7 @@ const eraseTask = async (id, num) => {
 }  
 
 const confirmingExclude = async (id) => {
-  await  fetch(`http://localhost:3000/tasks/${id}`, {
+  await  fetch(`https://jsonrepository-production.up.railway.app/tasks/${id}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -133,7 +133,7 @@ const confirmingExclude = async (id) => {
   window.open('taskmanager.html', '_self')}
 
 const buttonAddUser = async () => {
-  const apiResponse = await fetch('http://localhost:3000/tasks')
+  const apiResponse = await fetch('https://jsonrepository-production.up.railway.app/tasks')
   const users = await apiResponse.json()
   const newUserMail = formAdduser.elements['newUserMail'].value
   const newUserpassword = formAdduser.elements['newUserPassword'].value
@@ -146,7 +146,7 @@ const buttonAddUser = async () => {
 
   if (findEmail === undefined) {
     if (newUserpassword === newUserPasswordConfirming && newUserPasswordConfirming != null) {
-      await fetch("http://localhost:3000/tasks", {
+      await fetch("https://jsonrepository-production.up.railway.app/tasks", {
     method: "POST",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -176,7 +176,7 @@ const loginButton = async() => {
 
 
 const verifyUser = async (tryUser) => { 
-  const apiResponse = await fetch('http://localhost:3000/tasks')
+  const apiResponse = await fetch('https://jsonrepository-production.up.railway.app/tasks')
   const users = await apiResponse.json()
 
 
@@ -205,7 +205,7 @@ const form = document.getElementById('add-new-task')
 
 const getTasks = async () => { 
  
-  const apiResponse = await fetch(`http://localhost:3000/tasks/`)
+  const apiResponse = await fetch(`https://jsonrepository-production.up.railway.app/tasks/`)
   const user = await apiResponse.json()
   const Useremail = user.email
   let currentUSER = localStorage.getItem("currentUserID")

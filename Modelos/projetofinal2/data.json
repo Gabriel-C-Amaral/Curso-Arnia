@@ -1,99 +1,67 @@
 {
-  "user": [
+  "tasks": [
     {
-      "tasks": [
-        "{\"taskNum\":\"01\",\"description\":\"01\",\"taskDate\":\"01/01/2001\",\"taskStatus\":\"Concluído\"},[object Object]"
-      ],
+      "password": "123456",
+      "email": "teste@teste.com",
       "id": 1
     },
     {
-      "password": "21-01-021",
-      "email": "dasdsa@hotmail.com",
-      "tasks": [
-      ],
-      "id": 2
-    },
-    {
-      "password": "senhasenha",
-      "email": "dasdasd",
-      "tasks": [],
-      "id": 3
-    },
-    {
-      "password": "dsadas",
       "email": "teste@teste.com",
-      "tasks": [],
-      "id": 4
-    },
-    {
-      "password": "adssadas",
-      "email": "dasdas",
-      "tasks": [],
-      "id": 5
-    },
-    {
-      "password": "",
-      "email": "",
-      "tasks": [],
-      "id": 6
-    },
-    {
-      "password": "123456",
-      "email": "gabriel@gmail.com",
-      "tasks": [],
-      "id": 7
-    },
-    {
-      "password": "d23dq",
-      "email": "teste1234@teste.com",
-      "tasks": [],
-      "id": 8
-    },
-    {
-      "password": "123456",
-      "email": "teste@naosei.com.br",
-      "tasks": [],
-      "id": 9
-    },
-    {
-      "password": "123456",
-      "email": "teste@naos1ei.com.br",
-      "tasks": [],
-      "id": 10
-    },
-    {
-      "password": "123456",
-      "email": "teste@teste369.com",
-      "tasks": [],
-      "id": 11
-    },
-    {
-      "taskNum": "06",
-      "description": "Teste 06",
-      "taskDate": "06/06/2006",
-      "taskStatus": "Em-Andamento",
-      "id": 12
-    },
-    {
       "taskNum": "01",
       "description": "Teste 01",
       "taskDate": "01/01/2001",
       "taskStatus": "Concluído",
-      "id": 13
+      "id": 2
     },
     {
-      "taskNum": "01",
-      "description": "Teste 01",
+      "email": "teste@teste.com",
+      "taskNum": "02",
+      "description": "Teste 02",
       "taskDate": "02/02/2002",
-      "taskStatus": "Concluído",
-      "id": 14
+      "taskStatus": "Em-Andamento",
+      "id": 3
     },
     {
-      "taskNum": "01",
-      "description": "Teste 01",
-      "taskDate": "02/02/2002",
+      "email": "teste@teste.com",
+      "taskNum": "03",
+      "description": "Teste 03",
+      "taskDate": "03/03/2003",
+      "taskStatus": "Stopped",
+      "id": 4
+    },
+    {
+      "password": "123456",
+      "email": "gabriel@gmail.com",
+      "id": 5
+    },
+    {
+      "email": "gabriel@gmail.com",
+      "taskNum": "05",
+      "description": "Teste 05",
+      "taskDate": "05/05/2005",
       "taskStatus": "Concluído",
-      "id": 15
+      "id": 6
+    },
+    {
+      "email": "gabriel@gmail.com",
+      "taskNum": "06",
+      "description": "Teste 06",
+      "taskDate": "06/06/2006",
+      "taskStatus": "Stopped",
+      "id": 7
+    },
+    {
+      "password": "123456",
+      "email": "melissa@gmail.com",
+      "id": 8
+    },
+    {
+      "email": "melissa@gmail.com",
+      "taskNum": "07",
+      "description": "Fazer massagem",
+      "taskDate": "15/01/2023",
+      "taskStatus": "Stopped",
+      "id": 10
     }
   ]
 }

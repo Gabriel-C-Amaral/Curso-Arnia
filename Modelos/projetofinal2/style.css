@@ -327,3 +327,8 @@ color: #68519D;
     text-align: center;
     font-weight: bold;
 }
+#modalexclude {
+    position: relative;
+    left: 0px;
+    top: 0;
+    }

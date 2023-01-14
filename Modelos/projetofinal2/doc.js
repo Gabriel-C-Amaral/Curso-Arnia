@@ -4,42 +4,33 @@ const loginForm = document.getElementById('loginForm')
 
 // Add a new task
 const addTask = async (Newtasks) => { 
-  let currentUSER = localStorage.getItem("currentUserID")
-  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}`)
-  const user = await apiResponse.json()
-  const tasks = user.tasks.map(JSON.stringify).join(",")
- 
-
-  await fetch(`http://localhost:3000/user/${currentUSER}`, {
-    method: "PATCH",
+  await fetch(`http://localhost:3000/tasks`, {
+    method: "POST",
     headers: {
       'Accept': 'application/json, text/plain',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(
       {
-        "password": user.password,
-        "email": user.email,
-        "tasks": [tasks + "," +{
-          "taskNum": Newtasks.taskNum,
+        "email": Newtasks.currentUSEREmail,
+        "taskNum": Newtasks.taskNum,
           "description": Newtasks.description,
           "taskDate": Newtasks.taskDate,
-          "taskStatus": Newtasks.taskStatus
-        }],
-        "id": user.id
+          "taskStatus": Newtasks.taskStatus,
       })
   })
   window.open('taskmanager.html', '_self')
 }
 
 const modifyTask = async (tasks) => { 
-  await fetch(`http://localhost:3000/user/${currentUSER}/${tasks.id}`, {
+  await fetch(`http://localhost:3000/tasks/${tasks.id}`, {
         method: "PUT",
         body: JSON.stringify({
+          "email": tasks.eemail,
           "taskNum": tasks.taskNum,
       "description": tasks.description,
       "taskDate": tasks.taskDate,
-      "taskStatus": tasks.taskStatus
+      "taskStatus": tasks.taskStatus,
         }         
         ), 
         headers: {
@@ -51,8 +42,9 @@ const modifyTask = async (tasks) => {
 
 // Made to show in form the existing information
 const editTask = async (id) => {
-  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}/${id}`)
+  const apiResponse = await fetch(`http://localhost:3000/tasks/${id}`)
   const tasks = await apiResponse.json()
+  
 
     let title = document.getElementById("modal-header-text")
     title.innerHTML = "Editar tarefa"
@@ -68,6 +60,7 @@ const editTask = async (id) => {
       tasks.taskStatus = "Em-Andamento" 
     }
     taskStatus.value = tasks.taskStatus
+    let eemail = tasks.email
 
     
     form.addEventListener('submit', (event) => {
@@ -81,11 +74,15 @@ const editTask = async (id) => {
       taskDate = taskDateFormatted
       
 
-         modifyTask ({id, taskNum, description, taskDate, taskStatus})
+         modifyTask ({id, taskNum, description, taskDate, taskStatus, eemail})
     })
 }
 
 const buttonADD = async () => {
+  const apiResponse = await fetch(`http://localhost:3000/tasks/`)
+  const user = await apiResponse.json()
+  let currentUSER = localStorage.getItem("currentUserID")
+  let currentUSEREmail = user[currentUSER-1].email
   let title = document.getElementById("modal-header-text")
   title.innerHTML = "Adicionar nova tarefa"
   form.addEventListener('submit', (event) => {
@@ -99,7 +96,7 @@ const buttonADD = async () => {
     let taskDateFormatted = convertDate(taskDate)
     taskDate = taskDateFormatted
   
-       addTask({ taskNum, description, taskDate, taskStatus})
+       addTask({ taskNum, description, taskDate, taskStatus, currentUSEREmail})
   })
   let taskDescription = document.getElementById("descriptionSET")
   taskDescription.setAttribute("value", "")
@@ -126,7 +123,7 @@ const eraseTask = async (id, num) => {
 }  
 
 const confirmingExclude = async (id) => {
-  await  fetch(`http://localhost:3000/user/${currentUSER}/${id}`, {
+  await  fetch(`http://localhost:3000/tasks/${id}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -136,7 +133,7 @@ const confirmingExclude = async (id) => {
   window.open('taskmanager.html', '_self')}
 
 const buttonAddUser = async () => {
-  const apiResponse = await fetch('http://localhost:3000/user')
+  const apiResponse = await fetch('http://localhost:3000/tasks')
   const users = await apiResponse.json()
   const newUserMail = formAdduser.elements['newUserMail'].value
   const newUserpassword = formAdduser.elements['newUserPassword'].value
@@ -148,8 +145,8 @@ const buttonAddUser = async () => {
   })
 
   if (findEmail === undefined) {
-    if (newUserpassword === newUserPasswordConfirming) {
-      await fetch("http://localhost:3000/user", {
+    if (newUserpassword === newUserPasswordConfirming && newUserPasswordConfirming != null) {
+      await fetch("http://localhost:3000/tasks", {
     method: "POST",
     headers: {
       'Accept': 'application/json, text/plain, */*',
@@ -158,18 +155,15 @@ const buttonAddUser = async () => {
     body: JSON.stringify({
       "password": newUserpassword,
       "email": newUserMail,
-      "tasks": []
     })
   })
+  location.reload();
     } else { 
       alert("As senhas não são iguais")
     }
   } else {
     alert("Esse email já está cadastrado")
-  }
-
-  location.reload();
-  
+  }  
 }
 
 const loginButton = async() => {
@@ -182,7 +176,7 @@ const loginButton = async() => {
 
 
 const verifyUser = async (tryUser) => { 
-  const apiResponse = await fetch('http://localhost:3000/user')
+  const apiResponse = await fetch('http://localhost:3000/tasks')
   const users = await apiResponse.json()
 
 
@@ -207,15 +201,24 @@ const verifyUser = async (tryUser) => {
 }
 
 const form = document.getElementById('add-new-task')
+
+
 const getTasks = async () => { 
-  let currentUSER = localStorage.getItem("currentUserID")
-  const apiResponse = await fetch(`http://localhost:3000/user/${currentUSER}`)
+ 
+  const apiResponse = await fetch(`http://localhost:3000/tasks/`)
   const user = await apiResponse.json()
-  const tasks = user.tasks
-  const email = user.email
+  const Useremail = user.email
+  let currentUSER = localStorage.getItem("currentUserID")
 
   const username = document.getElementById('userName')
- username.innerHTML = username.innerHTML + email
+ username.innerHTML = username.innerHTML + user[currentUSER-1].email
+
+ let tasks = user.filter(function (findTasks) {
+  if (user[currentUSER-1].email === findTasks.email && findTasks.description != undefined) {
+    return true
+  }
+  return false
+})
 
   // Sort Tasks by task numbers
   let tasksSorted = tasks.sort((a,b) => a.taskNum - b.taskNum);

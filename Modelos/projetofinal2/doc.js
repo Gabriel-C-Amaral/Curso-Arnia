@@ -202,6 +202,22 @@ const verifyUser = async (tryUser) => {
 
 const form = document.getElementById('add-new-task')
 
+function reload() {
+  const content = document.getElementById('content')
+  content.innerHTML = `<div class="row cabecalho">
+  <div class="col-2">Núm</div>
+  <div class="col-3">Descrição</div>
+  <div class="col-3">Data de Entrega</div>
+  <div class="col-3">Status<select id="statusFilter" onchange="getTasks()">
+    <option value="void" selected="true"></option>
+    <option value=" ">Todos</option>
+    <option  value="Concluído">Concluído</option>
+    <option value="Em-Andamento">Em andamento</option>
+    <option value="Stopped">Stopped</option>
+</select></div>
+  <div class="col-1">Ação</div>
+</div>  `
+}
 
 const getTasks = async () => { 
  
@@ -209,9 +225,12 @@ const getTasks = async () => {
   const user = await apiResponse.json()
   const Useremail = user.email
   let currentUSER = localStorage.getItem("currentUserID")
+  let statusFilter = document.getElementById('statusFilter').value
+
+  
 
   const username = document.getElementById('userName')
- username.innerHTML = username.innerHTML + user[currentUSER-1].email
+ username.innerHTML = `Usuário: ${user[currentUSER-1].email}`
 
  let tasks = user.filter(function (findTasks) {
   if (user[currentUSER-1].email === findTasks.email && findTasks.description != undefined) {
@@ -220,8 +239,24 @@ const getTasks = async () => {
   return false
 })
 
+let tasksByStatus = tasks.filter(function(findTasks){
+  if (findTasks.taskStatus === statusFilter) {
+    return true
+  }
+  return false
+})
+
+let tasksByStatusFinal
+if (statusFilter === " ") {
+  tasksByStatusFinal = tasks
+  reload()
+} else {
+  tasksByStatusFinal = tasksByStatus
+  reload()
+}
+
   // Sort Tasks by task numbers
-  let tasksSorted = tasks.sort((a,b) => a.taskNum - b.taskNum);
+  let tasksSorted = tasksByStatusFinal.sort((a,b) => a.taskNum - b.taskNum);
   const content = document.getElementById('content')
   // Counter to make it vary between white and grey
   let index = 1;

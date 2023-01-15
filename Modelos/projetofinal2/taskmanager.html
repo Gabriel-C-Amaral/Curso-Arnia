@@ -25,11 +25,14 @@
             <div class="col-2">Núm</div>
             <div class="col-3">Descrição</div>
             <div class="col-3">Data de Entrega</div>
-            <div class="col-3">Status</div>
+            <div class="col-3">Status<select id="statusFilter" onchange="getTasks()">
+              <option class="statusOptions" selected="true" value=" ">Todos</option>
+              <option class="statusOptions"  value="Concluído">Concluído</option>
+              <option class="statusOptions" value="Em-Andamento">Em andamento</option>
+              <option class="statusOptions" value="Stopped">Stopped</option>
+          </select></div>
             <div class="col-1">Ação</div>
-        </div>
-        
-        
+        </div>       
     </div>
     
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -332,3 +332,15 @@ color: #68519D;
     left: 0px;
     top: 0;
     }
+
+ #statusFilter {
+    width: 20px;
+    border: none;
+ }   
+
+ option {
+    color: #68519D;
+    border: none;
+    font-weight: bold;
+ }
+ 

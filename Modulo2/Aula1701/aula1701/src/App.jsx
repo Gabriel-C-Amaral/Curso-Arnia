@@ -1,10 +1,11 @@
+import './assets/styles/index.css'
+import TaskList from './components/TaskList'
+
 function App() {
-  const randomNumber = Math.random()
 
   return (
     <div className="App">
-      <h1>Testando</h1>
-      {randomNumber > (0.5) ? <p>maior</p> : <p>menor</p>} 
+      <TaskList/>
     </div>
   )
 }

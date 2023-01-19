@@ -1,14 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import './assets/styles/index.css'
+import TaskList from './components/task-list'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <div className="App">
-      <h1>teste</h1>
-      
+      <TaskList />
     </div>
   )
 }

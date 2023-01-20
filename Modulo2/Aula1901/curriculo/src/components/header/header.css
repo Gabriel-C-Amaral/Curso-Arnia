@@ -1,0 +1,15 @@
+.content-header {
+    display: flex;
+    justify-content: center;
+    color: red;
+}
+.block-blue {
+    background: linear-gradient(180deg, #3F3BF4 0%, #445FF6 100%);
+border-radius: 10px;
+height: 40px;
+width: 40px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-right: 10px;
+}

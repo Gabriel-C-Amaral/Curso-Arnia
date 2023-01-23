@@ -20,7 +20,7 @@ const HeaderContact =({icon, text}) => {
 const Header = () => {
     return(
         <div className='content-header'>
-            <HeaderContact icon={iconEmail} text="gabriel@gabriel.com"/>
+            <HeaderContact icon={iconEmail} text="gabrielcorreaamaral94@gmail.com"/>
 
             <HeaderContact icon={iconLink} text="https://github.com/Gabriel-C-Amaral"/>
             

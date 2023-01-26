@@ -25,3 +25,5 @@ const movies = [
       image: 'https://jardimdasamericas.com.br/uploads/2022/12/capa-filme-gato-de-botas-2-o-ultimo-pedido-784dc-large.jpg'
     }
   ]
+
+  export default movies

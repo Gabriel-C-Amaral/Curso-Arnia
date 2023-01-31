@@ -1,0 +1,14 @@
+.catalog {
+max-width: 500px;
+margin: 0 auto;
+}
+.catalog header {
+display: flex;
+}
+
+.catalog header logo {
+width: 100px;
+background: #aaa;
+height: 40px;
+}
+

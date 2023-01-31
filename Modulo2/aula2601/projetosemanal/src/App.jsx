@@ -1,10 +1,11 @@
 import './App.css'
+import Ecommerce from './components/ecommerce'
 
 function App() {
 
   return (
-    <div className="App">
-     
+    <div>
+     <Ecommerce/>     
     </div>
   )
 }

@@ -72,3 +72,30 @@ function ex8 (arr:string): number {
 
  return respond.length
 }
+
+//AULA 6
+
+//Exercício 1: Escreva uma classe em typescript que implementa uma interface para executar operações aritméticas básicas (adição, subtração, divisão, multiplicação)
+type OperationType = (a:number, b: number) => number
+
+// interface IOperations {
+//     add: OperationType
+//     sub: OperationType
+//     div: OperationType
+//     mult: OperationType
+// }
+
+class Operations {
+    add (a:number, b: number): number {
+        return a + b
+    }
+    sub (a:number, b: number): number {
+        return a - b
+    }
+    div (a:number, b: number): number {
+        return a / b
+    }
+    mult (a:number, b: number): number {
+        return a * b
+    }
+}

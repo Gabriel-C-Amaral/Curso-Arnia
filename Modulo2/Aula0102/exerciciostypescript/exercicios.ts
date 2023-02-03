@@ -41,3 +41,34 @@ function onlyStrings (arg: UnionArrays): ArrayString {
    })
    return argStrings
 }
+
+
+//Exercício 7: Escreva uma função que recebe um array de strings e retorna um novo array removendo as duplicatas.
+
+type Strings = Array<string>
+
+function ex7 (arr: Strings): Strings {
+    return arr.filter((item, index) => {
+        if (arr.indexOf(item) === index) {
+            return true
+        } return false
+    })
+}
+
+const arrayStrings = ['maçã', 'jaca', 'abacaxi', 'jaboticaba', 'jaca', 'abacaxi']
+
+
+// Exercício 8: Escreva uma função que recebe uma string e retorna o número de vogais dela, utilize Typescript para garantir que o input seja uma string e o retorno da função seja numérico.
+const vogais = ['a', 'e', 'i', 'o', 'u']
+const strrr = 'o homem macaco não tem alma nem coração'
+
+function ex8 (arr:string): number {
+    const strArray = strrr.split('')
+    let respond = strArray.map(element => {
+        if (vogais.includes(element)) {
+            return true
+        } return false
+    });
+
+ return respond.length
+}

@@ -102,7 +102,7 @@ export default class Ecommerce extends React.Component {
                 onClick={() => this.setState({
                   screen: SCREEN.CART
                 })}
-              >Ir para o carrinho</button>
+              >Ir para o carrinho.</button>
             </div>
     
           </main>
@@ -135,7 +135,7 @@ export default class Ecommerce extends React.Component {
         )}
   
         <footer>
-          RODAPE
+          RODAPE ainda a ser feito
         </footer>
   
   

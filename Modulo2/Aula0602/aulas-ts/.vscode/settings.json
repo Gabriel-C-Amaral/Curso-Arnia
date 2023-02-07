@@ -1,0 +1,32 @@
+{
+  "window.zoomLevel": 2,
+  "breadcrumbs.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
+  "explorer.openEditors.visible": 0,
+  "files.eol": "\n",
+  "files.defaultLanguage": "en-US",
+  "search.showLineNumbers": false,
+  "search.exclude": {
+    "**/node_modules": true
+  },
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "workbench.editor.enablePreview": true,
+  "workbench.list.openMode": "doubleClick",
+  "workbench.sideBar.location": "left",
+
+  //===========================================
+  //============= PRETTIER AND ESLINT =========
+  //===========================================
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.autoSave": "onFocusChange",
+  "prettier.configPath": "./.prettierrc",
+  "prettier.tabWidth": 2,
+  "prettier.requireConfig": true,
+}

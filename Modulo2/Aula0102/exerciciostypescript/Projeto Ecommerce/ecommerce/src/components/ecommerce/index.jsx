@@ -5,6 +5,8 @@ import Product from '../product'
 import Title from '../title'
 import Header from '../header'
 
+
+
 const SCREEN = {
   HOME: 'home',
   CART: 'cart',

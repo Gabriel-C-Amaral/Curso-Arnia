@@ -24,6 +24,4 @@ class Storagee implements IStorage {
     deleteItem (key: string) {
         localStorage.removeItem(key)
     }
-
-
 }

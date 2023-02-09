@@ -1,41 +1,38 @@
 import React from "react";
 
 type Numeros = {
-    num1: number | undefined
-    num2: number | undefined
+    num1: number
+    num2: number
+    add: number | undefined
   }
+ type Props = {
 
-type Props = {
-
-}
+ }
 
 
   
-class Numeross extends React.Component<Numeros, Props> {
+class Numeross extends React.Component<Props, Numeros> {
      numeros: Numeros = {
         num1: 0,
-        num2: 0
-      }
-
-    
+        num2: 0,
+        add: 0
+      }    
 
     render() {
-        return <div>           
-     (
-        
+        return <div>                  
         <div className="card">
           <label htmlFor="num1">numero 1</label>
-          <input type="number" name="num1" id="num1" value={this.numeros.num1} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num1: Number(event.target.value)})}}/>
+          <input type="number" name="num1" id="num1"  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num1: Number(event.target.value)})}}/>
           <label htmlFor="num2">Numero 2</label>
-          <input type="number" name='num2' id='num2' value={this.numeros.num2} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num2: Number(event.target.value)})}}/>
-          <button >
+          <input type="number" name='num2' id='num2'  onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num2: Number(event.target.value)})}}/>
+          <button onClick={() => {this.setState({add: this.numeros.num1 + this.numeros.num2})}} >
             Somar Valores 
           </button>
-          <div>A soma é {Number(this.numeros.num1) + Number(this.numeros.num2) }</div>
+          <div>A soma é {this.numeros.add }</div>
           
         </div>
       
-    )
+    
         </div>
     }
 }

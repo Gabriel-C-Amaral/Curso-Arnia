@@ -5,12 +5,16 @@ type Numeros = {
     num2: number | undefined
   }
 
+type Props = {
+
+}
+
 
   
-class Numeross extends React.Component {
+class Numeross extends React.Component<Numeros, Props> {
      numeros: Numeros = {
-        num1: undefined,
-        num2: undefined
+        num1: 0,
+        num2: 0
       }
 
     
@@ -18,22 +22,22 @@ class Numeross extends React.Component {
     render() {
         return <div>           
      (
-      <div className="App">
         
-        <h1>Vite + React</h1>
         <div className="card">
           <label htmlFor="num1">numero 1</label>
-          <input type="number" name="num1" id="num1" value={this.numeros.num1} onChange={this.setState()} />
+          <input type="number" name="num1" id="num1" value={this.numeros.num1} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num1: Number(event.target.value)})}}/>
           <label htmlFor="num2">Numero 2</label>
-          <input type="number" name='num2' id='num2' value={this.numeros.num2} />
-          <button onClick={this.setState(this.numeros.num1 + this.numeros.num2)}>
-            count is 
+          <input type="number" name='num2' id='num2' value={this.numeros.num2} onChange={(event: React.ChangeEvent<HTMLInputElement>) => {this.setState({num2: Number(event.target.value)})}}/>
+          <button >
+            Somar Valores 
           </button>
+          <div>A soma é {Number(this.numeros.num1) + Number(this.numeros.num2) }</div>
           
         </div>
       
-      </div>
     )
         </div>
     }
 }
+
+export default Numeross

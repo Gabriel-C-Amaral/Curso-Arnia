@@ -92,7 +92,7 @@ class Game extends React.Component<{}, State> {
 
         </div>
         } else {
-            return <div><img src="https://static.poder360.com.br/2022/11/perdeu-mane-848x477.png" alt="" /></div>
+            return <div><img src="https://i.scdn.co/image/ab67616d0000b273ac7a2455e465a59b6e9c628d" alt="" /></div>
         }
     }
 }

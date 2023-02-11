@@ -1,4 +1,5 @@
 import React from "react";
+import './style.css'
 
 type State = {
     word: string
@@ -6,15 +7,41 @@ type State = {
     currentTry: string
     successTry: string[]    
 }
+type Props = {
+    forca1: string,
+    forca2: string,
+    forca3: string,
+    forca4: string,
+    forca5: string,
+    forca6: string,
+    forca7: string,
+    forca8: string,
+    forca9: string,
+    forca10: string   
+}
 
 
 class Game extends React.Component<{}, State> {
     state = {
-        word: "lorem",
+        word: "gabriel",
         tries: 10,
         currentTry: '',
-        successTry: ["", "", "", "", "", ""]       
+        successTry: ["", "", "", "", "", "", ""]       
     }
+
+    img = [
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/9.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/8.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/7.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/6.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/5.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/4.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/3.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/2.gif",
+        "https://www.soportugues.com.br/secoes/jogos/forca/img/1.gif",
+                
+    ]
+
 
     findWord(letter: string) {
         let array = this.state.word.split("")
@@ -47,23 +74,26 @@ class Game extends React.Component<{}, State> {
         })
     }
 
+
     render() {
-        return <div>
+        if (this.state.tries > 0) {
+            return <div>
+                <img src={this.img[this.state.tries -1]}  />
             <div>Qual letra você quer testar?</div>
-            <div>{this.state.tries} tentativas</div>
-            <input type="text" defaultValue={this.state.currentTry} onChange={(event) => this.currentLetter(event)} />
-            <button onClick={() => this.findWord(this.state.currentTry)}>Teste</button>
-            <div>{this.state.currentTry} <br /> {this.state.tries} <br /> {this.state.word}</div>
-            <div>
-                <div>{this.state.successTry[0]}</div>
-                <div>{this.state.successTry[1]}</div>
-                <div>{this.state.successTry[2]}</div>
-                <div>{this.state.successTry[3]}</div>
-                <div>{this.state.successTry[4]}</div>
-                <div>{this.state.successTry[5]}</div>
+            <input type="text" maxLength={1} defaultValue={this.state.currentTry} onChange={(event) => this.currentLetter(event)} />
+            <button onClick={() => this.findWord(this.state.currentTry)}>Tentar</button>
+            <div className="flexing">
+              {this.state.successTry.map(function(value: string, index: number) {
+                return <div className="success">{value}</div>
+              })}
             </div>
+            <div>{this.state.tries} tentativas restantes</div>
+
 
         </div>
+        } else {
+            return <div><img src="https://static.poder360.com.br/2022/11/perdeu-mane-848x477.png" alt="" /></div>
+        }
     }
 }
 

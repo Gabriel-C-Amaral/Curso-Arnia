@@ -1,0 +1,17 @@
+.side1 {
+    background-color: var(--colorArnia);
+    width: 51px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+.side2 {
+    background-color: #D7CAE5;
+    width: 51px;
+    height: 100%;
+    position: fixed;
+    left: 10;
+    top: 0;
+    z-index: -1;
+}

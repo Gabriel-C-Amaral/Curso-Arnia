@@ -1,0 +1,9 @@
+.rightvector {
+    width: 270px;
+height: 634px;
+position: fixed;
+right: 0;
+bottom: 0;
+z-index: -2;
+padding: 0;
+}

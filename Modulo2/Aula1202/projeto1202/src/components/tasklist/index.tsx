@@ -6,3 +6,5 @@ class TaskList extends React.Component {
         return <div></div>
     }
 }
+
+export default TaskList

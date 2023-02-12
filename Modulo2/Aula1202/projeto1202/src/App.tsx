@@ -3,6 +3,7 @@ import SideBar from './components/sidebar'
 import RightVector from './components/rightvector'
 import Arnia from './components/arniavector'
 import Header from './components/header'
+import TaskList from './components/tasklist'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <RightVector />
       <Arnia />      
       <Header />
+      <TaskList/>
     </div>
   )
 }

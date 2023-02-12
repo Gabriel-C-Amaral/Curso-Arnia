@@ -4,6 +4,7 @@ import RightVector from './components/rightvector'
 import Arnia from './components/arniavector'
 import Header from './components/header'
 import TaskList from './components/tasklist'
+import Forms from './components/forms'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Arnia />      
       <Header />
       <TaskList/>
+      <Forms />
     </div>
   )
 }

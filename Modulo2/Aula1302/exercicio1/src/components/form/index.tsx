@@ -14,6 +14,7 @@ type State = {
 class CepForm extends React.Component<{}, State> {
     fetchAdress  = async () => {
        const apiResponse = await fetch("http://viacep.com.br/ws/01001000/json/")
+       const adress = await apiResponse.json
        
     }
 
@@ -28,6 +29,7 @@ class CepForm extends React.Component<{}, State> {
 
     }
 
+    
 
 
     render() {

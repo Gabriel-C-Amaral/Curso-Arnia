@@ -2,7 +2,7 @@ import React from "react";
 
 type State = {
   cep: number | undefined;
-  num: number | undefined;
+  num?: number | undefined;
   rua: string;
   complemento: string;
   bairro: string;
@@ -10,12 +10,15 @@ type State = {
   estado: string;
 };
 
-class CepForm extends React.Component<{}, State> {
-  fetchAdress = async () => {
-    const apiResponse = await fetch("http://viacep.com.br/ws/01001000/json/");
-    const adress = await apiResponse.json;
-  };
+type ResponseApi = {
+  logradouro: string;
+  complemento: string;
+  bairro: string;
+  localidade: string;
+  uf: string;
+};
 
+class CepForm extends React.Component<{}, State> {
   state = {
     cep: undefined,
     num: undefined,
@@ -26,11 +29,28 @@ class CepForm extends React.Component<{}, State> {
     estado: "",
   };
 
+  async FetchAdress(): Promise<ResponseApi> {
+    const apiResponse = await fetch(
+      `http://viacep.com.br/ws/${this.state.cep}/json/`
+    );
+    const adress = await apiResponse.json();
+
+    this.setState({
+      rua: adress.logradouro,
+      bairro: adress.bairro,
+      cidade: adress.localidade,
+      estado: adress.uf,
+    });
+
+    return adress;
+  }
+
   render() {
     return (
       <div className="cepform">
         <label htmlFor="cep">CEP:</label>
         <input
+          onBlur={() => this.FetchAdress()}
           value={this.state.cep}
           onChange={(event) => {
             this.setState({ cep: Number(event.target.value) });

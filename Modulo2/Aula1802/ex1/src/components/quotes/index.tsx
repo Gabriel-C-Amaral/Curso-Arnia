@@ -38,7 +38,7 @@ const GenerateQuote: React.FC = () => {
   return (
     <div>
       <p>{frases}</p>
-      <button onClick={() => clicking()}>Lero lero Generator</button>
+      <button onClick={() => clicking()}>Lero Lero Generator</button>
     </div>
   );
 };

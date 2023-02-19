@@ -26,12 +26,14 @@ const TaskList: React.FC<State> = (props) => {
     addTask([...tasks, props.tasks]);
   }, [click]);
 
+  setClick(click + 1);
+
   return (
     <div>
-      <div className="container">
-        <Taskheader />{" "}
+      <div className="container" onClick={() => setClick(0)}>
+        <Taskheader />
         {tasks.map(function (value) {
-          return <div>{value.description}</div>;
+          return <div>{props.tasks.description}</div>;
         })}
       </div>
     </div>

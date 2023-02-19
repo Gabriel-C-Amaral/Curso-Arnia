@@ -16,7 +16,7 @@ function App() {
       <TaskList
         tasks={{
           num: 0,
-          description: "dasiod",
+          description: "dasissod",
           date: "datata",
           status: "idjasodsa",
         }}

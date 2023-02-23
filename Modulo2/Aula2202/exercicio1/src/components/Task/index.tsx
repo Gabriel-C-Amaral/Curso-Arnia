@@ -4,7 +4,7 @@
  */
 
 import { TaskType } from "../../App";
-import { Container, Button, Title, Text } from "./styles";
+import { Container, Button, Title, Text, Header } from "./styles";
 
 type taskProps = {
   title: string;
@@ -14,10 +14,10 @@ type taskProps = {
 
 const Task = ({ title, description, onClickDelete }: taskProps) => (
   <Container>
-    <div>
+    <Header>
       <Title>{title}</Title>
       <Button onClick={onClickDelete}>X</Button>
-    </div>
+    </Header>
     <Text>{description}</Text>
   </Container>
 );

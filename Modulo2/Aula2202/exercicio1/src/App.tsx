@@ -23,20 +23,40 @@ function App() {
    * spread.
    */
 
-  const addNewCard = () => {};
+  const addNewCard = () => {
+    setTasks([
+      ...tasks,
+      {
+        title,
+        description,
+      },
+    ]);
+  };
 
   return (
     <div>
       <Form>
         <FormTitle>Novo Card</FormTitle>
         <label htmlFor="card-title">Título</label>
-        <input id="card-title" />
+        <input
+          id="card-title"
+          value={title}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            setTitle(event.target.value);
+          }}
+        />
         <label htmlFor="card-description">Descrição</label>
-        <input id="card-description" />
+        <input
+          id="card-description"
+          value={description}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            setDescription(event.target.value);
+          }}
+        />
         <button onClick={addNewCard}>Adicionar</button>
       </Form>
 
-      {/* <TaskList setTasks={setTasks} /> */}
+      <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }

@@ -17,7 +17,7 @@ import styled from "styled-components"
  */
 
 export const Container = styled.div`
-border: 1px solid grey;
+border: 1px solid gray;
 border-radius: 10px;
 width: 300px;
 padding: 15px;
@@ -35,7 +35,12 @@ export const Button = styled.button`
   font-weight: bold;
 `
 
-export const Header = styled.div``
+export const Header = styled.div`
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+`
 
 export const Title = styled.h2`
 font-size: 20px;

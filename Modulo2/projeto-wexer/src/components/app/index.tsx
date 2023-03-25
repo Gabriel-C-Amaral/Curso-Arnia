@@ -1,13 +1,16 @@
 import { Normalize } from 'styled-normalize'
-import Teste from '../teste'
+// import Teste from '../teste'
 import PrimaryBtn from '../primary-button'
-// import logo from '../../images/logo.svg'
+import './styles.css'
+import HeaderMenu from '../header-sidemenu'
+import SideMenu from '../sidemenu'
 
 function App() {
   return (
     <div className="App">
       <Normalize />
-      <Teste />
+      <HeaderMenu name="Daniel" />
+      <SideMenu />
       <PrimaryBtn
         textColor="#FFFFFF"
         filled="#00995D"
@@ -15,7 +18,6 @@ function App() {
         text="Normal"
         icon="../../src/images/plus-circle.svg"
       />
-      <h1>oi</h1>
     </div>
   )
 }

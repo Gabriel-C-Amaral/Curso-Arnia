@@ -30,7 +30,15 @@ function SideMenu(active: IsToggled) {
     display: flex;
     flex-direction: column;
     top: 80px;
-    gap: 35px;
+  `
+
+  const MenuItensRetracted = styled.div`
+    width: 217px;
+    height: 35px;
+    justify-content: flex-start;
+    gap: 19px;
+    display: flex;
+    gap: 18px;
     align-items: center;
     padding-left: 25px;
     padding-top: 25px;
@@ -42,12 +50,11 @@ function SideMenu(active: IsToggled) {
     color: #ffffff;
   `
 
-  const MenuItensRetracted = styled.div`
-    width: 217px;
-    height: 35px;
-    justify-content: flex-start;
-    gap: 19px;
-    display: flex;
+  const DropDownIcon = styled.img`
+    width: 7px;
+    height: 14px;
+    position: absolute;
+    right: 16px;
   `
 
   if (active.toggle == true) {
@@ -60,10 +67,12 @@ function SideMenu(active: IsToggled) {
         <MenuItensRetracted>
           <Icons src="src\images\todo-fill.svg" />
           Modelos
+          <DropDownIcon src="src\images\arrowright.svg" />
         </MenuItensRetracted>
         <MenuItensRetracted>
           <Icons src="src\images\plus-circle.svg" />
           Cadastros
+          <DropDownIcon src="src\images\arrowright.svg" />
         </MenuItensRetracted>
         <MenuItensRetracted>
           <Icons src="src\images\settings-2.svg" />

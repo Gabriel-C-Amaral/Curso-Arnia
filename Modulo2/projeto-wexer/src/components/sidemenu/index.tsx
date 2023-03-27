@@ -1,13 +1,27 @@
 import styled from 'styled-components'
+import React, { useState } from 'react'
+import DropdownMenu from '../dropdownmenu'
 
 type IsToggled = {
   toggle: boolean
 }
 
 function SideMenu(active: IsToggled) {
+  const [menuExpanded, setExpanded] = useState(false)
+
+  const expandMenu = () => {
+    setExpanded(!menuExpanded)
+  }
+
   const Icons = styled.img`
     width: 20px;
     height: 20px;
+    position: relative;
+  `
+  const MenuItems = styled.div`
+    position: absolute;
+    left: 85px;
+    width: 150px;
   `
   const NotToggled = styled.div`
     background: #00995d;
@@ -38,7 +52,6 @@ function SideMenu(active: IsToggled) {
     justify-content: flex-start;
     gap: 19px;
     display: flex;
-    gap: 18px;
     align-items: center;
     padding-left: 25px;
     padding-top: 25px;
@@ -58,28 +71,58 @@ function SideMenu(active: IsToggled) {
   `
 
   if (active.toggle == true) {
-    return (
-      <Toggled>
-        <MenuItensRetracted>
-          <Icons src="src\images\people.svg" />
-          Meus Pacientes
-        </MenuItensRetracted>
-        <MenuItensRetracted>
-          <Icons src="src\images\todo-fill.svg" />
-          Modelos
-          <DropDownIcon src="src\images\arrowright.svg" />
-        </MenuItensRetracted>
-        <MenuItensRetracted>
-          <Icons src="src\images\plus-circle.svg" />
-          Cadastros
-          <DropDownIcon src="src\images\arrowright.svg" />
-        </MenuItensRetracted>
-        <MenuItensRetracted>
-          <Icons src="src\images\settings-2.svg" />
-          Preferências
-        </MenuItensRetracted>
-      </Toggled>
-    )
+    if (menuExpanded == false) {
+      return (
+        <Toggled>
+          <MenuItensRetracted>
+            <Icons src="src\images\people.svg" />
+            <MenuItems> Meus Pacientes</MenuItems>
+          </MenuItensRetracted>
+
+          <MenuItensRetracted>
+            <Icons src="src\images\todo-fill.svg" />
+            <MenuItems> Modelos</MenuItems>
+            <DropDownIcon src="src\images\arrowright.svg" onClick={expandMenu} />
+          </MenuItensRetracted>
+          <MenuItensRetracted>
+            <Icons src="src\images\plus-circle.svg" />
+            <MenuItems> Cadastros</MenuItems>
+            <DropDownIcon src="src\images\arrowright.svg" onClick={expandMenu} />
+          </MenuItensRetracted>
+          <MenuItensRetracted>
+            <Icons src="src\images\settings-2.svg" />
+            <MenuItems> Preferências</MenuItems>
+          </MenuItensRetracted>
+        </Toggled>
+      )
+    } else {
+      return (
+        <Toggled>
+          <MenuItensRetracted>
+            <Icons src="src\images\people.svg" />
+            <MenuItems> Meus Pacientes</MenuItems>
+          </MenuItensRetracted>
+          <DropdownMenu
+            icon="src\images\todo-fill.svg"
+            title="Modelos"
+            item1="Entrevistas"
+            item2="Roteiro de testes"
+            item3="Documentos"
+          />
+          <DropdownMenu
+            icon="src\images\todo-fill.svg"
+            title="Cadastros"
+            item1="Perguntas"
+            item2="Testes"
+            item3="Tipos de avaliações"
+          />
+          <MenuItensRetracted>
+            <Icons src="src\images\settings-2.svg" />
+            <MenuItems> Preferências</MenuItems>
+          </MenuItensRetracted>
+        </Toggled>
+      )
+    }
   } else {
     return (
       <NotToggled>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import SideMenu from '../sidemenu'
+// import DropdownMenu from '../dropdownmenu'
 
 type nameType = {
   name: string
@@ -10,6 +11,9 @@ function HeaderMenu(name: nameType) {
   const [menuActive, setMenuActive] = useState(false)
 
   const toggleMenu = () => {
+    setMenuActive(true)
+  }
+  const toggleMenuOff = () => {
     setMenuActive(!menuActive)
   }
 
@@ -62,7 +66,7 @@ function HeaderMenu(name: nameType) {
         <img src="src\images\logoIcon.svg" width="28,85px" height="44,33px" />{' '}
       </WexerIcon>
       <FixedHeader>
-        <img src="src\images\menu.svg" width="28px" height="28px" onClick={toggleMenu} />
+        <img src="src\images\menu.svg" width="28px" height="28px" onClick={toggleMenuOff} />
         <BoxName>
           <div>
             Bem vindo(a), <BoldName>{name.name}</BoldName>
@@ -70,7 +74,9 @@ function HeaderMenu(name: nameType) {
           <img src="src\images\arrowDown.svg" width="12px" height="9px" />
         </BoxName>
       </FixedHeader>
-      <SideMenu toggle={menuActive} />
+      <div onClick={toggleMenu}>
+        <SideMenu toggle={menuActive} />
+      </div>
     </div>
   )
 }

@@ -59,6 +59,7 @@ function Header() {
     margin-top: 10px;
     position: absolute;
     right: 24px;
+    display: flex;
   `
   const SearchText = styled.span`
     font-family: 'Montserrat';
@@ -68,6 +69,15 @@ function Header() {
     line-height: 17px;
     display: flex;
     align-items: center;
+    color: #9e9e9e;
+    left: 16px;
+    position: absolute;
+  `
+  const SearchIcon = styled.img`
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 14px;
   `
 
   return (
@@ -75,7 +85,8 @@ function Header() {
       <NotSelected>Dados Cadastrais</NotSelected>
       <Selected>Prontuário</Selected>
       <SearchBar>
-        <SearchText> O que você está procurando? </SearchText>
+        <SearchText> O que você está procurando?</SearchText>
+        <SearchIcon src="src\images\searchIcon.svg" />
       </SearchBar>
     </Container>
   )

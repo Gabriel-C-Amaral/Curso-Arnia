@@ -14,13 +14,14 @@ function Identity(pacient: person) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: fixed;
-    left: 50%;
-    top: 30%;
+    position: relative;
+    left: 138px;
+    top: 200px;
     background: #ffffff;
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    z-index: -5;
   `
   const Title = styled.div`
     font-family: 'Montserrat';
@@ -52,12 +53,12 @@ function Identity(pacient: person) {
     font-size: 18px;
     line-height: 22px;
     color: #212121;
-    width: 229px;
+    width: 234px;
     height: 22px;
     left: 24px;
     top: 24px;
     position: relative;
-    margin-bottom: 15px;
+    margin-bottom: 23px;
   `
 
   const Icon = styled.img`

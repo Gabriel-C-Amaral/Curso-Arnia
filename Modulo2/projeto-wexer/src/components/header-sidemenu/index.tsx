@@ -17,6 +17,10 @@ function HeaderMenu(name: nameType) {
     setMenuActive(!menuActive)
   }
 
+  const Container = styled.div`
+    z-index: 4;
+  `
+
   const FixedHeader = styled.div`
     width: calc(100% - 80px);
     height: 80px;
@@ -61,7 +65,7 @@ function HeaderMenu(name: nameType) {
   `
 
   return (
-    <div>
+    <Container>
       <WexerIcon>
         <img src="src\images\logoIcon.svg" width="28,85px" height="44,33px" />{' '}
       </WexerIcon>
@@ -77,7 +81,7 @@ function HeaderMenu(name: nameType) {
       <div onClick={toggleMenu}>
         <SideMenu toggle={menuActive} />
       </div>
-    </div>
+    </Container>
   )
 }
 

@@ -8,10 +8,10 @@ function Anotations() {
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    position: fixed;
-    left: 50%;
-    top: 30%;
-    z-index: 0;
+    position: absolute;
+    left: 139px;
+    top: 599px;
+    z-index: -2;
   `
   const Title = styled.div`
     position: absolute;

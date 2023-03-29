@@ -1,6 +1,8 @@
 import Identity from '../prontuário/identity'
 import styled from 'styled-components'
 import Header from './header'
+import Anotations from './goals'
+import HeadMenu from './headmenu'
 
 function Prontuário() {
   const Container = styled.div`
@@ -15,6 +17,8 @@ function Prontuário() {
     <Container>
       <Identity name="Ana Ester Resende" birthday="10/09/2020" occupation="Designer" education="Superior Incompleto" />
       <Header />
+      <Anotations />
+      <HeadMenu />
     </Container>
   )
 }

@@ -38,9 +38,73 @@ function HeadMenu() {
     top: 96px;
     background: #e0e0e0;
   `
+  const Top = styled.div`
+    width: 924px;
+    height: 95px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+  `
+  const Bolder = styled.div`
+    color: #212121;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 24px;
+    margin-right: 11px;
+    position: relative;
+  `
+
+  const NewList = styled.div`
+    position: relative;
+    width: 479px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+    display: flex;
+    align-items: center;
+    color: #616161;
+    justify-content: space-between;
+    padding-left: 16px;
+  `
+
+  const ArrowDown = styled.img`
+    position: absolute;
+    right: 21px;
+  `
+
+  const InicialDate = styled.div`
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    position: relative;
+    margin-right: 20px;
+  `
 
   return (
     <Container>
+      <Top>
+        <Bolder>Serviço: </Bolder>
+        <NewList>
+          Novo Acompanhamento <ArrowDown src="src\images\Vector (Stroke).svg" />
+        </NewList>
+        <Bolder>Data Inicial: </Bolder>
+        <InicialDate>18/10/2022</InicialDate>
+        <img src="src\images\editIcon.svg" />
+        <img src="src\images\eraseIcon.svg" />
+      </Top>
       <Options>
         <img src="src\images\headHeart.svg" />
         Sessão

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Header from './header'
 import Anotations from './goals'
 import HeadMenu from './headmenu'
+import TimelineContainer from './timeline'
 
 function Prontuário() {
   const Container = styled.div`
@@ -19,6 +20,7 @@ function Prontuário() {
       <Header />
       <Anotations />
       <HeadMenu />
+      <TimelineContainer />
     </Container>
   )
 }

@@ -98,7 +98,7 @@ function HeadMenu() {
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>
-          Novo Acompanhamento <ArrowDown src="src\images\Vector (Stroke).svg" />
+          Novo Acompanhamento <ArrowDown src="src\images\arrowDownReto.svg" />
         </NewList>
         <Bolder>Data Inicial: </Bolder>
         <InicialDate>18/10/2022</InicialDate>

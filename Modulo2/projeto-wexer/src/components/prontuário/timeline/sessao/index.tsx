@@ -155,7 +155,7 @@ function Sessao(prop: sessionData) {
       <BallIcon src={ball} />
       <InsideIcon src={icon} />
       <Title>Sessão 01</Title>
-      <Subtitle>15 de setembro de 2022</Subtitle>
+      <Subtitle>{prop.date}</Subtitle>
       <Body>
         {truncatedText}...
         <Link href="https://www.google.com.br/">Ver mais</Link>

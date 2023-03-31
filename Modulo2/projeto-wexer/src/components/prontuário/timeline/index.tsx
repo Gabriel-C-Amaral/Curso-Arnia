@@ -1,12 +1,13 @@
 import styled from 'styled-components'
+import DivisorFilter from './divisorFilter'
 
 function TimelineContainer() {
   const Container = styled.div`
     width: 924px;
-    height: fit-content;
+    height: 900px;
     position: absolute;
     left: 502px;
-    top: 434px;
+    top: 392px;
     flex-direction: column;
   `
 
@@ -19,6 +20,7 @@ function TimelineContainer() {
 
   return (
     <Container>
+      <DivisorFilter />
       <Teste />
     </Container>
   )

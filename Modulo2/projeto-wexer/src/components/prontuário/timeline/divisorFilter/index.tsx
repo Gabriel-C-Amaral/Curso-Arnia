@@ -5,10 +5,23 @@ function DivisorFilter() {
     height: 17px;
     width: 924px;
     position: relative;
-    margin-top: 16px;
+    display: Flex;
+    align-items: center;
+    margin-bottom: 40px;
+  `
+  const DivisorLine = styled.div`
+    width: 770px;
+    height: 1px;
+    position: relative;
+    background: #bdbdbd;
+    align-self: center;
   `
 
-  return <Container></Container>
+  return (
+    <Container>
+      <DivisorLine />
+    </Container>
+  )
 }
 
 export default DivisorFilter

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 type sessionData = {
   text: string
   date?: string
+  card: 'session' | 'fact' | 'docs' | 'avaluation' | 'anotations'
 }
 function truncateString(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -20,6 +21,50 @@ function truncateString(str: string, maxLength: number) {
 
 function Sessao(prop: sessionData) {
   const truncatedText = truncateString(prop.text, 300)
+  let color: string
+  let icon: string
+  let ball: string
+
+  switch (prop.card) {
+    case 'session':
+      color = '#00995D'
+      icon = 'src/images/HeadHeartVoid.svg'
+      ball = 'src/images/greenBall.svg'
+
+      break
+    case 'fact':
+      color = '#2F80ED'
+      icon = 'src/images/pinIconVoid.svg'
+      ball = 'src/images/blueBall.svg'
+
+      break
+
+    case 'docs':
+      color = '#9D28AC'
+      icon = 'src/images/ClipsIconVoid.svg'
+      ball = 'src/images/purppleBall.svg'
+
+      break
+
+    case 'avaluation':
+      color = '#EA1E61'
+      icon = 'src/images/boardIconVoid.svg'
+      ball = 'src/images/pinkBall.svg'
+
+      break
+
+    case 'anotations':
+      color = '#FFD806'
+      icon = 'src/images/pinIconVoid.svg'
+      ball = 'src/images/yellowBall.svg'
+
+      break
+
+    default:
+      ball = 'src/images/defaultBall.svg'
+      color = '#FFD806'
+      icon = 'src/images/pinIconVoid.svg'
+  }
 
   const Container = styled.div`
     box-sizing: border-box;
@@ -32,7 +77,7 @@ function Sessao(prop: sessionData) {
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 0px 8px 8px 0px;
-    border-left: 4px solid #00995d;
+    border-left: 4px solid ${color};
     font-family: 'Montserrat';
     font-style: normal;
     display: Flex;
@@ -89,17 +134,33 @@ function Sessao(prop: sessionData) {
     left: 32px;
     top: -14px;
   `
+  const Etc = styled.div`
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 24px;
+    top: 24px;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    align-items: center;
+    line-height: 10px;
+    cursor: pointer;
+  `
 
   return (
     <Container>
-      <BallIcon src="src\images\greenBall.svg" />
-      <InsideIcon src="src\images\HeadHeartVoid.svg" />
+      <BallIcon src={ball} />
+      <InsideIcon src={icon} />
       <Title>Sessão 01</Title>
       <Subtitle>15 de setembro de 2022</Subtitle>
       <Body>
         {truncatedText}...
         <Link href="https://www.google.com.br/">Ver mais</Link>
       </Body>
+      <Etc>...</Etc>
     </Container>
   )
 }

@@ -1,6 +1,11 @@
 import styled from 'styled-components'
+import ModalContainer from '../modals'
+import * as React from 'react'
 
 function Anotations() {
+  const [open, setOpen] = React.useState(false)
+  // const handleOpen = () => setOpen(true)
+
   const Card = styled.div`
     width: 339px;
     height: 226px;
@@ -48,8 +53,9 @@ function Anotations() {
 
   return (
     <Card>
+      <ModalContainer isOpen={open} />
       <Title>Demandas e objetivos</Title>
-      <EditIcon src="src\images\editIcon.svg" />
+      <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
       <Content>
         No dia 12 de fevereiro de 2015, a paciente B. A. V, 40 anos, solteira e residente na cidade de Manaus, procurou
         atendimento psicológico em virtude de estar apresentando...

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Box from '@mui/material/Box'
+import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 
@@ -15,21 +16,23 @@ const style = {
   p: 4
 }
 
-interface Props {
+type Props = {
   isOpen: boolean
 }
 
-function ModalContainer(props: Props) {
-  const { isOpen } = props
-  const [open, setOpen] = React.useState(false)
+export default function ModalContainer(props: Props) {
+  const [open, setOpen] = React.useState(props.isOpen)
 
-  React.useEffect(() => {
-    setOpen(isOpen)
-  }, [isOpen])
-
+  const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
+
+  // React.useEffect(() => {
+  //   setOpen(props.isOpen)
+  // }, [props.isOpen])
+
   return (
     <div>
+      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -48,5 +51,3 @@ function ModalContainer(props: Props) {
     </div>
   )
 }
-
-export default ModalContainer

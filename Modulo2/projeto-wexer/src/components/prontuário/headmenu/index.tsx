@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 import * as React from 'react'
-import ModalContainer from '../modals'
 
 function HeadMenu() {
   const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(true)
+  const handleOpen = () => setOpen(!open)
 
   const Container = styled.div`
     width: 924px;
@@ -100,7 +99,6 @@ function HeadMenu() {
 
   return (
     <Container>
-      <ModalContainer isOpen={open} />
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>

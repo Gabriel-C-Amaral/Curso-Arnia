@@ -1,6 +1,11 @@
 import styled from 'styled-components'
+import * as React from 'react'
+import ModalContainer from '../modals'
 
 function HeadMenu() {
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+
   const Container = styled.div`
     width: 924px;
     height: 176px;
@@ -95,6 +100,7 @@ function HeadMenu() {
 
   return (
     <Container>
+      <ModalContainer isOpen={open} />
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>
@@ -105,7 +111,7 @@ function HeadMenu() {
         <img src="src\images\editIcon.svg" />
         <img src="src\images\eraseIcon.svg" />
       </Top>
-      <Options>
+      <Options onClick={handleOpen}>
         <img src="src\images\headHeart.svg" />
         Sessão
       </Options>

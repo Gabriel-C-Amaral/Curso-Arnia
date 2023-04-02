@@ -4,7 +4,7 @@ import * as React from 'react'
 
 function Anotations() {
   const [open, setOpen] = React.useState(false)
-  // const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   const Card = styled.div`
     width: 339px;
@@ -53,7 +53,7 @@ function Anotations() {
 
   return (
     <Card>
-      <ModalContainer isOpen={open} />
+      <ModalContainer onClose={handleClose} isOpen={open} />
       <Title>Demandas e objetivos</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
       <Content>

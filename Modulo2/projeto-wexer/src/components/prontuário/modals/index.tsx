@@ -77,6 +77,9 @@ export default function ModalContainer(props: Props) {
     color: #ffffff;
     margin-right: 32px;
   `
+  const Cancel = styled.span`
+    cursor: pointer;
+  `
 
   return (
     <Modal
@@ -98,7 +101,15 @@ export default function ModalContainer(props: Props) {
           />
         </Header>
         <Footer>
-          Cancelar <SaveButton>Criar</SaveButton>{' '}
+          <Cancel
+            onClick={() => {
+              handleClose()
+              onClose()
+            }}
+          >
+            Cancelar
+          </Cancel>
+          <SaveButton>Criar</SaveButton>{' '}
         </Footer>
       </DefaultContainer>
     </Modal>

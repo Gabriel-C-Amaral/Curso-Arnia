@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
+import TextEditor from './textEditor'
 
 type Props = {
   isOpen: boolean
@@ -39,6 +40,13 @@ export default function ModalContainer(props: Props) {
     margin-left: 32px;
     justify-content: space-between;
     position: absolute;
+  `
+
+  const Content = styled.div`
+    width: 100%;
+    height: 266px;
+    position: absolute;
+    bottom: 100px;
   `
 
   const Footer = styled.div`
@@ -100,6 +108,9 @@ export default function ModalContainer(props: Props) {
             src="src\images\closeButton.svg"
           />
         </Header>
+        <Content>
+          <TextEditor />
+        </Content>
         <Footer>
           <Cancel
             onClick={() => {

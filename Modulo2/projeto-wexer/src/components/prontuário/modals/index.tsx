@@ -47,6 +47,9 @@ export default function ModalContainer(props: Props) {
     height: 266px;
     position: absolute;
     bottom: 100px;
+    .ql-container {
+      height: 266px;
+    }
   `
 
   const Footer = styled.div`
@@ -56,6 +59,7 @@ export default function ModalContainer(props: Props) {
     bottom: 0px;
     background: #ffffff;
     border-top: 2px solid #e0e0e0;
+    border-radius: 0px 0px 8px 8px;
     position: absolute;
     font-family: 'Comfortaa';
     font-style: normal;

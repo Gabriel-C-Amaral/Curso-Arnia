@@ -33,7 +33,7 @@ const TextEditor = () => {
     'video'
   ]
 
-  const handleEditorChange = html => {
+  const handleEditorChange = (html: string) => {
     setEditorHtml(html)
   }
 

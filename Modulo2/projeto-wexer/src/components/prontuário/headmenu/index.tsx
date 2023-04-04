@@ -4,7 +4,7 @@ import ModalContainer from '../modals'
 import NewSession from '../modals/newSession'
 
 function HeadMenu() {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(true)
   const handleClose = () => setOpen(false)
 
   const Container = styled.div`
@@ -19,7 +19,7 @@ function HeadMenu() {
     top: 200px;
     display: flex;
     justify-content: space-around;
-    z-index: 0;
+    z-index: -1;
   `
   const Options = styled.div`
     width: fit-content;

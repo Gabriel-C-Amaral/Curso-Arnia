@@ -47,7 +47,7 @@ export default function ModalContainer(props: Props) {
 
   const Content = styled.div`
     width: 100%;
-    height: 266px;
+    height: fit-content;
     position: absolute;
     bottom: 100px;
     .ql-container {

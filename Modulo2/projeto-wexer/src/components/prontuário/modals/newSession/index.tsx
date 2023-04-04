@@ -118,6 +118,40 @@ export default function NewSession() {
     margin-bottom: 25px;
   `
 
+  const Selector = styled.select`
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 48px;
+    width: 182px;
+    position: relative;
+    margin-top: 8px;
+    margin-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+  `
+  const RadioDiv = styled.div`
+    height: 48px;
+    display: flex;
+    box-sizing: border-box;
+    width: 182px;
+    position: relative;
+    margin-top: 8px;
+    margin-left: 16px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 16px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-around;
+  `
+
   return (
     <Container>
       <Title>
@@ -163,8 +197,23 @@ export default function NewSession() {
           <InputLittle id="price" type="number" />
         </div>
         <div>
-          <Label htmlFor="start">Hora de Inicio:*</Label>
-          <InputLittle id="start" type="time" />
+          <Label htmlFor="payment">Forma de Pagamento</Label>
+          <Selector id="payment">
+            <option value="pix">Pix</option>
+            <option value="credito">Cartão de Crédito</option>
+            <option value="debito">Cartão de Débito</option>
+            <option value="Dinheiro">Dinheiro</option>
+          </Selector>
+        </div>
+        <div>
+          <Label htmlFor="paid">Status</Label>
+          <RadioDiv>
+            <input type="radio" id="paid" name="contact" value="email" />
+            <label htmlFor="paid">Pago</label>
+
+            <input type="radio" id="notpaid" name="contact" value="phone" />
+            <label htmlFor="notpaid">Não pago</label>
+          </RadioDiv>
         </div>
       </InputContainer>
     </Container>

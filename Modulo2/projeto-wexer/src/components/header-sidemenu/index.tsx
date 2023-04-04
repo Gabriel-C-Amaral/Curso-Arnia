@@ -18,7 +18,7 @@ function HeaderMenu(name: nameType) {
   }
 
   const Container = styled.div`
-    z-index: 4;
+    z-index: 10;
   `
 
   const FixedHeader = styled.div`

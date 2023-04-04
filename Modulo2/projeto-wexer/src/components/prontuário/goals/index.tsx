@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import ModalContainer from '../modals'
 import * as React from 'react'
+import TextEditor from '../modals/textEditor'
 
-function Anotations() {
+function Goals() {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
 
@@ -53,7 +54,13 @@ function Anotations() {
 
   return (
     <Card>
-      <ModalContainer onClose={handleClose} isOpen={open} />
+      <ModalContainer
+        Conteudo={TextEditor}
+        height="473px"
+        title="Demandas e objetivos"
+        onClose={handleClose}
+        isOpen={open}
+      />
       <Title>Demandas e objetivos</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
       <Content>
@@ -64,4 +71,4 @@ function Anotations() {
   )
 }
 
-export default Anotations
+export default Goals

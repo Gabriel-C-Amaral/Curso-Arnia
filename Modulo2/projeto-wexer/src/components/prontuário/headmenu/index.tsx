@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 import * as React from 'react'
+import ModalContainer from '../modals'
+import NewSession from '../modals/newSession'
 
 function HeadMenu() {
   const [open, setOpen] = React.useState(false)
-  const handleOpen = () => setOpen(!open)
+  const handleClose = () => setOpen(false)
 
   const Container = styled.div`
     width: 924px;
@@ -17,7 +19,7 @@ function HeadMenu() {
     top: 200px;
     display: flex;
     justify-content: space-around;
-    z-index: -2;
+    z-index: 0;
   `
   const Options = styled.div`
     width: fit-content;
@@ -33,6 +35,7 @@ function HeadMenu() {
     align-items: center;
     gap: 11px;
     display: flex;
+    cursor: pointer;
   `
   const Divisor = styled.div`
     position: absolute;
@@ -109,7 +112,8 @@ function HeadMenu() {
         <img src="src\images\editIcon.svg" />
         <img src="src\images\eraseIcon.svg" />
       </Top>
-      <Options onClick={handleOpen}>
+      <Options onClick={() => setOpen(true)}>
+        <ModalContainer Conteudo={NewSession} height="635px" title="Nova Sessão" onClose={handleClose} isOpen={open} />
         <img src="src\images\headHeart.svg" />
         Sessão
       </Options>

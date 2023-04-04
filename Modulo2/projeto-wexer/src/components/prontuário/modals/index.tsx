@@ -1,15 +1,17 @@
 import * as React from 'react'
 import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
-import TextEditor from './textEditor'
 
 type Props = {
   isOpen: boolean
   onClose: () => void
+  title: string
+  height: string
+  Conteudo: () => JSX.Element
 }
 
 export default function ModalContainer(props: Props) {
-  const { isOpen, onClose } = props
+  const { isOpen, onClose, title, height, Conteudo } = props
 
   const [open, setOpen] = React.useState(isOpen)
 
@@ -17,13 +19,14 @@ export default function ModalContainer(props: Props) {
 
   const DefaultContainer = styled.div`
     position: absolute;
-    top: calc(50% - 236px);
+    top: calc(50% - 250px);
     left: calc(50% - 321px);
     width: 642px;
-    height: 473px;
+    height: ${height};
     background: #ffffff;
     border-radius: 8px;
     display: flex;
+    border: none;
   `
   const Header = styled.div`
     width: 580px;
@@ -103,7 +106,7 @@ export default function ModalContainer(props: Props) {
     >
       <DefaultContainer>
         <Header>
-          Anotações Pessoais{' '}
+          {title}
           <img
             onClick={() => {
               handleClose()
@@ -113,7 +116,7 @@ export default function ModalContainer(props: Props) {
           />
         </Header>
         <Content>
-          <TextEditor />
+          <Conteudo />
         </Content>
         <Footer>
           <Cancel

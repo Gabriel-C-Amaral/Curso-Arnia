@@ -13,9 +13,9 @@ type Props = {
 export default function ModalContainer(props: Props) {
   const { isOpen, onClose, title, height, Conteudo } = props
 
-  const [open, setOpen] = React.useState(isOpen)
+  // const [open, setOpen] = React.useState(isOpen)
 
-  const handleClose = () => setOpen(false)
+  // const handleClose = () => setOpen(false)
 
   const DefaultContainer = styled.div`
     position: absolute;
@@ -98,9 +98,9 @@ export default function ModalContainer(props: Props) {
 
   return (
     <Modal
-      open={open}
+      open={isOpen}
       onClose={() => {
-        handleClose()
+        // handleClose()
         onClose()
       }}
     >
@@ -109,7 +109,7 @@ export default function ModalContainer(props: Props) {
           {title}
           <img
             onClick={() => {
-              handleClose()
+              // handleClose()
               onClose()
             }}
             src="src\images\closeButton.svg"
@@ -121,7 +121,7 @@ export default function ModalContainer(props: Props) {
         <Footer>
           <Cancel
             onClick={() => {
-              handleClose()
+              // handleClose()
               onClose()
             }}
           >

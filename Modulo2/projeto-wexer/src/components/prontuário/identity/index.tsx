@@ -15,8 +15,8 @@ function Identity(pacient: person) {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    left: 138px;
-    top: 200px;
+    /* left: 138px;
+    top: 200px; */
     background: #ffffff;
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);

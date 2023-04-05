@@ -4,22 +4,26 @@ import ModalContainer from '../modals'
 import NewSession from '../modals/newSession'
 
 function HeadMenu() {
-  const [open, setOpen] = React.useState(true)
+  const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
+
+  const [Modaltitle, setTitle] = React.useState('')
+  const handleOptionClick = (Modaltitle: string) => {
+    setTitle(Modaltitle)
+    setOpen(true)
+  }
 
   const Container = styled.div`
     width: 924px;
     height: 176px;
-    position: absolute;
+    position: relative;
     background: #ffffff;
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    left: 502px;
-    top: 200px;
+
     display: flex;
     justify-content: space-around;
-    z-index: -1;
   `
   const Options = styled.div`
     width: fit-content;
@@ -99,9 +103,9 @@ function HeadMenu() {
     position: relative;
     margin-right: 20px;
   `
-
   return (
     <Container>
+      <ModalContainer Conteudo={NewSession} height="635px" title={Modaltitle} onClose={handleClose} isOpen={open} />
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>
@@ -112,12 +116,11 @@ function HeadMenu() {
         <img src="src\images\editIcon.svg" />
         <img src="src\images\eraseIcon.svg" />
       </Top>
-      <Options onClick={() => setOpen(true)}>
-        <ModalContainer Conteudo={NewSession} height="635px" title="Nova Sessão" onClose={handleClose} isOpen={open} />
+      <Options onClick={() => handleOptionClick('Sessão')}>
         <img src="src\images\headHeart.svg" />
         Sessão
       </Options>
-      <Options>
+      <Options onClick={() => handleOptionClick('Fato relevante')}>
         <img src="src\images\pinIcon.svg" />
         Fato Relevante
       </Options>

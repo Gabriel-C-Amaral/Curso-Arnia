@@ -6,9 +6,9 @@ function TimelineContainer() {
   const Container = styled.div`
     width: 924px;
     height: 900px;
-    position: absolute;
-    left: 502px;
-    top: 392px;
+    position: relative;
+    /* left: 502px;
+    top: 392px; */
     flex-direction: column;
     z-index: -2;
   `

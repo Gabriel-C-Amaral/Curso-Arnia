@@ -6,9 +6,9 @@ function Header() {
     height: 69px;
     background: #ffffff;
     border-radius: 8px;
-    position: absolute;
-    top: 107px;
-    left: 138px;
+    position: relative;
+    /* top: 107px;
+    left: 138px; */
     display: flex;
     justify-content: flex-start;
     z-index: -1;

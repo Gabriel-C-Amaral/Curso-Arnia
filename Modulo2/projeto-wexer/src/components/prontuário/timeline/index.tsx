@@ -10,7 +10,6 @@ function TimelineContainer() {
     /* left: 502px;
     top: 392px; */
     flex-direction: column;
-    z-index: -2;
   `
 
   return (

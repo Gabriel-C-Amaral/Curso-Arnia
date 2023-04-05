@@ -8,7 +8,6 @@ function DivisorFilter() {
     display: Flex;
     align-items: center;
     margin-bottom: 40px;
-    z-index: -2;
   `
   const DivisorLine = styled.div`
     width: 770px;
@@ -16,7 +15,6 @@ function DivisorFilter() {
     position: relative;
     background: #bdbdbd;
     align-self: center;
-    z-index: -2;
   `
   const Filter = styled.div`
     width: 119px;

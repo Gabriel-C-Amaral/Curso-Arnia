@@ -21,7 +21,6 @@ function Identity(pacient: person) {
     border: 1px solid #e0e0e0;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    z-index: -5;
   `
   const Title = styled.div`
     font-family: 'Montserrat';

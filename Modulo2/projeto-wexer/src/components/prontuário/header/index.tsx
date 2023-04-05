@@ -11,7 +11,6 @@ function Header() {
     left: 138px; */
     display: flex;
     justify-content: flex-start;
-    z-index: -1;
   `
 
   const NotSelected = styled.div`

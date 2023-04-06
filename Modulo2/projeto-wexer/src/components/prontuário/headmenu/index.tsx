@@ -2,15 +2,31 @@ import styled from 'styled-components'
 import * as React from 'react'
 import ModalContainer from '../modals'
 import NewSession from '../modals/newSession'
+import NewFact from '../modals/newFact'
+import NewFile from '../modals/newFile'
 
 function HeadMenu() {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
+  const [content, SetContent] = React.useState(() => NewFact)
+  const [height, setHeight] = React.useState('466px')
 
   const [Modaltitle, setTitle] = React.useState('')
   const handleOptionClick = (Modaltitle: string) => {
     setTitle(Modaltitle)
     setOpen(true)
+    if (Modaltitle === 'Sessão') {
+      SetContent(() => NewSession)
+      setHeight('635px')
+    }
+    if (Modaltitle === 'Fato relevante') {
+      SetContent(() => NewFact)
+      setHeight('466px')
+    }
+    if (Modaltitle === 'Anexo') {
+      SetContent(() => NewFile)
+      setHeight('520px')
+    }
   }
 
   const Container = styled.div`
@@ -105,7 +121,7 @@ function HeadMenu() {
   `
   return (
     <Container>
-      <ModalContainer Conteudo={NewSession} height="635px" title={Modaltitle} onClose={handleClose} isOpen={open} />
+      <ModalContainer Conteudo={content} height={height} title={Modaltitle} onClose={handleClose} isOpen={open} />
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>
@@ -124,11 +140,11 @@ function HeadMenu() {
         <img src="src\images\pinIcon.svg" />
         Fato Relevante
       </Options>
-      <Options>
+      <Options onClick={() => handleOptionClick('Anexo')}>
         <img src="src\images\ClipsIcon.svg" />
         Anexo
       </Options>
-      <Options>
+      <Options onClick={() => handleOptionClick('Avaliação Psicológica')}>
         <img src="src\images\BoardIcon.svg" />
         Avaliação Psicológica
       </Options>

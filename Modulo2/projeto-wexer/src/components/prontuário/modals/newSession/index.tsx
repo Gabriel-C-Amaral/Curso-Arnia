@@ -7,6 +7,7 @@ export default function NewSession() {
     height: 456px;
     width: 640px;
     overflow-y: scroll;
+    margin-bottom: 10px;
   `
   const Title = styled.div`
     font-family: 'Montserrat';

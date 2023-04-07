@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Step1 from './steps/step1'
 
 export default function AvaluationPage() {
   const Container = styled.div`
@@ -31,9 +32,8 @@ export default function AvaluationPage() {
     gap: 9px;
   `
   const Content = styled.div`
-    background-color: aliceblue;
     position: relative;
-    width: 80%;
+    width: 80vw;
     height: 500px;
     left: 37px;
     margin-top: 16px;
@@ -54,7 +54,9 @@ export default function AvaluationPage() {
           <b>Data:</b> 10/09/2022
         </InsideHeader>
       </Header>
-      <Content></Content>
+      <Content>
+        <Step1 />
+      </Content>
     </Container>
   )
 }

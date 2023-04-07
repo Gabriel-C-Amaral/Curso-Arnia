@@ -4,6 +4,7 @@ import ModalContainer from '../modals'
 import NewSession from '../modals/newSession'
 import NewFact from '../modals/newFact'
 import NewFile from '../modals/newFile'
+import NewAvaluation from '../modals/newAvaluation'
 
 function HeadMenu() {
   const [open, setOpen] = React.useState(false)
@@ -25,7 +26,11 @@ function HeadMenu() {
     }
     if (Modaltitle === 'Anexo') {
       SetContent(() => NewFile)
-      setHeight('520px')
+      setHeight('550px')
+    }
+    if (Modaltitle === 'Avaliação Psicológica') {
+      SetContent(() => NewAvaluation)
+      setHeight('446px')
     }
   }
 

@@ -83,8 +83,27 @@ export default function NewFile() {
     display: flex;
     align-items: baseline;
   `
+  const FileInput = styled.input`
+    appearance: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+  `
+  const FileInputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    margin-left: 32px;
+    height: 80px;
+  `
 
-  const InputFile = styled.input`
+  const FileInputLabel = styled.label`
     padding: 8px;
     width: 135px;
     height: 34px;
@@ -92,6 +111,15 @@ export default function NewFile() {
     height: 34px;
     background: #2f80ed;
     border-radius: 8px;
+    color: #ffffff;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    align-items: center;
+    letter-spacing: 0.2px;
+    display: flex;
   `
 
   return (
@@ -109,7 +137,11 @@ export default function NewFile() {
       <InputContainer>
         <Label htmlFor="description">Descrição:*</Label>
         <InputLarge />
-        <InputFile type="file" />
+        <FileInputContainer>
+          <span>Anexar arquivos*</span>
+          <FileInputLabel htmlFor="fileInput">Escolha um arquivo</FileInputLabel>
+          <FileInput id="fileInput" type="file" />
+        </FileInputContainer>
       </InputContainer>
     </Container>
   )

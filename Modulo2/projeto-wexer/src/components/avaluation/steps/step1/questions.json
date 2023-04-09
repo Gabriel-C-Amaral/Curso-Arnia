@@ -1,0 +1,47 @@
+
+{
+    "Questions": [
+        {
+            "tittle": "01 - Está descansado hoje?",
+            "answer": ["sim", "não"] ,
+            "text field": "Por quê?"
+            
+        },
+        {
+            "tittle": "02 - Dormiu bem esta noite?",
+            "answer": ["sim", "não"] ,
+            "text field": "Quantas horas?"
+        
+        },
+        {
+            "tittle": "03 - Está alimentado?",
+            "answer": ["sim", "não"] ,
+            "text field": false
+        
+        },
+        {
+            "tittle": "04 - Fez uso de bebida alcoólica nas últimas horas?",
+            "answer": ["sim", "não"] ,
+            "text field": false
+        
+        },
+        {
+            "tittle": "05 - Fez uso de alguma medicação ontem/hoje?",
+            "answer": ["sim", "não"] ,
+            "text field": "Qual (is)?"
+        
+        },
+        {
+            "tittle": "06 - Faz uso de lentes corretivas/óculos?",
+            "answer": ["sim", "não"] ,
+            "text field": false
+        
+        },
+        {
+            "tittle": "07 - Considera-se em boas condições para realização da avaliação psicológica? ",
+            "answer": ["sim", "não"] ,
+            "text field": "Por quê?"
+        
+        }
+    ]
+}

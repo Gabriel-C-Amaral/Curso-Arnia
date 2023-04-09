@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import HeaderSteps from './steps/HeaderSteps'
 import Step1 from './steps/step1'
 
 export default function AvaluationPage() {
@@ -55,6 +56,7 @@ export default function AvaluationPage() {
         </InsideHeader>
       </Header>
       <Content>
+        <HeaderSteps steps="step1" />
         <Step1 />
       </Content>
     </Container>

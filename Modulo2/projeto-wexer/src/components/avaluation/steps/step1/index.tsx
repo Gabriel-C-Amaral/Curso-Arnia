@@ -1,69 +1,72 @@
 import styled from 'styled-components'
 
 export default function Step1() {
-  const Container = styled.div`
+  const Content = styled.div`
     display: flex;
     flex-direction: column;
+    width: 954px;
+    padding-left: 24px;
+    padding-right: 144px;
+    padding-top: 24px;
+    background: #ffffff;
     position: relative;
-    gap: 40px;
+    left: 14px;
   `
-  const Header = styled.div`
-    width: 100%;
-    height: 74px;
-    position: relative;
+
+  const Title = styled.span`
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #4f4f4f;
+  `
+  const Sintese = styled.textarea`
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    background: #ffffff;
+    box-sizing: border-box;
+    width: 959px;
+    height: 149px;
+    padding: 10px;
+    ::placeholder {
+      color: #c2c2c2;
+    }
+  `
+  const TittleQuestion = styled.div`
+    justify-content: space-between;
     display: flex;
+    margin-bottom: 12px;
   `
-  const Steps = styled.img`
-    width: 380px;
-    height: 74px;
-  `
-  const Content = styled.div`
-    width: 100%;
-    height: fit-content;
-    display: flex;
-  `
-  const ContentHeader = styled.div`
-    border-radius: 16px 16px 0 16px;
-    border-left: 10px solid #017849;
-    border-bottom: 3px solid #f2f2f2;
-    width: 1080px;
-    height: 75px;
+
+  const BlueTittle = styled.div`
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    display: flex;
-    align-items: center;
-    color: #017849;
-    background-color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 24px;
-    padding-right: 24px;
-    align-items: center;
+    font-size: 16px;
+    line-height: 20px;
+    color: #2d9cdb;
+    margin-top: 32px;
   `
-  const Buttons = styled.div`
-    display: flex;
-    gap: 16px;
+  const Divisor = styled.div`
+    width: 958px;
+    height: 1px;
+    background: #c4c4c4;
+    margin-top: 16px;
+    margin-bottom: 16px;
   `
 
   return (
-    <Container>
-      <Header>
-        <Steps src="src\images\step1active.svg" />
-        <Steps src="src\images\step2waiting.svg" />
-        <Steps src="src\images\step3waiting.svg" />
-      </Header>
-      <Content>
-        <ContentHeader>
-          Entrevista Psicológica
-          <Buttons>
-            <img src="src\images\saveBtn.svg" />
-            <img src="src\images\skipBtn.svg" />
-          </Buttons>
-        </ContentHeader>
-      </Content>
-    </Container>
+    <Content>
+      <div>
+        <TittleQuestion>
+          <Title>Sistese da Entrevista</Title>
+          <img src="src\images\questionMarkIcon.svg" />
+        </TittleQuestion>
+        <Sintese placeholder=" Nos dados registrados e observados durante a entrevista o(a) avaliado(a) declarou estar..." />
+      </div>
+      <BlueTittle>Condições para realização da avaliação</BlueTittle>
+      <Divisor />
+    </Content>
   )
 }

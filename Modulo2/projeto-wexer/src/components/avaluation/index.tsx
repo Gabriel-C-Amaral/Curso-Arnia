@@ -14,7 +14,7 @@ export default function AvaluationPage() {
     gap: 24px;
   `
   const Header = styled.div`
-    width: calc(100vw - 90px);
+    width: calc(100vw - 100px);
     height: 48px;
     background: #ffffff;
     border-radius: 16px 0 0 16px;

@@ -1,92 +1,49 @@
 import React from 'react'
 import styled from 'styled-components'
 
+type QuestionProps = {
+  title: string
+  radioButtons?: string[]
+  textInput?: boolean
+}
+
 const QuestionContainer = styled.div`
   margin-bottom: 16px;
 `
 
-const QuestionText = styled.p`
+const Title = styled.h2`
   margin-bottom: 8px;
 `
 
-const RadioContainer = styled.div`
-  display: flex;
-  align-items: center;
+const RadioButtonContainer = styled.div`
   margin-bottom: 8px;
 `
 
 const RadioButton = styled.input`
   margin-right: 8px;
-
-  /* Set color of checked radio button to green */
-  &:checked {
-    & + label {
-      color: green;
-    }
-  }
 `
 
-const Label = styled.label``
-
-const TextField = styled.input`
-  padding: 8px;
-  width: 100%;
+const TextInput = styled.input`
+  margin-top: 8px;
 `
 
-const MyComponent = () => {
-  const [selectedOption, setSelectedOption] = React.useState('')
-  const [textInput, setTextInput] = React.useState('')
-
-  const handleOptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value
-    setSelectedOption(value)
-    if (value !== 'other') {
-      setTextInput('')
-    }
-  }
-
-  const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setTextInput(event.target.value)
-  }
-
+const Question: React.FC<QuestionProps> = ({ title, radioButtons, textInput }) => {
   return (
     <QuestionContainer>
-      <QuestionText>What is your favorite color?</QuestionText>
-      <RadioContainer>
-        <RadioButton
-          type="radio"
-          name="colorOption"
-          value="red"
-          checked={selectedOption === 'red'}
-          onChange={handleOptionChange}
-        />
-        <Label htmlFor="colorOption">Red</Label>
-      </RadioContainer>
-      <RadioContainer>
-        <RadioButton
-          type="radio"
-          name="colorOption"
-          value="blue"
-          checked={selectedOption === 'blue'}
-          onChange={handleOptionChange}
-        />
-        <Label htmlFor="colorOption">Blue</Label>
-      </RadioContainer>
-      <RadioContainer>
-        <RadioButton
-          type="radio"
-          name="colorOption"
-          value="green"
-          checked={selectedOption === 'green'}
-          onChange={handleOptionChange}
-        />
-        <Label htmlFor="colorOption">Green</Label>
-      </RadioContainer>
-      {selectedOption === 'other' && (
-        <TextField type="text" placeholder="Other color" value={textInput} onChange={handleTextChange} />
+      {title && <Title>{title}</Title>}
+      {radioButtons && (
+        <RadioButtonContainer>
+          {radioButtons.map((radioButton, index) => (
+            <label key={index}>
+              <RadioButton type="radio" name="radioButton" />
+              {radioButton}
+            </label>
+          ))}
+        </RadioButtonContainer>
       )}
+      {textInput && <TextInput type="text" />}
     </QuestionContainer>
   )
 }
 
-export default MyComponent
+export default Question

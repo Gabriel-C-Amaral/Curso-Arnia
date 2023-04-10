@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 // import questions from './questions.json'
-// import MyComponent from './teste'
+import QuestionProps from './teste'
 
 export default function Step1() {
   const Content = styled.div`
@@ -57,11 +57,11 @@ export default function Step1() {
     margin-top: 16px;
     margin-bottom: 16px;
   `
-  const Questionfield = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 438px;
-  `
+  // const Questionfield = styled.div`
+  //   display: flex;
+  //   flex-direction: column;
+  //   width: 438px;
+  // `
 
   return (
     <Content>
@@ -74,7 +74,7 @@ export default function Step1() {
       </div>
       <BlueTittle>Condições para realização da avaliação</BlueTittle>
       <Divisor />
-      <Questionfield />
+      <QuestionProps title="01 - Está descansado hoje?" radioButtons={['sim', 'não']} textInput={true} />
     </Content>
   )
 }

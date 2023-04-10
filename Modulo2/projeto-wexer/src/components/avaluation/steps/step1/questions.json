@@ -1,47 +1,95 @@
-
 {
-    "Questions": [
-        {
-            "tittle": "01 - Está descansado hoje?",
-            "answer": ["sim", "não"] ,
-            "text field": "Por quê?"
-            
-        },
-        {
-            "tittle": "02 - Dormiu bem esta noite?",
-            "answer": ["sim", "não"] ,
-            "text field": "Quantas horas?"
-        
-        },
-        {
-            "tittle": "03 - Está alimentado?",
-            "answer": ["sim", "não"] ,
-            "text field": false
-        
-        },
-        {
-            "tittle": "04 - Fez uso de bebida alcoólica nas últimas horas?",
-            "answer": ["sim", "não"] ,
-            "text field": false
-        
-        },
-        {
-            "tittle": "05 - Fez uso de alguma medicação ontem/hoje?",
-            "answer": ["sim", "não"] ,
-            "text field": "Qual (is)?"
-        
-        },
-        {
-            "tittle": "06 - Faz uso de lentes corretivas/óculos?",
-            "answer": ["sim", "não"] ,
-            "text field": false
-        
-        },
-        {
-            "tittle": "07 - Considera-se em boas condições para realização da avaliação psicológica? ",
-            "answer": ["sim", "não"] ,
-            "text field": "Por quê?"
-        
-        }
-    ]
+  "questionList": [
+    {"divisor": "Condições para realização da avaliação"},
+    {
+      "title": "01 - Está descansado hoje?",
+      "answer": ["Sim", "Não"],
+      "text_field": "Por quê?"
+    },
+    {
+      "title": "02 - Dormiu bem esta noite?",
+      "answer": ["Sim", "Não"],
+      "text_field": "Quantas horas?"
+    },
+    {
+      "title": "03 - Está alimentado?",
+      "answer": ["Sim", "Não"],
+      "text_field": false
+    },
+    {
+      "title": "04 - Fez uso de bebida alcoólica nas últimas horas?",
+      "answer": ["Sim", "Não"],
+      "text_field": false
+    },
+    {
+      "title": "05 - Fez uso de alguma medicação ontem/hoje?",
+      "answer": ["Sim", "Não"],
+      "text_field": "Qual (is)?"
+    },
+    {
+      "title": "06 - Faz uso de lentes corretivas/óculos?",
+      "answer": ["Sim", "Não"],
+      "text_field": false
+    },
+    {
+      "title": "07 - Considera-se em boas condições para realização da avaliação psicológica? ",
+      "answer": ["Sim", "Não"],
+      "text_field": "Por quê?"
+    },
+    {"divisor": "Histórico familiar"},
+    {"title": "08 - Estado Civil:",
+    "answer": ["Divorciado", "Viúvo", "Solteiro", "Casado", "União Estável"],
+    "text_field": false},{
+      "title": "09 - Possui Filhos",
+      "answer": ["Sim", "Não"],
+      "text_field": "Quantos e qual a idade?"
+    },{"title": "10 - Com quem você mora?", "text_field": ""
+    } , {"title": "11 - Está enfrentando problemas familiares?", "answer": ["Sim", "Não"], "text_field": "Quais?"
+  }, {"title":"12 - Possui irmãos?",   "answer": ["Sim", "Não"], "text_field":"Quantos"
+  },{
+    "title": "13 - Como é seu relacionamento com sua família?", "text_field": ""
+  },{
+    "title": "14- Na família existe alguém que necessite de cuidados médicos ou psicológicos?", "answer": ["Sim", "Não"], "text_field": "Nota"
+  }, {"divisor": "Vida profissional"},
+  {"title": "15 - Atualmente: ", "answer":["Aposentado", "Desempregado", "Nunca trabalhou", "Está Trabalhando"]},
+  {"title":"16 - Função desempenhada? Há quanto tempo?", "text_field":""},
+  {"title":"17 - Está satisfeito com o que faz?", "answer": ["Sim", "Não"], "text_field":"Por quê?"},
+  {"title":"19 - Está afastado pelo INSS?", "answer": ["Sim", "Não"], "text_field": "Por qual motivo?"},
+  {"divisor": "Vida escolar"}, 
+  {"title": "20 - Escolaridade:", "answer":["Superior incompleto","Superior completo","Médio incompleto","Médio completo","Fundamental incompleto","Fundamental completo","Primário","Alfabetizado"]},
+  {"title":"21 - Está estudando? ", "answer": ["Sim", "Não"], "text_field":"Parou há quanto tempo? "},
+  {"title":"22 - Ensino:", "answer":["Regular","Supletivo","A distância"], "text_field":"Nota"},
+  {"divisor": "Saúde"},
+  {"title":"23 - Tem ou já teve problema de saúde com necessidade de acompanhamento médico/psicológico?", "answer": ["Sim", "Não"],"text_field":"Qual?"},
+  {"title": "24 - Faz uso de medicamentos?", "answer": ["Sim", "Não"], "text_field": "Qual (is)?"},
+  {"title": "25 -Possui deficiência?", "answer":["Visual","Fala","Auditiva","Física","Não"], "text_field":"Qual?"},
+  {"title":"26 - Sente desmaios, tontura, mal estar, dores de cabeça constantes, crises convulsivas? ", "answer": ["Sim", "Não"]},
+  {"title":"27 - Já sofreu algum acidente, tombo, fratura, pancada na cabeça? ", "answer": ["Sim", "Não"]},
+  {"title": " 28 - Pratica alguma atividade física?", "answer": ["Sim", "Não"], "text_field":"Quais?"},
+  {"divisor": "Hábitos e conduta social"},
+  {"title":"29 - Faz uso de cigarros? ", "answer": ["Sim", "Não"], "text_field":"Quantos por dia?"},
+  {"title": " 30 - É ex-fumante?", "answer": ["Sim", "Não"], "text_field":"Há quanto tempo "},
+  {"title":"31 - Faz ingestão de café? ", "answer": ["Sim", "Não"], "text_field":"Frequência:"},
+  {"title": "32 - Faz uso de bebida alcoólica?", "answer": ["Sim", "Não"], "text_field":"Quantidade/frequência:"},
+  {"title":" 33 - Já usou ou usa algum tipo de droga?", "answer": ["Sim", "Não"], "text_field":"Qual/frequência: "},
+  {"title":"34 - Faz/fez tratamento para deixar de usar?", "answer": ["Sim", "Não"], "text_field":"Por quê?"},
+  {"title":"35 - Quais são suas atividades de lazer, hobbies?", "text_field":""},
+  {"title":"36 - Pratica alguma religião?", "answer": ["Sim", "Não"], "text_field":"Qual/frequência:"},
+  {"title":"37 - Houve alguma mudança na sua rotina nas últimas semanas?", "answer": ["Sim", "Não"], "text_field":"Nota"},
+  {"title":"38 - Possui antecedente penal/criminal?", "answer": ["Sim", "Não"]},
+  {"title":"39 - Já teve passagem pela delegacia? ", "answer": ["Sim", "Não"], "text_field":"Nota"},
+  {"title":"40 - Qual a sua meta de vida?", "text_field":""},
+  {"title":"41 - Fale sobre você: 1 ponto positivo e 1 ponto negativo:", "text_field":""},
+  {"title":"42 - Sugestão para redução de acidentes no trânsito: ", "text_field":""},
+  {"divisor":"Complementos para atividade remunerada como condutor"},
+  {"title":"43 - Já possui experiência como motorista profissional?", "answer": ["Sim", "Não"], "text_field":"Tempo/Carga:"},
+  {"title":"44  - Já passou por alguma situação de perigo no trânsito?", "answer": ["Sim", "Não"], "text_field":"Qual?"},
+  {"title":"45 - Fale sobre uma situação que te deixou mais irritado no trânsito: ", "text_field":""},
+  {"title":"46 - Já sofreu acidente de trânsito?", "answer": ["Sim", "Não"], "text_field":"Qual?"},
+  {"title":"47 - Teve multas, ponto na CNH? ", "answer": ["Sim", "Não"], "text_field":"Por quê?"},
+  {"title":"48 - CNH já foi apreendida ou cassada?", "answer": ["Sim", "Não"], "text_field":"Porque/quando?"},
+  {"title":"49 - Usa algum estimulante para dirigir?", "text_field":"Qual?"},
+  {"title":"50 - Quando está dirigindo e recebe uma ligação ou percebe que chegou uma mensagem no celular, como reage?", "text_field":""},
+  {"title":"51 - Quando você é convidado para um evento em que você fará uso de bebida alcoólica, como se organiza, com relação à condução do veículo?", "text_field":""}
+  ]
 }

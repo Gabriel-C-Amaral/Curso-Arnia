@@ -1,17 +1,30 @@
 import styled from 'styled-components'
-// import questions from './questions.json'
-import QuestionProps from './teste'
+import jsonData from './questions.json'
+import QuestionProps from './question'
+
+type QuestionData = {
+  title?: string
+  answer?: string[]
+  text_field?: string | boolean
+  divisor?: string
+}
 
 export default function Step1() {
+  const questionList = jsonData.questionList as QuestionData[]
+
   const Content = styled.div`
+    font-family: 'Montserrat';
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     width: 954px;
     padding-left: 24px;
     padding-right: 144px;
     padding-top: 24px;
     background: #ffffff;
     position: relative;
+    justify-content: space-between;
     left: 14px;
   `
 
@@ -35,13 +48,13 @@ export default function Step1() {
       color: #c2c2c2;
     }
   `
-  const TittleQuestion = styled.div`
+  const TitleQuestion = styled.div`
     justify-content: space-between;
     display: flex;
     margin-bottom: 12px;
   `
 
-  const BlueTittle = styled.div`
+  const Bluetitle = styled.div`
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
@@ -66,15 +79,30 @@ export default function Step1() {
   return (
     <Content>
       <div>
-        <TittleQuestion>
+        <TitleQuestion>
           <Title>Sistese da Entrevista</Title>
           <img src="src\images\questionMarkIcon.svg" />
-        </TittleQuestion>
+        </TitleQuestion>
         <Sintese placeholder=" Nos dados registrados e observados durante a entrevista o(a) avaliado(a) declarou estar..." />
       </div>
-      <BlueTittle>Condições para realização da avaliação</BlueTittle>
-      <Divisor />
-      <QuestionProps title="01 - Está descansado hoje?" radioButtons={['sim', 'não']} textInput={true} />
+      {questionList.map((questionlist: QuestionData, index: number) => (
+        <div key={index}>
+          {questionlist.divisor && (
+            <>
+              <Bluetitle>{questionlist.divisor}</Bluetitle>
+              <Divisor />
+            </>
+          )}
+          {typeof questionlist.title === 'string' && (
+            <QuestionProps
+              title={questionlist.title}
+              radioButtons={questionlist.answer}
+              textInput={typeof questionlist.text_field === 'string'}
+              textInputLabel={questionlist.text_field}
+            />
+          )}
+        </div>
+      ))}
     </Content>
   )
 }

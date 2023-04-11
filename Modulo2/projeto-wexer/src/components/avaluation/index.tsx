@@ -6,15 +6,17 @@ export default function AvaluationPage() {
   const Container = styled.div`
     display: flex;
     width: calc(100% - 80px);
-    height: calc(100% - 80px);
     position: relative;
     top: 100px;
     left: 80px;
     flex-direction: column;
+    align-items: center;
     gap: 24px;
+    background-color: aliceblue;
   `
   const Header = styled.div`
     width: calc(100vw - 100px);
+    left: 40px;
     height: 48px;
     background: #ffffff;
     border-radius: 16px 0 0 16px;
@@ -35,9 +37,19 @@ export default function AvaluationPage() {
   const Content = styled.div`
     position: relative;
     width: 80vw;
-    height: 500px;
     left: 37px;
     margin-top: 16px;
+  `
+  const BacktoTop = styled.div`
+    position: relative;
+    width: 175px;
+    height: 27px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+    margin: 70px;
   `
 
   return (
@@ -59,6 +71,7 @@ export default function AvaluationPage() {
         <HeaderSteps steps="step1" />
         <Step1 />
       </Content>
+      <BacktoTop>Voltar ao topo</BacktoTop>
     </Container>
   )
 }

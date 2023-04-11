@@ -70,11 +70,6 @@ export default function Step1() {
     margin-top: 16px;
     margin-bottom: 16px;
   `
-  // const Questionfield = styled.div`
-  //   display: flex;
-  //   flex-direction: column;
-  //   width: 438px;
-  // `
 
   return (
     <Content>

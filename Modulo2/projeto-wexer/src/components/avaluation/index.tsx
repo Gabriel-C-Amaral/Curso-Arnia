@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import HeaderSteps from './steps/HeaderSteps'
 import Step1 from './steps/step1'
+import ScrollToTopButton from '../backtotop'
 
 export default function AvaluationPage() {
   const Container = styled.div`
@@ -12,7 +13,6 @@ export default function AvaluationPage() {
     flex-direction: column;
     align-items: center;
     gap: 24px;
-    background-color: aliceblue;
   `
   const Header = styled.div`
     width: calc(100vw - 100px);
@@ -40,17 +40,6 @@ export default function AvaluationPage() {
     left: 37px;
     margin-top: 16px;
   `
-  const BacktoTop = styled.div`
-    position: relative;
-    width: 175px;
-    height: 27px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 170%;
-    margin: 70px;
-  `
 
   return (
     <Container>
@@ -71,7 +60,7 @@ export default function AvaluationPage() {
         <HeaderSteps steps="step1" />
         <Step1 />
       </Content>
-      <BacktoTop>Voltar ao topo</BacktoTop>
+      <ScrollToTopButton />
     </Container>
   )
 }

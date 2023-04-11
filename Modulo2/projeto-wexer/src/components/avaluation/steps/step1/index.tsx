@@ -71,6 +71,16 @@ export default function Step1() {
     margin-bottom: 16px;
   `
 
+  const BottomButtons = styled.div`
+    width: 100%;
+    height: 55px;
+    padding: 55px;
+    gap: 30px;
+    position: relative;
+    display: flex;
+    align-items: start;
+  `
+
   return (
     <Content>
       <div>
@@ -98,6 +108,9 @@ export default function Step1() {
           )}
         </div>
       ))}
+      <BottomButtons>
+        <img src="src\images\saveBtn.svg" /> <img src="src\images\skipBtn.svg" />
+      </BottomButtons>
     </Content>
   )
 }

@@ -30,7 +30,7 @@ export default function ScrollToTopButton() {
     position: relative;
     bottom: 20px;
     z-index: 999;
-    right: 50%;
+    /* right: 50%; */
     width: 175px;
     height: 27px;
     font-family: 'Montserrat';
@@ -40,11 +40,21 @@ export default function ScrollToTopButton() {
     line-height: 170%;
     margin: 70px;
   `
+  const StyledButton = styled.div`
+    :hover {
+      cursor: pointer;
+    }
+    display: flex;
+    justify-content: space-around;
+  `
 
   return (
     <IfButton>
-      {/* Render the scroll-to-top button only when showButton is true */}
-      {showButton && <button onClick={scrollToTop}>Scroll to Top</button>}
+      {showButton && (
+        <StyledButton onClick={scrollToTop}>
+          <img src="src\images\arrowDoubleUP.svg" /> Voltar para o topo
+        </StyledButton>
+      )}
     </IfButton>
   )
 }

@@ -8,21 +8,25 @@ export default function HeaderSteps(prop: Props) {
   let img1
   let img2
   let img3
+  let steptitle
 
   if (prop.steps === 'step1') {
     img1 = 'src/images/step1active.svg'
     img2 = 'src/images/step2waiting.svg'
     img3 = 'src/images/step3waiting.svg'
+    steptitle = 'Entrevista Psicológica'
   }
   if (prop.steps === 'step2') {
     img1 = 'src/images/step1done.svg'
     img2 = 'src/images/step2active.svg'
     img3 = 'src/images/step3waiting.svg'
+    steptitle = 'Aplicação de Teste'
   }
   if (prop.steps === 'step3') {
     img1 = 'src/images/step1done.svg'
     img2 = 'src/images/step2done.svg'
     img3 = 'src/images/step3active.svg'
+    steptitle = 'Observação Comportamental'
   }
 
   const Container = styled.div`
@@ -81,7 +85,7 @@ export default function HeaderSteps(prop: Props) {
       </Header>
       <Content>
         <ContentHeader>
-          Entrevista Psicológica
+          {steptitle}
           <Buttons>
             <img src="src\images\saveBtn.svg" />
             <img src="src\images\skipBtn.svg" />

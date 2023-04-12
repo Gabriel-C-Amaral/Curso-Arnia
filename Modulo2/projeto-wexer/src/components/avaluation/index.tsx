@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import HeaderSteps from './steps/HeaderSteps'
-import Step1 from './steps/step1'
+// import Step1 from './steps/step1'
+import Step2 from './steps/step2'
+// import Step3 from './steps/step3'
 import ScrollToTopButton from '../backtotop'
 
 export default function AvaluationPage() {
@@ -57,8 +59,8 @@ export default function AvaluationPage() {
         </InsideHeader>
       </Header>
       <Content>
-        <HeaderSteps steps="step1" />
-        <Step1 />
+        <HeaderSteps steps="step2" />
+        <Step2 />
       </Content>
       <ScrollToTopButton />
     </Container>

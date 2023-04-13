@@ -37,6 +37,7 @@ export default function Testes() {
     height: 264px;
     border-radius: 8px;
     background-color: #f2f2f2;
+    padding-top: 10px;
   `
 
   return (
@@ -44,7 +45,7 @@ export default function Testes() {
       <Header>
         <Title>Atenção Concentrada/Seletiva</Title> <EraseIcon src="src\images\eraseIcon.svg" />
       </Header>
-      <Body></Body>
+      <Body> sasasasasasa</Body>
     </Container>
   )
 }

@@ -13,8 +13,8 @@ export default function Testes() {
     border-radius: 16px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     z-index: 2;
+    justify-content: space-between;
   `
   const Title = styled.div`
     width: 529px;
@@ -24,20 +24,55 @@ export default function Testes() {
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
+    position: relative;
+    left: 24px;
   `
 
   const EraseIcon = styled.img`
     width: 32px;
     height: 24px;
+    position: relative;
+    right: 24px;
   `
 
   const Body = styled.div`
     margin-top: -10px;
-    width: 816px;
+    width: 791px;
     height: 264px;
     border-radius: 8px;
     background-color: #f2f2f2;
     padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    padding-left: 25px;
+  `
+  const MediumField = styled.input`
+    background-color: #e0e0e0;
+    border: 1px solid #bdbdbd;
+    border-radius: 8px;
+    width: 161px;
+    height: 50px;
+  `
+  const InputContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  `
+  const InputLabel = styled.label`
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 5px;
+  `
+  const LargeContainer = styled.input`
+    width: 671px;
+    height: 59px;
+    background: #e0e0e0;
+    border: 1px solid #bdbdbd;
+    border-radius: 16px;
   `
 
   return (
@@ -45,7 +80,28 @@ export default function Testes() {
       <Header>
         <Title>Atenção Concentrada/Seletiva</Title> <EraseIcon src="src\images\eraseIcon.svg" />
       </Header>
-      <Body> sasasasasasa</Body>
+      <Body>
+        <InputContainer>
+          <InputLabel>Nome</InputLabel>
+          <MediumField type="text" />
+        </InputContainer>
+        <InputContainer>
+          <InputLabel>Número de pontos</InputLabel>
+          <MediumField type="text" />
+        </InputContainer>
+        <InputContainer>
+          <InputLabel>Percentil</InputLabel>
+          <MediumField type="text" />
+        </InputContainer>
+        <InputContainer>
+          <InputLabel>Resultado</InputLabel>
+          <MediumField type="text" />
+        </InputContainer>
+        <InputContainer>
+          <InputLabel>Obs:</InputLabel>
+          <LargeContainer />
+        </InputContainer>
+      </Body>
     </Container>
   )
 }

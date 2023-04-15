@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export default function Testes() {
+type Props = {
+  title: string
+}
+
+export default function Testes(props: Props) {
   const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -78,7 +82,7 @@ export default function Testes() {
   return (
     <Container>
       <Header>
-        <Title>Atenção Concentrada/Seletiva</Title> <EraseIcon src="src\images\eraseIcon.svg" />
+        <Title>{props.title}</Title> <EraseIcon src="src\images\eraseIcon.svg" />
       </Header>
       <Body>
         <InputContainer>

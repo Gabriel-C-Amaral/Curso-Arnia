@@ -77,6 +77,15 @@ export default function Testes(props: Props) {
     background: #e0e0e0;
     border: 1px solid #bdbdbd;
     border-radius: 16px;
+    padding-left: 15px;
+    ::placeholder {
+      color: #303030;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
   `
 
   return (
@@ -103,7 +112,7 @@ export default function Testes(props: Props) {
         </InputContainer>
         <InputContainer>
           <InputLabel>Obs:</InputLabel>
-          <LargeContainer />
+          <LargeContainer placeholder="Descrição da observação" />
         </InputContainer>
       </Body>
     </Container>

@@ -1,8 +1,8 @@
 import { Normalize } from 'styled-normalize'
 import './styles.css'
 import HeaderMenu from '../header-sidemenu'
-// import Prontuário from '../prontuário'
-import AvaluationPage from '../avaluation'
+import Prontuário from '../prontuário'
+// import AvaluationPage from '../avaluation'
 import React, { useEffect, useState } from 'react'
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
     <div className="App">
       <Normalize />
       <HeaderMenu name={name} />
-      {/* <Prontuário /> */}
-      <AvaluationPage />
+      <Prontuário />
+      {/* <AvaluationPage /> */}
     </div>
   )
 }

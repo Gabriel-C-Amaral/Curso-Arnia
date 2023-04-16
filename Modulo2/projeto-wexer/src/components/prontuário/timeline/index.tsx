@@ -7,8 +7,6 @@ function TimelineContainer() {
     width: 924px;
     height: 900px;
     position: relative;
-    /* left: 502px;
-    top: 392px; */
     flex-direction: column;
   `
 

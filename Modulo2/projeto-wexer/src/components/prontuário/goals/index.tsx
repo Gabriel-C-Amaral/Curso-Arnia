@@ -6,6 +6,21 @@ import TextEditor from '../modals/textEditor'
 function Goals() {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
+  const [demands, setdemands] = React.useState('')
+
+  React.useEffect(() => {
+    fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE2NTU0NzksImV4cCI6MTY4MTc0MTg3OX0.eXCMfO0s3eLODfpjRO8O3qvTB-H_nwucBhCHPoO32HU',
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => setdemands(data.demands))
+      .catch(error => console.error('Error fetching name:', error))
+  }, [])
 
   const Card = styled.div`
     width: 339px;
@@ -15,7 +30,6 @@ function Goals() {
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     position: relative;
-    /* top: 599px; */
   `
   const Title = styled.div`
     position: absolute;
@@ -61,10 +75,7 @@ function Goals() {
       />
       <Title>Demandas e objetivos</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
-      <Content>
-        No dia 12 de fevereiro de 2015, a paciente B. A. V, 40 anos, solteira e residente na cidade de Manaus, procurou
-        atendimento psicológico em virtude de estar apresentando...
-      </Content>
+      <Content>{demands}</Content>
     </Card>
   )
 }

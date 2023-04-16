@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import PopOver from './popover'
-// import Testes from './testes'
 
 export default function Step2() {
   const Content = styled.div`
@@ -21,7 +20,6 @@ export default function Step2() {
 
   return (
     <Content>
-      {/* <Testes title="Atenção Concentrada/Seletiva" /> */}
       <PopOver />
     </Content>
   )

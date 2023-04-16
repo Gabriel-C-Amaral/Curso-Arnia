@@ -7,8 +7,7 @@ export default function PopOver() {
   const [options, setOptions] = useState([
     { label: 'Atenção Concentrada/Seletiva', checked: false },
     { label: 'Memória', checked: false },
-    { label: 'Inteligência', checked: false },
-    { label: 'Personalidade', checked: false }
+    { label: 'Inteligência', checked: false }
   ])
   const [mappedTests, setTests] = useState(<></>)
   const [shownPlease, setShow] = useState('contents')

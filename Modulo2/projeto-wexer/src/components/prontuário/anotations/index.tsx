@@ -4,6 +4,21 @@ import * as React from 'react'
 import TextEditor from '../modals/textEditor'
 
 function Anotations() {
+  const [personalAnnotations, setpersonalAnnotations] = React.useState('')
+
+  React.useEffect(() => {
+    fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE2NTU0NzksImV4cCI6MTY4MTc0MTg3OX0.eXCMfO0s3eLODfpjRO8O3qvTB-H_nwucBhCHPoO32HU',
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => setpersonalAnnotations(data.personalAnnotations))
+      .catch(error => console.error('Error fetching name:', error))
+  }, [])
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
 
@@ -60,10 +75,7 @@ function Anotations() {
       />
       <Title>Anotações Pessoais</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
-      <Content>
-        Na sessão de hoje consegui identificar alguns sintomas de ansiedade através da fala e comportamento da paciente.
-        Tal como: inquietação e medos.
-      </Content>
+      <Content>{personalAnnotations}</Content>
     </Card>
   )
 }

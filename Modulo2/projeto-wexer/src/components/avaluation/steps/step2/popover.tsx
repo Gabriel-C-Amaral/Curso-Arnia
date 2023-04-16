@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
+import Testes from './testes'
 
 export default function PopOver() {
   const [showPopover, setShowPopover] = useState(false)
@@ -9,6 +10,8 @@ export default function PopOver() {
     { label: 'Inteligência', checked: false },
     { label: 'Personalidade', checked: false }
   ])
+  const [mappedTests, setTests] = useState(<></>)
+  const [shownPlease, setShow] = useState('contents')
 
   const handleCheckboxChange = (index: number) => {
     const updatedOptions = [...options]
@@ -17,11 +20,15 @@ export default function PopOver() {
   }
 
   const handleSaveButtonClick = () => {
-    //  saving logic here
-    alert('Save button clicked!')
+    setTests(
+      <>{options.map((option, index) => (option.checked ? <Testes key={index} title={option.label} /> : null))}</>
+    )
+
+    setShowPopover(!showPopover)
   }
 
   const handlePopoverClick = () => {
+    setShow('none')
     setShowPopover(!showPopover)
   }
 
@@ -97,23 +104,30 @@ export default function PopOver() {
     font-size: 16px;
     line-height: 20px;
   `
+  const PleaseText = styled.span`
+    display: ${shownPlease};
+  `
 
   return (
-    <PopOverContainer>
-      <AddField onClick={handlePopoverClick}>
-        Por favor, adicione um teste <ImgButton src="src\images\addButton.svg" />
-      </AddField>
-      {showPopover && (
-        <Teste>
-          {options.map((option, index) => (
-            <OptionContainer key={index}>
-              <OptionCheckbox type="checkbox" checked={option.checked} onChange={() => handleCheckboxChange(index)} />
-              {option.label}
-            </OptionContainer>
-          ))}
-          {options.some(option => option.checked) && <SaveButton onClick={handleSaveButtonClick}>Save</SaveButton>}
-        </Teste>
-      )}
-    </PopOverContainer>
+    <>
+      {mappedTests}
+      <PopOverContainer>
+        <AddField onClick={handlePopoverClick}>
+          <PleaseText>Por favor, adicione um teste </PleaseText>
+          <ImgButton src="src\images\addButton.svg" />
+        </AddField>
+        {showPopover && (
+          <Teste>
+            {options.map((option, index) => (
+              <OptionContainer key={index}>
+                <OptionCheckbox type="checkbox" checked={option.checked} onChange={() => handleCheckboxChange(index)} />
+                {option.label}
+              </OptionContainer>
+            ))}
+            {options.some(option => option.checked) && <SaveButton onClick={handleSaveButtonClick}>Save</SaveButton>}
+          </Teste>
+        )}
+      </PopOverContainer>
+    </>
   )
 }

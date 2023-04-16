@@ -55,10 +55,11 @@ function HeaderMenu(name: nameType) {
     align-items: center;
   `
   const BoxName = styled.div`
-    width: 281px;
+    width: fit-content;
     height: 29px;
     display: flex;
     align-items: center;
+    margin-right: 30px;
     gap: 14px;
   `
   const BoldName = styled.span`

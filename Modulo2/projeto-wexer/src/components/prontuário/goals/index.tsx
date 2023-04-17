@@ -12,7 +12,7 @@ function Goals() {
     fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE2NTU0NzksImV4cCI6MTY4MTc0MTg3OX0.eXCMfO0s3eLODfpjRO8O3qvTB-H_nwucBhCHPoO32HU',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE3NDMwMTMsImV4cCI6MTY4MTgyOTQxM30.p1k4Ljg0AYvO5GEkS-SM4Jd7lBIMce3WCAK0i-Z464U',
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'
       }

@@ -3,22 +3,11 @@ import ModalContainer from '../modals'
 import * as React from 'react'
 import TextEditor from '../modals/textEditor'
 
-function Anotations() {
-  const [personalAnnotations, setpersonalAnnotations] = React.useState('')
+type Prop = {
+  content: string
+}
 
-  React.useEffect(() => {
-    fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
-      headers: {
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE3NDMwMTMsImV4cCI6MTY4MTgyOTQxM30.p1k4Ljg0AYvO5GEkS-SM4Jd7lBIMce3WCAK0i-Z464U',
-        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => response.json())
-      .then(data => setpersonalAnnotations(data.personalAnnotations))
-      .catch(error => console.error('Error fetching name:', error))
-  }, [])
+function Anotations(prop: Prop) {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
 
@@ -75,7 +64,7 @@ function Anotations() {
       />
       <Title>Anotações Pessoais</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
-      <Content>{personalAnnotations}</Content>
+      <Content>{prop.content}</Content>
     </Card>
   )
 }

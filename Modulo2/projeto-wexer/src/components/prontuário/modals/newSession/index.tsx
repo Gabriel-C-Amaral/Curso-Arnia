@@ -1,6 +1,45 @@
 import styled from 'styled-components'
+import React, { useState } from 'react'
+
+interface Payment {
+  value: number
+  method: string
+  status: string
+}
+
+interface FormData {
+  patientId: string
+  payment: Payment
+  title: string
+  content: string
+  type: string
+  date: string
+  hour: string
+}
 
 export default function NewSession() {
+  const [formData, setFormData] = useState<FormData>({
+    patientId: '64348d31d1f55efc1d6dcdda',
+    payment: {
+      value: 0,
+      method: '',
+      status: ''
+    },
+    title: '',
+    content: '',
+    type: '',
+    date: '',
+    hour: ''
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: value
+    }))
+  }
+
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -161,11 +200,11 @@ export default function NewSession() {
       <InputContainer>
         <div>
           <Label htmlFor="date">Data:*</Label>
-          <InputLittle id="date" type="date" />
+          <InputLittle id="date" type="date" value={formData.date} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="start">Hora de Inicio:*</Label>
-          <InputLittle id="start" type="time" />
+          <InputLittle id="start" type="time" value={formData.hour} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="end">Hora fim*</Label>
@@ -180,11 +219,11 @@ export default function NewSession() {
       </Title>
       <div>
         <Label>Titulo*</Label>
-        <InputMedium type="text" />
+        <InputMedium name="title" type="text" value={formData.title} onChange={handleChange} />
       </div>
       <div>
         <Label>Resumo da sessão*</Label>
-        <InputLarge />
+        <InputLarge name="content" value={formData.content} onChange={handleChange} />
       </div>
       <div>
         <Divisor />
@@ -195,11 +234,11 @@ export default function NewSession() {
       <InputContainer>
         <div>
           <Label htmlFor="price">Valor</Label>
-          <InputLittle id="price" type="number" />
+          <InputLittle name="value" id="price" type="number" value={formData.payment.value} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="payment">Forma de Pagamento</Label>
-          <Selector id="payment">
+          <Selector name="method" id="payment" value={formData.payment.method} onChange={handleChange}>
             <option value="pix">Pix</option>
             <option value="credito">Cartão de Crédito</option>
             <option value="debito">Cartão de Débito</option>
@@ -209,10 +248,16 @@ export default function NewSession() {
         <div>
           <Label htmlFor="paid">Status</Label>
           <RadioDiv>
-            <input type="radio" id="paid" name="contact" value="email" />
+            <input type="radio" id="paid" name="status" value="paid" checked={formData.payment.status === 'paid'} />
             <label htmlFor="paid">Pago</label>
 
-            <input type="radio" id="notpaid" name="contact" value="phone" />
+            <input
+              type="radio"
+              id="notpaid"
+              name="status"
+              value="notpaid"
+              checked={formData.payment.status === 'notpaid'}
+            />
             <label htmlFor="notpaid">Não pago</label>
           </RadioDiv>
         </div>

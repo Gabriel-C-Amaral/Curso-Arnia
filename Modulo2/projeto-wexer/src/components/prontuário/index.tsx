@@ -32,7 +32,7 @@ function Prontuário() {
     fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE3NDMwMTMsImV4cCI6MTY4MTgyOTQxM30.p1k4Ljg0AYvO5GEkS-SM4Jd7lBIMce3WCAK0i-Z464U',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE4Mjk1NTUsImV4cCI6MTY4MTkxNTk1NX0.NAMFkqzEszD0tTxu_3kWoH1NBA4SlV83N-xuKfLtwUU',
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'
       }
@@ -83,8 +83,8 @@ function Prontuário() {
             occupation={apiData.profession}
             education={apiData.schooling}
           />
-          <Goals />
-          <Anotations />
+          <Goals content={apiData.demands} />
+          <Anotations content={apiData.personalAnnotations} />
         </SideContainer>
         <CentralContainer>
           <HeadMenu />

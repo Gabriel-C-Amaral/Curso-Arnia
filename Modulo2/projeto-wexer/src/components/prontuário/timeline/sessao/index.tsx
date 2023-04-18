@@ -2,8 +2,10 @@ import styled from 'styled-components'
 
 type sessionData = {
   text: string
-  date?: string
-  card: 'session' | 'fact' | 'docs' | 'avaluation' | 'anotations'
+  date: string
+  card: string
+  title: string
+  position: number
 }
 function truncateString(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -19,11 +21,26 @@ function truncateString(str: string, maxLength: number) {
   return str.substring(0, lastSpaceIndex)
 }
 
+function formatDateToDDMMYYYY(dateString: string) {
+  const date = new Date(dateString)
+  const day = String(date.getUTCDate()).padStart(2, '0')
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+  const year = String(date.getUTCFullYear())
+  return `${day}/${month}/${year}`
+}
+
 function Sessao(prop: sessionData) {
   const truncatedText = truncateString(prop.text, 300)
   let color: string
   let icon: string
   let ball: string
+  let isShow: string
+
+  if (prop.position == 1) {
+    isShow = 'none'
+  } else {
+    isShow = 'block'
+  }
 
   switch (prop.card) {
     case 'session':
@@ -32,21 +49,21 @@ function Sessao(prop: sessionData) {
       ball = 'src/images/greenBall.svg'
 
       break
-    case 'fact':
+    case 'relevant_fact':
       color = '#2F80ED'
       icon = 'src/images/pinIconVoid.svg'
       ball = 'src/images/blueBall.svg'
 
       break
 
-    case 'docs':
+    case 'attachment':
       color = '#9D28AC'
       icon = 'src/images/ClipsIconVoid.svg'
       ball = 'src/images/purppleBall.svg'
 
       break
 
-    case 'avaluation':
+    case 'assessment':
       color = '#EA1E61'
       icon = 'src/images/boardIconVoid.svg'
       ball = 'src/images/pinkBall.svg'
@@ -81,12 +98,13 @@ function Sessao(prop: sessionData) {
     font-family: 'Montserrat';
     font-style: normal;
     display: Flex;
+    margin-bottom: 50px;
   `
   const Title = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 22px;
-    width: 86px;
+    width: 300px;
     height: 22px;
     color: #000000;
     position: Relative;
@@ -104,6 +122,19 @@ function Sessao(prop: sessionData) {
     top: 66px;
     color: #616161;
   `
+
+  const UpperDivisor = styled.div`
+    position: absolute;
+    top: -55px;
+    left: 40px;
+
+    width: 5px;
+    height: 35px;
+    background-color: ${color};
+    display: ${isShow};
+    z-index: -1;
+  `
+
   const Body = styled.div`
     position: absolute;
     width: 881px;
@@ -152,10 +183,11 @@ function Sessao(prop: sessionData) {
 
   return (
     <Container>
+      <UpperDivisor />
       <BallIcon src={ball} />
       <InsideIcon src={icon} />
-      <Title>Sessão 01</Title>
-      <Subtitle>{prop.date}</Subtitle>
+      <Title>{prop.title}</Title>
+      <Subtitle>{formatDateToDDMMYYYY(prop.date)}</Subtitle>
       <Body>
         {truncatedText}...
         <Link href="https://www.google.com.br/">Ver mais</Link>

@@ -3,24 +3,12 @@ import ModalContainer from '../modals'
 import * as React from 'react'
 import TextEditor from '../modals/textEditor'
 
-function Goals() {
+type Prop = {
+  content: string
+}
+function Goals(prop: Prop) {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
-  const [demands, setdemands] = React.useState('')
-
-  React.useEffect(() => {
-    fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
-      headers: {
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODE3NDMwMTMsImV4cCI6MTY4MTgyOTQxM30.p1k4Ljg0AYvO5GEkS-SM4Jd7lBIMce3WCAK0i-Z464U',
-        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
-        'Content-Type': 'application/json'
-      }
-    })
-      .then(response => response.json())
-      .then(data => setdemands(data.demands))
-      .catch(error => console.error('Error fetching name:', error))
-  }, [])
 
   const Card = styled.div`
     width: 339px;
@@ -75,7 +63,7 @@ function Goals() {
       />
       <Title>Demandas e objetivos</Title>
       <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
-      <Content>{demands}</Content>
+      <Content>{prop.content}</Content>
     </Card>
   )
 }

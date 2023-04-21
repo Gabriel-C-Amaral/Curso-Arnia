@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { Dispatch, SetStateAction } from 'react'
+import React, { useState } from 'react'
 
 interface Payment {
   value: number
@@ -168,30 +168,17 @@ const RadioDiv = styled.div`
   align-items: center;
   justify-content: space-around;
 `
-type Props = {
-  save: () => void
-  // eslint-disable-next-line no-empty-pattern
-  setFormData: Dispatch<SetStateAction<FormData>>
+// type Props = {
+//   save: () => void
+//   // eslint-disable-next-line no-empty-pattern
+//   setFormData: Dispatch<SetStateAction<FormData>>
 
-  form: FormData
-}
+//   form: FormData
+// }
 
-export default function NewSession({ form, setFormData }: Props) {
-  setFormData({
-    patientId: '64348d31d1f55efc1d6dcdda',
-    payment: {
-      value: 0,
-      method: '',
-      status: ''
-    },
-    title: '',
-    content: '',
-    type: '',
-    date: '',
-    hour: ''
-  })
-
-  // const [formData, setFormData] = useState<FormData>({
+// export default function NewSession({ form, setFormData }: Props) {
+export default function NewSession() {
+  // setFormData({
   //   patientId: '64348d31d1f55efc1d6dcdda',
   //   payment: {
   //     value: 0,
@@ -204,6 +191,20 @@ export default function NewSession({ form, setFormData }: Props) {
   //   date: '',
   //   hour: ''
   // })
+
+  const [formData, setFormData] = useState<FormData>({
+    patientId: '64348d31d1f55efc1d6dcdda',
+    payment: {
+      value: 0,
+      method: '',
+      status: ''
+    },
+    title: '',
+    content: '',
+    type: '',
+    date: '',
+    hour: ''
+  })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -221,11 +222,11 @@ export default function NewSession({ form, setFormData }: Props) {
       <InputContainer>
         <div>
           <Label htmlFor="date">Data:*</Label>
-          <InputLittle id="date" type="date" value={form.date} onChange={handleChange} />
+          <InputLittle id="date" type="date" value={formData.date} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="start">Hora de Inicio:*</Label>
-          <InputLittle id="start" type="time" value={form.hour} onChange={handleChange} />
+          <InputLittle id="start" type="time" value={formData.hour} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="end">Hora fim*</Label>
@@ -240,11 +241,11 @@ export default function NewSession({ form, setFormData }: Props) {
       </Title>
       <div>
         <Label>Titulo*</Label>
-        <InputMedium name="title" type="text" value={form.title} onChange={handleChange} />
+        <InputMedium name="title" type="text" value={formData.title} onChange={handleChange} />
       </div>
       <div>
         <Label>Resumo da sessão*</Label>
-        <InputLarge name="content" value={form.content} onChange={handleChange} />
+        <InputLarge name="content" value={formData.content} onChange={handleChange} />
       </div>
       <div>
         <Divisor />
@@ -255,11 +256,11 @@ export default function NewSession({ form, setFormData }: Props) {
       <InputContainer>
         <div>
           <Label htmlFor="price">Valor</Label>
-          <InputLittle name="value" id="price" type="number" value={form.payment.value} onChange={handleChange} />
+          <InputLittle name="value" id="price" type="number" value={formData.payment.value} onChange={handleChange} />
         </div>
         <div>
           <Label htmlFor="payment">Forma de Pagamento</Label>
-          <Selector name="method" id="payment" value={form.payment.method} onChange={handleChange}>
+          <Selector name="method" id="payment" value={formData.payment.method} onChange={handleChange}>
             <option value="pix">Pix</option>
             <option value="credito">Cartão de Crédito</option>
             <option value="debito">Cartão de Débito</option>
@@ -269,7 +270,7 @@ export default function NewSession({ form, setFormData }: Props) {
         <div>
           <Label htmlFor="paid">Status</Label>
           <RadioDiv>
-            <input type="radio" id="paid" name="status" value="paid" checked={form.payment.status === 'paid'} />
+            <input type="radio" id="paid" name="status" value="paid" checked={formData.payment.status === 'paid'} />
             <label htmlFor="paid">Pago</label>
 
             <input
@@ -277,7 +278,7 @@ export default function NewSession({ form, setFormData }: Props) {
               id="notpaid"
               name="status"
               value="notpaid"
-              checked={form.payment.status === 'notpaid'}
+              checked={formData.payment.status === 'notpaid'}
             />
             <label htmlFor="notpaid">Não pago</label>
           </RadioDiv>

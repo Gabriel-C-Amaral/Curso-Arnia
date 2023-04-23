@@ -214,8 +214,13 @@ export default function NewSession() {
     }))
   }
 
+  const handleSubmit() => {
+    // send data to api
+  }
+
   return (
     <Container>
+      <form onSubmit={handleSubmit}>
       <Title>
         <Number>1</Number> Dados Gerais
       </Title>
@@ -284,6 +289,7 @@ export default function NewSession() {
           </RadioDiv>
         </div>
       </InputContainer>
+      </form>
     </Container>
   )
 }

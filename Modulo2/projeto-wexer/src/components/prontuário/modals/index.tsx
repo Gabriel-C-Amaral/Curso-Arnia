@@ -80,7 +80,7 @@ export default function ModalContainer(props: Props) {
     gap: 24px;
   `
 
-  const SaveButton = styled.div`
+  const SaveButton = styled.input`
     background: #00995d;
     border-radius: 24px;
     width: 147px;
@@ -108,30 +108,32 @@ export default function ModalContainer(props: Props) {
       }}
     >
       <DefaultContainer>
-        <Header>
-          {title}
-          <img
-            onClick={() => {
-              onClose()
-            }}
-            src="src\images\closeButton.svg"
-          />
-        </Header>
-        <Content>
-          {/* <Conteudo form={formData} setFormData={setFormData} /> */}
-          <Conteudo />
-        </Content>
-        <Footer>
-          <Cancel
-            onClick={() => {
-              onClose()
-            }}
-          >
-            Cancelar
-          </Cancel>
-          {/* <SaveButton onClick={handleSave}>Criar</SaveButton>{' '} */}
-          <SaveButton> Criar</SaveButton>{' '}
-        </Footer>
+        <form>
+          <Header>
+            {title}
+            <img
+              onClick={() => {
+                onClose()
+              }}
+              src="src\images\closeButton.svg"
+            />
+          </Header>
+          <Content>
+            {/* <Conteudo form={formData} setFormData={setFormData} /> */}
+            <Conteudo />
+          </Content>
+          <Footer>
+            <Cancel
+              onClick={() => {
+                onClose()
+              }}
+            >
+              Cancelar
+            </Cancel>
+            {/* <SaveButton onClick={handleSave}>Criar</SaveButton>{' '} */}
+            <SaveButton type="submit"> Criar</SaveButton>{' '}
+          </Footer>
+        </form>
       </DefaultContainer>
     </Modal>
   )

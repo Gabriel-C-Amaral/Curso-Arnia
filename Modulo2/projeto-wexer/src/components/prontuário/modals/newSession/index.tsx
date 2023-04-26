@@ -214,81 +214,81 @@ export default function NewSession() {
     }))
   }
 
-  const handleSubmit() => {
-    // send data to api
-  }
+  // const handleSubmit() => {
+  //   // send data to api
+  // }
 
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
-      <Title>
-        <Number>1</Number> Dados Gerais
-      </Title>
-      <InputContainer>
+      <form>
+        <Title>
+          <Number>1</Number> Dados Gerais
+        </Title>
+        <InputContainer>
+          <div>
+            <Label htmlFor="date">Data:*</Label>
+            <InputLittle id="date" type="date" value={formData.date} onChange={handleChange} />
+          </div>
+          <div>
+            <Label htmlFor="start">Hora de Inicio:*</Label>
+            <InputLittle id="start" type="time" value={formData.hour} onChange={handleChange} />
+          </div>
+          <div>
+            <Label htmlFor="end">Hora fim*</Label>
+            <InputLittle id="end" type="time" />
+          </div>
+        </InputContainer>
         <div>
-          <Label htmlFor="date">Data:*</Label>
-          <InputLittle id="date" type="date" value={formData.date} onChange={handleChange} />
+          <Divisor />
+        </div>
+        <Title>
+          <Number>2</Number> Sessão
+        </Title>
+        <div>
+          <Label>Titulo*</Label>
+          <InputMedium name="title" type="text" value={formData.title} onChange={handleChange} />
         </div>
         <div>
-          <Label htmlFor="start">Hora de Inicio:*</Label>
-          <InputLittle id="start" type="time" value={formData.hour} onChange={handleChange} />
+          <Label>Resumo da sessão*</Label>
+          <InputLarge name="content" value={formData.content} onChange={handleChange} />
         </div>
         <div>
-          <Label htmlFor="end">Hora fim*</Label>
-          <InputLittle id="end" type="time" />
+          <Divisor />
         </div>
-      </InputContainer>
-      <div>
-        <Divisor />
-      </div>
-      <Title>
-        <Number>2</Number> Sessão
-      </Title>
-      <div>
-        <Label>Titulo*</Label>
-        <InputMedium name="title" type="text" value={formData.title} onChange={handleChange} />
-      </div>
-      <div>
-        <Label>Resumo da sessão*</Label>
-        <InputLarge name="content" value={formData.content} onChange={handleChange} />
-      </div>
-      <div>
-        <Divisor />
-      </div>
-      <Title>
-        <Number>3</Number>Pagamento
-      </Title>
-      <InputContainer>
-        <div>
-          <Label htmlFor="price">Valor</Label>
-          <InputLittle name="value" id="price" type="number" value={formData.payment.value} onChange={handleChange} />
-        </div>
-        <div>
-          <Label htmlFor="payment">Forma de Pagamento</Label>
-          <Selector name="method" id="payment" value={formData.payment.method} onChange={handleChange}>
-            <option value="pix">Pix</option>
-            <option value="credito">Cartão de Crédito</option>
-            <option value="debito">Cartão de Débito</option>
-            <option value="Dinheiro">Dinheiro</option>
-          </Selector>
-        </div>
-        <div>
-          <Label htmlFor="paid">Status</Label>
-          <RadioDiv>
-            <input type="radio" id="paid" name="status" value="paid" checked={formData.payment.status === 'paid'} />
-            <label htmlFor="paid">Pago</label>
+        <Title>
+          <Number>3</Number>Pagamento
+        </Title>
+        <InputContainer>
+          <div>
+            <Label htmlFor="price">Valor</Label>
+            <InputLittle name="value" id="price" type="number" value={formData.payment.value} onChange={handleChange} />
+          </div>
+          <div>
+            <Label htmlFor="payment">Forma de Pagamento</Label>
+            <Selector name="method" id="payment" value={formData.payment.method} onChange={handleChange}>
+              <option value="pix">Pix</option>
+              <option value="credito">Cartão de Crédito</option>
+              <option value="debito">Cartão de Débito</option>
+              <option value="Dinheiro">Dinheiro</option>
+            </Selector>
+          </div>
+          <div>
+            <Label htmlFor="paid">Status</Label>
+            <RadioDiv>
+              <input type="radio" id="paid" name="status" value="paid" checked={formData.payment.status === 'paid'} />
+              <label htmlFor="paid">Pago</label>
 
-            <input
-              type="radio"
-              id="notpaid"
-              name="status"
-              value="notpaid"
-              checked={formData.payment.status === 'notpaid'}
-            />
-            <label htmlFor="notpaid">Não pago</label>
-          </RadioDiv>
-        </div>
-      </InputContainer>
+              <input
+                type="radio"
+                id="notpaid"
+                name="status"
+                value="notpaid"
+                checked={formData.payment.status === 'notpaid'}
+              />
+              <label htmlFor="notpaid">Não pago</label>
+            </RadioDiv>
+          </div>
+        </InputContainer>
       </form>
     </Container>
   )

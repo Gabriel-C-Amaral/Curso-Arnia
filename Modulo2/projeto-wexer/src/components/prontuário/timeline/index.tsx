@@ -37,7 +37,7 @@ function TimelineContainer() {
     fetch('https://wexer-example-backend.vercel.app/api/timeline/643dc6a38df02c8bf2aab8f4', {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODIyNzcxNzYsImV4cCI6MTY4MjM2MzU3Nn0.JvZuF_h_yvuIv6oeuXAH2iP8AagIiE21HVliWlKJuqQ',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI1NDExMDUsImV4cCI6MTY4MjYyNzUwNX0.jSOO6TXbq7Pg9cAYaRbsKpPCiTEnKZRUVB0uLSNgl0c',
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
         'Content-Type': 'application/json'

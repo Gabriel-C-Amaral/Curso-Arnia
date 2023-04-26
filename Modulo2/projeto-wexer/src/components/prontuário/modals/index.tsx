@@ -80,7 +80,7 @@ export default function ModalContainer(props: Props) {
     gap: 24px;
   `
 
-  const SaveButton = styled.input`
+  const SaveButton = styled.div`
     background: #00995d;
     border-radius: 24px;
     width: 147px;
@@ -131,7 +131,7 @@ export default function ModalContainer(props: Props) {
               Cancelar
             </Cancel>
             {/* <SaveButton onClick={handleSave}>Criar</SaveButton>{' '} */}
-            <SaveButton type="submit"> Criar</SaveButton>{' '}
+            <SaveButton> Criar</SaveButton>{' '}
           </Footer>
         </form>
       </DefaultContainer>

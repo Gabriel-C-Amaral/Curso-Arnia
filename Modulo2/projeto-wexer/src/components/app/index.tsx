@@ -2,9 +2,9 @@ import { Normalize } from 'styled-normalize'
 import './styles.css'
 import HeaderMenu from '../header-sidemenu'
 import Prontuário from '../prontuário'
-// import AvaluationPage from '../avaluation'
+import AvaluationPage from '../avaluation'
 import React, { useEffect, useState } from 'react'
-// import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [name, setName] = useState('')
@@ -24,14 +24,17 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Normalize />
-      <HeaderMenu name={name} />
-      {/* <Navigate> */}
-      <Prontuário />
-      {/* <AvaluationPage /> */}
-      {/* </Navigate> */}
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Normalize />
+        <HeaderMenu name={name} />
+        <Routes>
+          <Route path="/" element={<Prontuário />} />
+          <Route path="/avaliacao" element={<AvaluationPage />} />
+          {/* <Navigate to="/" /> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 

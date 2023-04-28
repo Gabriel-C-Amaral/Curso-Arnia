@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import React, { useState } from 'react'
 
 type sessionData = {
   text: string
@@ -6,6 +7,7 @@ type sessionData = {
   card: string
   title: string
   position: number
+  id: string
 }
 function truncateString(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -30,6 +32,31 @@ function formatDateToDDMMYYYY(dateString: string) {
 }
 
 function Sessao(prop: sessionData) {
+  function deleteItem() {
+    fetch(`https://wexer-example-backend.vercel.app/api/timeline/6438810edc67c006c954c71f/occurrence/${prop.id}`, {
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI2OTk3OTYsImV4cCI6MTY4Mjc4NjE5Nn0.qcpBleehXaQVnI22Jn2WbFhBkhtZ5ds9AOX2v5erj7o',
+
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+
+        'Content-Type': 'application/json'
+      },
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to delete item.')
+        }
+        // Item deleted successfully, reload page
+        location.reload()
+      })
+      .catch(error => {
+        console.error(error)
+        // Handle error
+      })
+  }
+
   const truncatedText = truncateString(prop.text, 300)
   let color: string
   let icon: string
@@ -81,6 +108,12 @@ function Sessao(prop: sessionData) {
       ball = 'src/images/defaultBall.svg'
       color = '#FFD806'
       icon = 'src/images/pinIconVoid.svg'
+  }
+
+  const [isPopoverVisible, setIsPopoverVisible] = useState(false)
+
+  function handleClick() {
+    setIsPopoverVisible(!isPopoverVisible)
   }
 
   const Container = styled.div`
@@ -165,7 +198,7 @@ function Sessao(prop: sessionData) {
     left: 32px;
     top: -14px;
   `
-  const Etc = styled.div`
+  const Etc = styled.button`
     position: absolute;
     width: 24px;
     height: 24px;
@@ -179,6 +212,35 @@ function Sessao(prop: sessionData) {
     align-items: center;
     line-height: 10px;
     cursor: pointer;
+    background-color: white;
+    border: none;
+  `
+
+  const PopoverContainer = styled.div`
+    display: flex;
+    position: absolute;
+    right: 10px;
+  `
+  const PopoverBody = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80px;
+    height: 50px;
+    padding: 6px;
+    bottom: -70%;
+    right: -50%;
+    background-color: white;
+    border: 1px solid ${color};
+    border-radius: 5px;
+    cursor: pointer;
+  `
+  const PopoverItem = styled.div`
+    :hover {
+      background-color: ${color};
+      color: white;
+    }
   `
 
   return (
@@ -192,7 +254,16 @@ function Sessao(prop: sessionData) {
         {truncatedText}...
         <Link href="https://www.google.com.br/">Ver mais</Link>
       </Body>
-      <Etc>...</Etc>
+      <PopoverContainer>
+        <Etc onClick={handleClick}>...</Etc>
+        {isPopoverVisible && (
+          <div>
+            <PopoverBody>
+              <PopoverItem onClick={deleteItem}>Deletar</PopoverItem> <PopoverItem>Editar</PopoverItem>
+            </PopoverBody>
+          </div>
+        )}
+      </PopoverContainer>
     </Container>
   )
 }

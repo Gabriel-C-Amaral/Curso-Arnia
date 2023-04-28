@@ -3,22 +3,21 @@ import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
 // import { useState } from 'react'
 // import NewSession from './newSession'
+type PropSave = {
+  onClickPrimary: () => void
+}
 
 type Props = {
   isOpen: boolean
   onClose: () => void
   title: string
   height: string
-  Conteudo: () => JSX.Element
+  Conteudo: (prop: PropSave) => JSX.Element
+  onClickPrimary: () => void
 }
 
 export default function ModalContainer(props: Props) {
-  const { isOpen, onClose, title, height, Conteudo } = props
-  // const [save, setSave] = React.useState(false)
-
-  // const handleSave = () => {
-  //   setSave(true)
-  // }
+  const { isOpen, onClose, title, height, Conteudo, onClickPrimary } = props
 
   const DefaultContainer = styled.div`
     position: absolute;
@@ -98,7 +97,6 @@ export default function ModalContainer(props: Props) {
   const Cancel = styled.span`
     cursor: pointer;
   `
-  // const [formData, setFormData] = useState<FormData>()
 
   return (
     <Modal
@@ -119,8 +117,11 @@ export default function ModalContainer(props: Props) {
             />
           </Header>
           <Content>
-            {/* <Conteudo form={formData} setFormData={setFormData} /> */}
-            <Conteudo />
+            <Conteudo
+              onClickPrimary={() => {
+                onClickPrimary()
+              }}
+            />
           </Content>
           <Footer>
             <Cancel
@@ -131,7 +132,14 @@ export default function ModalContainer(props: Props) {
               Cancelar
             </Cancel>
             {/* <SaveButton onClick={handleSave}>Criar</SaveButton>{' '} */}
-            <SaveButton> Criar</SaveButton>{' '}
+            <SaveButton
+              onClick={() => {
+                onClickPrimary()
+              }}
+            >
+              {' '}
+              Criar
+            </SaveButton>{' '}
           </Footer>
         </form>
       </DefaultContainer>

@@ -20,7 +20,7 @@ interface Occurrence {
     method?: string
     status?: string
   }
-  _id?: string
+  _id: string
   title: string
   content: string
   files?: string[]
@@ -37,7 +37,8 @@ function TimelineContainer() {
     fetch('https://wexer-example-backend.vercel.app/api/timeline/643dc6a38df02c8bf2aab8f4', {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI1NDExMDUsImV4cCI6MTY4MjYyNzUwNX0.jSOO6TXbq7Pg9cAYaRbsKpPCiTEnKZRUVB0uLSNgl0c',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI2OTk3OTYsImV4cCI6MTY4Mjc4NjE5Nn0.qcpBleehXaQVnI22Jn2WbFhBkhtZ5ds9AOX2v5erj7o',
+
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
         'Content-Type': 'application/json'
@@ -73,6 +74,7 @@ function TimelineContainer() {
               card={occurrence.type}
               date={occurrence.createdOn}
               text={occurrence.content}
+              id={occurrence._id}
             />
           ))
         )}

@@ -89,6 +89,7 @@ const InputMedium = styled.input`
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
+  padding-left: 8px;
 `
 const InputLarge = styled.textarea`
   border: 1px solid #bdbdbd;
@@ -168,30 +169,12 @@ const RadioDiv = styled.div`
   align-items: center;
   justify-content: space-around;
 `
-// type Props = {
-//   save: () => void
-//   // eslint-disable-next-line no-empty-pattern
-//   setFormData: Dispatch<SetStateAction<FormData>>
+// type prop = {
+//   onClickPrimary: () => void
 
-//   form: FormData
 // }
 
-// export default function NewSession({ form, setFormData }: Props) {
 export default function NewSession() {
-  // setFormData({
-  //   patientId: '64348d31d1f55efc1d6dcdda',
-  //   payment: {
-  //     value: 0,
-  //     method: '',
-  //     status: ''
-  //   },
-  //   title: '',
-  //   content: '',
-  //   type: '',
-  //   date: '',
-  //   hour: ''
-  // })
-
   const [formData, setFormData] = useState<FormData>({
     patientId: '64348d31d1f55efc1d6dcdda',
     payment: {
@@ -201,22 +184,31 @@ export default function NewSession() {
     },
     title: '',
     content: '',
-    type: '',
+    type: 'session',
     date: '',
     hour: ''
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
-    setFormData(prevFormData => ({
-      ...prevFormData,
-      [name]: value
-    }))
+    if (name !== 'value' && name !== 'method' && name !== 'status') {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        [name]: value
+      }))
+    } else {
+      setFormData(prevFormData => ({
+        ...prevFormData,
+        payment: {
+          ...prevFormData.payment,
+          [name]: value
+        }
+      }))
+    }
   }
 
-  // const handleSubmit() => {
-  //   // send data to api
-  // }
+  // eslint-disable-next-line no-console
+  console.log(formData)
 
   return (
     <Container>
@@ -227,11 +219,11 @@ export default function NewSession() {
         <InputContainer>
           <div>
             <Label htmlFor="date">Data:*</Label>
-            <InputLittle id="date" type="date" value={formData.date} onChange={handleChange} />
+            <InputLittle id="date" name="date" type="date" defaultValue={formData.date} onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="start">Hora de Inicio:*</Label>
-            <InputLittle id="start" type="time" value={formData.hour} onChange={handleChange} />
+            <InputLittle id="start" name="hour" type="time" defaultValue={formData.hour} onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="end">Hora fim*</Label>
@@ -261,11 +253,17 @@ export default function NewSession() {
         <InputContainer>
           <div>
             <Label htmlFor="price">Valor</Label>
-            <InputLittle name="value" id="price" type="number" value={formData.payment.value} onChange={handleChange} />
+            <InputLittle
+              name="value"
+              defaultValue={formData.payment.value}
+              id="price"
+              type="number"
+              onChange={handleChange}
+            />
           </div>
           <div>
             <Label htmlFor="payment">Forma de Pagamento</Label>
-            <Selector name="method" id="payment" value={formData.payment.method} onChange={handleChange}>
+            <Selector name="method" id="method" defaultValue={formData.payment.method} onChange={handleChange}>
               <option value="pix">Pix</option>
               <option value="credito">Cartão de Crédito</option>
               <option value="debito">Cartão de Débito</option>
@@ -275,16 +273,10 @@ export default function NewSession() {
           <div>
             <Label htmlFor="paid">Status</Label>
             <RadioDiv>
-              <input type="radio" id="paid" name="status" value="paid" checked={formData.payment.status === 'paid'} />
+              <input type="radio" id="paid" name="status" defaultValue="paid" onChange={handleChange} />
               <label htmlFor="paid">Pago</label>
 
-              <input
-                type="radio"
-                id="notpaid"
-                name="status"
-                value="notpaid"
-                checked={formData.payment.status === 'notpaid'}
-              />
+              <input type="radio" id="notpaid" name="status" defaultValue="notpaid" onChange={handleChange} />
               <label htmlFor="notpaid">Não pago</label>
             </RadioDiv>
           </div>

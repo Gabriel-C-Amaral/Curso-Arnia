@@ -3,21 +3,17 @@ import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
 // import { useState } from 'react'
 // import NewSession from './newSession'
-type PropSave = {
-  onClickPrimary: () => void
-}
 
 type Props = {
   isOpen: boolean
   onClose: () => void
   title: string
   height: string
-  Conteudo: (prop: PropSave) => JSX.Element
-  onClickPrimary: () => void
+  Conteudo: () => JSX.Element
 }
 
 export default function ModalContainer(props: Props) {
-  const { isOpen, onClose, title, height, Conteudo, onClickPrimary } = props
+  const { isOpen, onClose, title, height, Conteudo } = props
 
   const DefaultContainer = styled.div`
     position: absolute;
@@ -57,47 +53,6 @@ export default function ModalContainer(props: Props) {
     }
   `
 
-  const Footer = styled.div`
-    width: 642px;
-    height: 97px;
-    left: 0px;
-    bottom: 0px;
-    background: #ffffff;
-    border-top: 2px solid #e0e0e0;
-    border-radius: 0px 0px 8px 8px;
-    position: absolute;
-    font-family: 'Comfortaa';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #616161;
-    justify-content: flex-end;
-    gap: 24px;
-  `
-
-  const SaveButton = styled.div`
-    background: #00995d;
-    border-radius: 24px;
-    width: 147px;
-    height: 48px;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 48px;
-    align-items: center;
-    text-align: center;
-    color: #ffffff;
-    margin-right: 32px;
-  `
-  const Cancel = styled.span`
-    cursor: pointer;
-  `
-
   return (
     <Modal
       open={isOpen}
@@ -106,42 +61,18 @@ export default function ModalContainer(props: Props) {
       }}
     >
       <DefaultContainer>
-        <form>
-          <Header>
-            {title}
-            <img
-              onClick={() => {
-                onClose()
-              }}
-              src="src\images\closeButton.svg"
-            />
-          </Header>
-          <Content>
-            <Conteudo
-              onClickPrimary={() => {
-                onClickPrimary()
-              }}
-            />
-          </Content>
-          <Footer>
-            <Cancel
-              onClick={() => {
-                onClose()
-              }}
-            >
-              Cancelar
-            </Cancel>
-            {/* <SaveButton onClick={handleSave}>Criar</SaveButton>{' '} */}
-            <SaveButton
-              onClick={() => {
-                onClickPrimary()
-              }}
-            >
-              {' '}
-              Criar
-            </SaveButton>{' '}
-          </Footer>
-        </form>
+        <Header>
+          {title}
+          <img
+            onClick={() => {
+              onClose()
+            }}
+            src="src\images\closeButton.svg"
+          />
+        </Header>
+        <Content>
+          <Conteudo />
+        </Content>
       </DefaultContainer>
     </Modal>
   )

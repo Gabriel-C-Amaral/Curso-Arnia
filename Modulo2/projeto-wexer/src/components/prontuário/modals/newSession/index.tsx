@@ -8,7 +8,7 @@ interface Payment {
 }
 
 interface FormData {
-  patientId: string
+  timelineId: string
   payment: Payment
   title: string
   content: string
@@ -169,6 +169,47 @@ const RadioDiv = styled.div`
   align-items: center;
   justify-content: space-around;
 `
+const Footer = styled.div`
+  width: 642px;
+  height: 97px;
+  left: 0px;
+  bottom: -97px;
+  background: #ffffff;
+  border-top: 2px solid #e0e0e0;
+  border-radius: 0px 0px 8px 8px;
+  position: absolute;
+  font-family: 'Comfortaa';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #616161;
+  justify-content: flex-end;
+  gap: 24px;
+`
+
+const SaveButton = styled.div`
+  background: #00995d;
+  border-radius: 24px;
+  width: 147px;
+  height: 48px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 48px;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 32px;
+  cursor: pointer;
+`
+const Cancel = styled.span`
+  cursor: pointer;
+`
 // type prop = {
 //   onClickPrimary: () => void
 
@@ -176,7 +217,8 @@ const RadioDiv = styled.div`
 
 export default function NewSession() {
   const [formData, setFormData] = useState<FormData>({
-    patientId: '64348d31d1f55efc1d6dcdda',
+    timelineId: '643dc6a38df02c8bf2aab8f4',
+
     payment: {
       value: 0,
       method: '',
@@ -205,6 +247,25 @@ export default function NewSession() {
         }
       }))
     }
+  }
+
+  const handleSubmit = () => {
+    fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI3ODk5NDIsImV4cCI6MTY4Mjg3NjM0Mn0.nvxkynstfyYfYATk53PPc16ZZ9u4Fg63GIaKcBhr0IA',
+
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(() => {
+        window.location.reload()
+      })
+      .catch(error => console.error(error))
   }
 
   // eslint-disable-next-line no-console
@@ -282,6 +343,10 @@ export default function NewSession() {
           </div>
         </InputContainer>
       </form>
+      <Footer>
+        <Cancel>Cancelar</Cancel>
+        <SaveButton onClick={handleSubmit}> Criar</SaveButton>{' '}
+      </Footer>
     </Container>
   )
 }

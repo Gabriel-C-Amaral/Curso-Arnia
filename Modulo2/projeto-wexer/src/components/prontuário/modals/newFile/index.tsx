@@ -121,6 +121,47 @@ export default function NewFile() {
     letter-spacing: 0.2px;
     display: flex;
   `
+  const Footer = styled.div`
+    width: 642px;
+    height: 97px;
+    left: 0px;
+    bottom: -97px;
+    background: #ffffff;
+    border-top: 2px solid #e0e0e0;
+    border-radius: 0px 0px 8px 8px;
+    position: absolute;
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #616161;
+    justify-content: flex-end;
+    gap: 24px;
+  `
+
+  const SaveButton = styled.div`
+    background: #00995d;
+    border-radius: 24px;
+    width: 147px;
+    height: 48px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 48px;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    margin-right: 32px;
+    cursor: pointer;
+  `
+  const Cancel = styled.span`
+    cursor: pointer;
+  `
 
   return (
     <Container>
@@ -143,6 +184,16 @@ export default function NewFile() {
           <FileInput id="fileInput" type="file" />
         </FileInputContainer>
       </InputContainer>
+      <Footer>
+        <Cancel
+        // onClick={() => {
+        //   onClose()
+        // }}
+        >
+          Cancelar
+        </Cancel>
+        <SaveButton> Criar</SaveButton>{' '}
+      </Footer>
     </Container>
   )
 }

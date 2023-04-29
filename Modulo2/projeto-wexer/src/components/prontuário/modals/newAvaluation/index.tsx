@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export default function NewAvaluation() {
   const Container = styled.div`
@@ -139,14 +140,10 @@ export default function NewAvaluation() {
         </WarningText>
       </Warning>
       <Footer>
-        <Cancel
-        // onClick={() => {
-        //   onClose()
-        // }}
-        >
-          Cancelar
-        </Cancel>
-        <SaveButton> Criar</SaveButton>{' '}
+        <Cancel>Cancelar</Cancel>
+        <Link to={'/avaliacao'}>
+          <SaveButton> Criar</SaveButton>{' '}
+        </Link>
       </Footer>
     </Container>
   )

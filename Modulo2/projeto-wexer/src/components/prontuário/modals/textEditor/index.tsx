@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
-const TextEditor = () => {
-  const [editorHtml, setEditorHtml] = useState('')
+type PropEditor = {
+  default: string
+}
+
+const TextEditor = (prop: PropEditor) => {
+  const [editorHtml, setEditorHtml] = useState(prop.default)
 
   const modules = {
     toolbar: [
@@ -38,7 +42,14 @@ const TextEditor = () => {
   }
 
   return (
-    <ReactQuill theme="snow" modules={modules} formats={formats} value={editorHtml} onChange={handleEditorChange} />
+    <ReactQuill
+      theme="snow"
+      modules={modules}
+      formats={formats}
+      defaultValue={prop.default}
+      value={editorHtml}
+      onChange={handleEditorChange}
+    />
   )
 }
 

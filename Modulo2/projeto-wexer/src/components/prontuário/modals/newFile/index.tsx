@@ -13,7 +13,7 @@ interface FormData {
   title: string
   content: string
   type: string
-  date: string
+  createdOn: string
   hour: string
 }
 
@@ -191,7 +191,7 @@ export default function NewFile() {
     title: '',
     content: '',
     type: 'attachment',
-    date: '',
+    createdOn: '',
     hour: ''
   })
 
@@ -237,7 +237,13 @@ export default function NewFile() {
       <SideContainer>
         <InputContainer>
           <Label htmlFor="date">Data:*</Label>
-          <InputLittle id="date" name="date" type="date" defaultValue={formData.date} onChange={handleChange} />
+          <InputLittle
+            id="date"
+            name="createdOn"
+            type="date"
+            defaultValue={formData.createdOn}
+            onChange={handleChange}
+          />
         </InputContainer>
         <InputContainer>
           <Label htmlFor="date">Título:*</Label>

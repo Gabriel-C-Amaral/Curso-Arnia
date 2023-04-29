@@ -6,6 +6,7 @@ import TextEditor from '../modals/textEditor'
 type Prop = {
   content: string
 }
+
 function Goals(prop: Prop) {
   const [open, setOpen] = React.useState(false)
   const handleClose = () => setOpen(false)
@@ -55,7 +56,7 @@ function Goals(prop: Prop) {
   return (
     <Card>
       <ModalContainer
-        Conteudo={TextEditor}
+        Conteudo={() => <TextEditor default={prop.content} />}
         height="473px"
         title="Demandas e objetivos"
         onClose={handleClose}

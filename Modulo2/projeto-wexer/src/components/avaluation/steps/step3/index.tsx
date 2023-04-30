@@ -39,7 +39,7 @@ export default function Step3() {
     <Container>
       <TextEditorContainer>
         <InputTitle>Síntese das observações comportamentais</InputTitle>
-        <TextEditor />
+        <TextEditor default="" name="" />
       </TextEditorContainer>
       <SaveButton src="src\images\saveBtn.svg" />
     </Container>

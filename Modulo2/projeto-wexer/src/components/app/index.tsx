@@ -31,8 +31,7 @@ function App() {
         <HeaderMenu name={name} />
         <Routes>
           <Route path="/" element={<Prontuário />} />
-          <Route path="/avaliacao" element={<AvaluationPage />} />
-          {/* <Navigate to="/" /> */}
+          <Route path="/avaluation" element={<AvaluationPage />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -56,7 +56,7 @@ function Goals(prop: Prop) {
   return (
     <Card>
       <ModalContainer
-        Conteudo={() => <TextEditor default={prop.content} />}
+        Conteudo={() => <TextEditor name="demands" default={prop.content} />}
         height="473px"
         title="Demandas e objetivos"
         onClose={handleClose}

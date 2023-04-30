@@ -56,7 +56,7 @@ function Anotations(prop: Prop) {
   return (
     <Card>
       <ModalContainer
-        Conteudo={TextEditor}
+        Conteudo={() => <TextEditor name="personalAnnotations" default={prop.content} />}
         height="473px"
         title="Anotações Pessoais"
         onClose={handleClose}

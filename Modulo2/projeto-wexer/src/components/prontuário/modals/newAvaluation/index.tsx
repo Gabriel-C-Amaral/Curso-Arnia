@@ -141,7 +141,7 @@ export default function NewAvaluation() {
       </Warning>
       <Footer>
         <Cancel>Cancelar</Cancel>
-        <Link to={'/avaliacao'}>
+        <Link to={'/avaluation'}>
           <SaveButton> Criar</SaveButton>{' '}
         </Link>
       </Footer>

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
+import ModalContainer from '../../modals'
+import EditSession from '../../modals/editSession'
 
 type sessionData = {
   text: string
@@ -8,6 +10,7 @@ type sessionData = {
   title: string
   position: number
   id: string
+  type: string
 }
 function truncateString(str: string, maxLength: number) {
   if (str.length <= maxLength) {
@@ -32,11 +35,38 @@ function formatDateToDDMMYYYY(dateString: string) {
 }
 
 function Sessao(prop: sessionData) {
+  const [open, setOpen] = React.useState(false)
+  const handleClose = () => setOpen(false)
+  const [content, SetContent] = React.useState(() => EditSession)
+  const [height, setHeight] = React.useState('466px')
+
+  const [Modaltitle, setTitle] = React.useState('')
+  const handleOptionClick = () => {
+    setOpen(true)
+    if (prop.type === 'Sessão') {
+      SetContent(() => EditSession)
+      setHeight('635px')
+      setTitle('Editar Sessão')
+    }
+    if (prop.type === 'Fato relevante') {
+      SetContent(() => EditSession)
+      setHeight('466px')
+    }
+    if (prop.type === 'Anexo') {
+      SetContent(() => EditSession)
+      setHeight('550px')
+    }
+    if (prop.type === 'Avaliação Psicológica') {
+      SetContent(() => EditSession)
+      setHeight('446px')
+    }
+  }
+
   function deleteItem() {
     fetch(`https://wexer-example-backend.vercel.app/api/timeline/6438810edc67c006c954c71f/occurrence/${prop.id}`, {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI4NzA5NjksImV4cCI6MTY4Mjk1NzM2OX0.3XjdEW8GP5A7cv7vUKXQNyVswpyKcEDc-6GK0P2jrcs',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
@@ -264,6 +294,7 @@ function Sessao(prop: sessionData) {
           </div>
         )}
       </PopoverContainer>
+      <ModalContainer Conteudo={() => content} height={height} title={Modaltitle} onClose={handleClose} isOpen={open} />
     </Container>
   )
 }

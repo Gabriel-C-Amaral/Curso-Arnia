@@ -1,15 +1,18 @@
 import * as React from 'react'
 import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
-// import { useState } from 'react'
-// import NewSession from './newSession'
+
+type EditProp = {
+  id?: string
+  type?: string
+}
 
 type Props = {
   isOpen: boolean
   onClose: () => void
   title: string
   height: string
-  Conteudo: () => JSX.Element
+  Conteudo: (prop: EditProp) => JSX.Element
 }
 
 export default function ModalContainer(props: Props) {

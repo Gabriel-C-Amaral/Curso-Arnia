@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 interface Payment {
   value: number
@@ -211,7 +211,28 @@ const Cancel = styled.span`
   cursor: pointer;
 `
 
-export default function NewSession() {
+//   interface Occurrence {
+//     payment: {
+//       value: number
+//       method: string
+//       status: string
+//     }
+//     _id: string
+//     title: string
+//     content: string
+//     type: string
+//     createdOn: string
+//     modifiedOn?: string
+//   }
+
+type EditProp = {
+  id: string
+  type: string
+}
+
+export default function EditSession(prop: EditProp) {
+  // const [apiData, setApiData] = useState<Occurrence>()
+
   const [formData, setFormData] = useState<FormData>({
     timelineId: '643dc6a38df02c8bf2aab8f4',
 
@@ -226,6 +247,24 @@ export default function NewSession() {
     date: '',
     hour: ''
   })
+
+  useEffect(() => {
+    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.id}`, {
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
+
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        setFormData(data)
+      })
+      .catch(error => console.error('Error fetching name:', error))
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -246,8 +285,8 @@ export default function NewSession() {
   }
 
   const handleSubmit = () => {
-    fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
-      method: 'POST',
+    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.id}`, {
+      method: 'PUT',
       headers: {
         Authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
@@ -263,9 +302,6 @@ export default function NewSession() {
       })
       .catch(error => console.error(error))
   }
-
-  // eslint-disable-next-line no-console
-  console.log(formData)
 
   return (
     <Container>
@@ -341,7 +377,7 @@ export default function NewSession() {
       </form>
       <Footer>
         <Cancel>Cancelar</Cancel>
-        <SaveButton onClick={handleSubmit}> Criar</SaveButton>{' '}
+        <SaveButton onClick={handleSubmit}> Editar</SaveButton>{' '}
       </Footer>
     </Container>
   )

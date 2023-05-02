@@ -244,6 +244,9 @@ interface Occurrence {
 
 export default function EditSession(prop: EditProp) {
   const [apiData, setApiData] = useState<Service>({ timeline: { occurrences: [] } })
+  const [currentDate, setcurrentDate] = useState('')
+  const [currentHour, setcurrentHour] = useState('')
+
   const [formData, setFormData] = useState<Occurrence>({
     payment: {
       value: 0,
@@ -257,6 +260,12 @@ export default function EditSession(prop: EditProp) {
     modifiedOn: '',
     _id: ''
   })
+
+  const DatetoDate = (dateApi: string) => {
+    const date = new Date(dateApi)
+    setcurrentDate(date.toISOString().substring(0, 10))
+    setcurrentHour(date.toISOString().substring(11, 16))
+  }
 
   useEffect(() => {
     fetch(`https://wexer-example-backend.vercel.app/api/timeline/643dc6a38df02c8bf2aab8f4`, {
@@ -272,6 +281,8 @@ export default function EditSession(prop: EditProp) {
       .then(response => response.json())
       .then(data => {
         setApiData(data)
+        // eslint-disable-next-line no-console
+        console.log(data)
       })
       .catch(error => console.error('Error fetching name:', error))
   }, [])
@@ -280,6 +291,7 @@ export default function EditSession(prop: EditProp) {
     const filteredData = apiData.timeline.occurrences?.filter(occurrence => occurrence._id === prop.editId)
     if (filteredData && filteredData.length > 0) {
       setFormData(filteredData[0])
+      DatetoDate(filteredData[0].createdOn)
     }
   }, [apiData, prop.editId])
 
@@ -329,11 +341,11 @@ export default function EditSession(prop: EditProp) {
         <InputContainer>
           <div>
             <Label htmlFor="date">Data:*</Label>
-            <InputLittle id="date" name="date" type="date" defaultValue={formData.createdOn} onChange={handleChange} />
+            <InputLittle id="date" name="date" type="date" defaultValue={currentDate} onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="start">Hora de Inicio:*</Label>
-            <InputLittle id="start" name="hour" type="time" onChange={handleChange} />
+            <InputLittle id="start" name="hour" defaultValue={currentHour} type="time" onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="end">Hora fim*</Label>

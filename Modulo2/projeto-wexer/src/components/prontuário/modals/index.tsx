@@ -18,7 +18,6 @@ type Props = {
 
 export default function ModalContainer(props: Props) {
   const { isOpen, onClose, title, height, Conteudo, id } = props
-
   const DefaultContainer = styled.div`
     position: absolute;
     top: calc(50% - 250px);

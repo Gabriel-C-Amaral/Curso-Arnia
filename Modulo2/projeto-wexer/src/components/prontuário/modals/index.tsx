@@ -3,7 +3,7 @@ import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
 
 type EditProp = {
-  id?: string
+  editId: string
   type?: string
 }
 
@@ -12,11 +12,12 @@ type Props = {
   onClose: () => void
   title: string
   height: string
-  Conteudo: (prop: EditProp) => JSX.Element
+  Conteudo: (propEdit: EditProp) => JSX.Element
+  id: string
 }
 
 export default function ModalContainer(props: Props) {
-  const { isOpen, onClose, title, height, Conteudo } = props
+  const { isOpen, onClose, title, height, Conteudo, id } = props
 
   const DefaultContainer = styled.div`
     position: absolute;
@@ -74,7 +75,7 @@ export default function ModalContainer(props: Props) {
           />
         </Header>
         <Content>
-          <Conteudo />
+          <Conteudo editId={id} />
         </Content>
       </DefaultContainer>
     </Modal>

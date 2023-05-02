@@ -43,20 +43,20 @@ function Sessao(prop: sessionData) {
   const [Modaltitle, setTitle] = React.useState('')
   const handleOptionClick = () => {
     setOpen(true)
-    if (prop.type === 'Sessão') {
+    if (prop.type === 'session') {
       SetContent(() => EditSession)
       setHeight('635px')
       setTitle('Editar Sessão')
     }
-    if (prop.type === 'Fato relevante') {
+    if (prop.type === 'relevant_fact') {
       SetContent(() => EditSession)
       setHeight('466px')
     }
-    if (prop.type === 'Anexo') {
+    if (prop.type === 'attachment') {
       SetContent(() => EditSession)
       setHeight('550px')
     }
-    if (prop.type === 'Avaliação Psicológica') {
+    if (prop.type === 'assessment') {
       SetContent(() => EditSession)
       setHeight('446px')
     }
@@ -66,7 +66,7 @@ function Sessao(prop: sessionData) {
     fetch(`https://wexer-example-backend.vercel.app/api/timeline/6438810edc67c006c954c71f/occurrence/${prop.id}`, {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMwMzI5NTksImV4cCI6MTY4MzExOTM1OX0.IwP3OE-Hj9gLtLXs54hW53p_rqs3-wnT9xS43yVQxbY',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
@@ -289,12 +289,20 @@ function Sessao(prop: sessionData) {
         {isPopoverVisible && (
           <div>
             <PopoverBody>
-              <PopoverItem onClick={deleteItem}>Deletar</PopoverItem> <PopoverItem>Editar</PopoverItem>
+              <PopoverItem onClick={deleteItem}>Deletar</PopoverItem>{' '}
+              <PopoverItem onClick={handleOptionClick}>Editar</PopoverItem>
             </PopoverBody>
           </div>
         )}
       </PopoverContainer>
-      <ModalContainer Conteudo={() => content} height={height} title={Modaltitle} onClose={handleClose} isOpen={open} />
+      <ModalContainer
+        Conteudo={content}
+        id={prop.id}
+        height={height}
+        title={Modaltitle}
+        onClose={handleClose}
+        isOpen={open}
+      />
     </Container>
   )
 }

@@ -226,8 +226,8 @@ const Cancel = styled.span`
 //   }
 
 type EditProp = {
-  id: string
-  type: string
+  editId: string
+  type?: string
 }
 
 export default function EditSession(prop: EditProp) {
@@ -249,10 +249,10 @@ export default function EditSession(prop: EditProp) {
   })
 
   useEffect(() => {
-    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.id}`, {
+    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.editId}`, {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMwMzI5NTksImV4cCI6MTY4MzExOTM1OX0.IwP3OE-Hj9gLtLXs54hW53p_rqs3-wnT9xS43yVQxbY',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
@@ -260,9 +260,13 @@ export default function EditSession(prop: EditProp) {
       }
     })
       .then(response => response.json())
+
       .then(data => {
         setFormData(data)
       })
+      // eslint-disable-next-line no-console
+      .then(() => console.log(formData))
+
       .catch(error => console.error('Error fetching name:', error))
   }, [])
 
@@ -285,11 +289,11 @@ export default function EditSession(prop: EditProp) {
   }
 
   const handleSubmit = () => {
-    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.id}`, {
+    fetch(`https://wexer-example-backend.vercel.app/api/timeline/6438810edc67c006c954c71f/occurrence/${prop.editId}`, {
       method: 'PUT',
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODI5Nzg1NDEsImV4cCI6MTY4MzA2NDk0MX0._i7H6t9oAOilCm_0HCogeWAIG15ns-B5hvKQlTQQEMk',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMwMzI5NTksImV4cCI6MTY4MzExOTM1OX0.IwP3OE-Hj9gLtLXs54hW53p_rqs3-wnT9xS43yVQxbY',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'

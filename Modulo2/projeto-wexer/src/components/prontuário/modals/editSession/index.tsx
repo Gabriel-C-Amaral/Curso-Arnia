@@ -1,22 +1,6 @@
 import styled from 'styled-components'
 import React, { useState, useEffect } from 'react'
 
-interface Payment {
-  value: number
-  method: string
-  status: string
-}
-
-interface FormData {
-  timelineId: string
-  payment: Payment
-  title: string
-  content: string
-  type: string
-  date: string
-  hour: string
-}
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -211,31 +195,56 @@ const Cancel = styled.span`
   cursor: pointer;
 `
 
-//   interface Occurrence {
-//     payment: {
-//       value: number
-//       method: string
-//       status: string
-//     }
-//     _id: string
-//     title: string
-//     content: string
-//     type: string
-//     createdOn: string
-//     modifiedOn?: string
-//   }
+// interface Payment {
+//   value: number
+//   method: string
+//   status: string
+// }
+
+// interface FormData {
+//   timelineId: string
+//   payment: Payment
+//   title: string
+//   content: string
+//   type: string
+//   date: string
+//   hour: string
+// }
 
 type EditProp = {
   editId: string
   type?: string
 }
 
+interface Service {
+  timeline: {
+    _id?: string
+    patientId?: string
+    occurrences: Occurrence[]
+    serviceName?: string
+    createdOn?: string
+    modifiedOn?: string
+  }
+}
+
+interface Occurrence {
+  payment: {
+    value: number
+    method: string
+    status: string
+  }
+  _id: string
+  title: string
+  content: string
+  files?: string[]
+  type: string
+  createdOn: string
+  modifiedOn?: string
+}
+
 export default function EditSession(prop: EditProp) {
-  // const [apiData, setApiData] = useState<Occurrence>()
-
-  const [formData, setFormData] = useState<FormData>({
-    timelineId: '643dc6a38df02c8bf2aab8f4',
-
+  const [apiData, setApiData] = useState<Service>({ timeline: { occurrences: [] } })
+  const [formData, setFormData] = useState<Occurrence>({
     payment: {
       value: 0,
       method: '',
@@ -244,12 +253,13 @@ export default function EditSession(prop: EditProp) {
     title: '',
     content: '',
     type: 'session',
-    date: '',
-    hour: ''
+    createdOn: '',
+    modifiedOn: '',
+    _id: ''
   })
 
   useEffect(() => {
-    fetch(`https://wexer-example-backend.vercel.app/api/occurrence/${prop.editId}`, {
+    fetch(`https://wexer-example-backend.vercel.app/api/timeline/643dc6a38df02c8bf2aab8f4`, {
       headers: {
         Authorization:
           'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMwMzI5NTksImV4cCI6MTY4MzExOTM1OX0.IwP3OE-Hj9gLtLXs54hW53p_rqs3-wnT9xS43yVQxbY',
@@ -260,15 +270,18 @@ export default function EditSession(prop: EditProp) {
       }
     })
       .then(response => response.json())
-
       .then(data => {
-        setFormData(data)
+        setApiData(data)
       })
-      // eslint-disable-next-line no-console
-      .then(() => console.log(formData))
-
       .catch(error => console.error('Error fetching name:', error))
   }, [])
+
+  useEffect(() => {
+    const filteredData = apiData.timeline.occurrences?.filter(occurrence => occurrence._id === prop.editId)
+    if (filteredData && filteredData.length > 0) {
+      setFormData(filteredData[0])
+    }
+  }, [apiData, prop.editId])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -316,11 +329,11 @@ export default function EditSession(prop: EditProp) {
         <InputContainer>
           <div>
             <Label htmlFor="date">Data:*</Label>
-            <InputLittle id="date" name="date" type="date" defaultValue={formData.date} onChange={handleChange} />
+            <InputLittle id="date" name="date" type="date" defaultValue={formData.createdOn} onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="start">Hora de Inicio:*</Label>
-            <InputLittle id="start" name="hour" type="time" defaultValue={formData.hour} onChange={handleChange} />
+            <InputLittle id="start" name="hour" type="time" onChange={handleChange} />
           </div>
           <div>
             <Label htmlFor="end">Hora fim*</Label>

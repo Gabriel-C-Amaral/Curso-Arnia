@@ -33,7 +33,7 @@ function Prontuário() {
     fetch('https://wexer-example-backend.vercel.app/api/patient/64348d31d1f55efc1d6dcdda', {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMwMzI5NTksImV4cCI6MTY4MzExOTM1OX0.IwP3OE-Hj9gLtLXs54hW53p_rqs3-wnT9xS43yVQxbY',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMxMzE0OTQsImV4cCI6MTY4MzIxNzg5NH0.uOogKxREwi5wjifKLUNY6nysvIYwdF6O3Qwrm4KjPjY',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'

@@ -4,7 +4,8 @@ import Step1 from './steps/step1'
 import Step2 from './steps/step2'
 import Step3 from './steps/step3'
 import ScrollToTopButton from '../backtotop'
-import { Link, Routes, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const Container = styled.div`
   display: flex;
@@ -43,7 +44,25 @@ const Content = styled.div`
   margin-top: 16px;
 `
 
-export default function AvaluationPage() {
+type Props = {
+  step: string
+}
+
+export default function AvaluationPage(prop: Props) {
+  const [step, setStep] = useState(<Step1 />)
+
+  useEffect(() => {
+    if (prop.step === 'step1') {
+      setStep(<Step1 />)
+    }
+    if (prop.step === 'step2') {
+      setStep(<Step2 />)
+    }
+    if (prop.step === 'step3') {
+      setStep(<Step3 />)
+    }
+  }, [])
+
   return (
     <Container>
       <Header>
@@ -62,12 +81,8 @@ export default function AvaluationPage() {
         </InsideHeader>
       </Header>
       <Content>
-        <HeaderSteps steps="step1" />
-        <Routes>
-          <Route path="/" element={<Step1 />} />
-          <Route path="/step2" element={<Step2 />} />
-          <Route path="/step3" element={<Step3 />} />
-        </Routes>
+        <HeaderSteps steps={prop.step} />
+        {step}
       </Content>
       <ScrollToTopButton />
     </Container>

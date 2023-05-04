@@ -66,7 +66,7 @@ function Sessao(prop: sessionData) {
     fetch(`https://wexer-example-backend.vercel.app/api/timeline/6438810edc67c006c954c71f/occurrence/${prop.id}`, {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMxMzE0OTQsImV4cCI6MTY4MzIxNzg5NH0.uOogKxREwi5wjifKLUNY6nysvIYwdF6O3Qwrm4KjPjY',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMyMDcwNDgsImV4cCI6MTY4MzI5MzQ0OH0.XS-Os7vtegra-_v8tJYkbqstUPehTyv9SIA0n3rWZrA',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 

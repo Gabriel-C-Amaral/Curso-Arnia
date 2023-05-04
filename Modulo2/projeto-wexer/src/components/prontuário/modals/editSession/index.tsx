@@ -271,7 +271,7 @@ export default function EditSession(prop: EditProp) {
     fetch(`https://wexer-example-backend.vercel.app/api/timeline/643dc6a38df02c8bf2aab8f4`, {
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMxMzE0OTQsImV4cCI6MTY4MzIxNzg5NH0.uOogKxREwi5wjifKLUNY6nysvIYwdF6O3Qwrm4KjPjY',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMyMDcwNDgsImV4cCI6MTY4MzI5MzQ0OH0.XS-Os7vtegra-_v8tJYkbqstUPehTyv9SIA0n3rWZrA',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
 
@@ -318,7 +318,7 @@ export default function EditSession(prop: EditProp) {
       method: 'PUT',
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMxMzE0OTQsImV4cCI6MTY4MzIxNzg5NH0.uOogKxREwi5wjifKLUNY6nysvIYwdF6O3Qwrm4KjPjY',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMyMDcwNDgsImV4cCI6MTY4MzI5MzQ0OH0.XS-Os7vtegra-_v8tJYkbqstUPehTyv9SIA0n3rWZrA',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'

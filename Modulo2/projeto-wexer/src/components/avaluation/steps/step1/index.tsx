@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import jsonData from './questions.json'
 import QuestionProps from './question'
+import { Link } from 'react-router-dom'
 
 type QuestionData = {
   title?: string
@@ -109,7 +110,13 @@ export default function Step1() {
         </div>
       ))}
       <BottomButtons>
-        <img src="src\images\saveBtn.svg" /> <img src="src\images\skipBtn.svg" />
+        <Link to={'/avaluationstep2'}>
+          {' '}
+          <img src="src\images\saveBtn.svg" />
+        </Link>{' '}
+        <Link to={'/avaluationstep2'}>
+          <img src="src\images\skipBtn.svg" />
+        </Link>
       </BottomButtons>
     </Content>
   )

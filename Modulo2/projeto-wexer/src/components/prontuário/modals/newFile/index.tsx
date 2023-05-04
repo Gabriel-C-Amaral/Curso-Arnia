@@ -15,6 +15,7 @@ interface FormData {
   type: string
   createdOn: string
   hour: string
+  file: any
 }
 
 const Container = styled.div`
@@ -188,6 +189,7 @@ export default function NewFile() {
       method: '',
       status: ''
     },
+    file: null,
     title: '',
     content: '',
     type: 'attachment',
@@ -197,6 +199,7 @@ export default function NewFile() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
+    // console.log(e.target?.files)
     if (name !== 'value' && name !== 'method' && name !== 'status') {
       setFormData(prevFormData => ({
         ...prevFormData,
@@ -214,22 +217,24 @@ export default function NewFile() {
   }
 
   const handleSubmit = () => {
-    fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
-      method: 'POST',
-      headers: {
-        Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMyMDcwNDgsImV4cCI6MTY4MzI5MzQ0OH0.XS-Os7vtegra-_v8tJYkbqstUPehTyv9SIA0n3rWZrA',
+    // eslint-disable-next-line no-console
+    console.log(typeof formData.file)
+    // fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
+    //   method: 'POST',
+    //   headers: {
+    //     Authorization:
+    //       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMyMDcwNDgsImV4cCI6MTY4MzI5MzQ0OH0.XS-Os7vtegra-_v8tJYkbqstUPehTyv9SIA0n3rWZrA',
 
-        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => response.json())
-      .then(() => {
-        window.location.reload()
-      })
-      .catch(error => console.error(error))
+    //     'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(formData)
+    // })
+    //   .then(response => response.json())
+    //   .then(() => {
+    //     window.location.reload()
+    //   })
+    //   .catch(error => console.error(error))
   }
 
   return (
@@ -256,7 +261,7 @@ export default function NewFile() {
         <FileInputContainer>
           <span>Anexar arquivos*</span>
           <FileInputLabel htmlFor="fileInput">Escolha um arquivo</FileInputLabel>
-          <FileInput id="fileInput" type="file" />
+          <FileInput name="file" defaultValue={formData.file} onChange={handleChange} id="fileInput" type="file" />
         </FileInputContainer>
       </InputContainer>
       <Footer>

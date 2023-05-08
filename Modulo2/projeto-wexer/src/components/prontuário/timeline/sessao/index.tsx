@@ -1,7 +1,16 @@
 import styled from 'styled-components'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ModalContainer from '../../modals'
 import EditSession from '../../modals/editSession'
+import ImgHeadHeartVoid from '../../../../images/HeadHeartVoid.svg'
+import ImggreenBall from '../../../../images/greenBall.svg'
+import ImgpinIconVoid from '../../../../images/pinIconVoid.svg'
+import ImgblueBall from '../../../../images/blueBall.svg'
+import ImgClipsIconVoid from '../../../../images/ClipsIconVoid.svg'
+import ImgpurppleBall from '../../../../images/purppleBall.svg'
+import ImgboardIconVoid from '../../../../images/boardIconVoid.svg'
+import ImgpinkBall from '../../../../images/pinkBall.svg'
+import ImgyellowBall from '../../../../images/yellowBall.svg'
 
 type sessionData = {
   text: string
@@ -39,6 +48,10 @@ function Sessao(prop: sessionData) {
   const handleClose = () => setOpen(false)
   const [content, SetContent] = React.useState(() => EditSession)
   const [height, setHeight] = React.useState('466px')
+  const [ball, setBall] = React.useState(ImgpinkBall)
+  const [icon, setIcon] = React.useState(ImgClipsIconVoid)
+  const [color, setColor] = React.useState('#00995D')
+  const [isShow, setisShow] = React.useState('none')
 
   const [Modaltitle, setTitle] = React.useState('')
   const handleOptionClick = () => {
@@ -88,57 +101,63 @@ function Sessao(prop: sessionData) {
   }
 
   const truncatedText = truncateString(prop.text, 300)
-  let color: string
-  let icon: string
-  let ball: string
-  let isShow: string
 
-  if (prop.position == 1) {
-    isShow = 'none'
-  } else {
-    isShow = 'block'
-  }
+  useEffect(() => {
+    if (prop.position == 1) {
+      setisShow('none')
+    } else {
+      setisShow('block')
+    }
 
-  switch (prop.card) {
-    case 'session':
-      color = '#00995D'
-      icon = 'src/images/HeadHeartVoid.svg'
-      ball = 'src/images/greenBall.svg'
+    switch (prop.card) {
+      case 'session':
+        setColor('#00995D')
+        setIcon(ImgHeadHeartVoid)
+        setBall(ImggreenBall)
 
-      break
-    case 'relevant_fact':
-      color = '#2F80ED'
-      icon = 'src/images/pinIconVoid.svg'
-      ball = 'src/images/blueBall.svg'
+        break
+      case 'relevant_fact':
+        setColor('#2F80ED')
+        setIcon(ImgpinIconVoid)
 
-      break
+        setBall(ImgblueBall)
 
-    case 'attachment':
-      color = '#9D28AC'
-      icon = 'src/images/ClipsIconVoid.svg'
-      ball = 'src/images/purppleBall.svg'
+        break
 
-      break
+      case 'attachment':
+        setColor('#9D28AC')
 
-    case 'assessment':
-      color = '#EA1E61'
-      icon = 'src/images/boardIconVoid.svg'
-      ball = 'src/images/pinkBall.svg'
+        setIcon(ImgClipsIconVoid)
 
-      break
+        setBall(ImgpurppleBall)
 
-    case 'anotations':
-      color = '#FFD806'
-      icon = 'src/images/pinIconVoid.svg'
-      ball = 'src/images/yellowBall.svg'
+        break
 
-      break
+      case 'assessment':
+        setColor('#EA1E61')
 
-    default:
-      ball = 'src/images/defaultBall.svg'
-      color = '#FFD806'
-      icon = 'src/images/pinIconVoid.svg'
-  }
+        setIcon(ImgboardIconVoid)
+
+        setBall(ImgpinkBall)
+
+        break
+
+      case 'anotations':
+        setColor('#FFD806')
+
+        setIcon(ImgpinIconVoid)
+
+        setBall(ImgyellowBall)
+
+        break
+
+      default:
+        setBall(ImgyellowBall)
+        setColor('#FFD806')
+
+        setIcon(ImgpinIconVoid)
+    }
+  })
 
   const [isPopoverVisible, setIsPopoverVisible] = useState(false)
 

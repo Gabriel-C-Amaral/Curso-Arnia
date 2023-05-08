@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import ModalContainer from '../modals'
 import * as React from 'react'
 import TextEditor from '../modals/textEditor'
+import ImgEditIcon from '../../../images/editIcon.svg'
 
 type Prop = {
   content: string
@@ -64,7 +65,7 @@ function Goals(prop: Prop) {
         isOpen={open}
       />
       <Title>Demandas e objetivos</Title>
-      <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
+      <EditIcon src={ImgEditIcon} onClick={() => setOpen(true)} />
       <Content>{prop.content}</Content>
     </Card>
   )

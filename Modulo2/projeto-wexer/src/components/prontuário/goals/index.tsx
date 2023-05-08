@@ -56,6 +56,7 @@ function Goals(prop: Prop) {
   return (
     <Card>
       <ModalContainer
+        id=""
         Conteudo={() => <TextEditor name="demands" default={prop.content} />}
         height="473px"
         title="Demandas e objetivos"

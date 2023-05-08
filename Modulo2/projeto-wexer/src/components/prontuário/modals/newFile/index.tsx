@@ -24,7 +24,6 @@ const Container = styled.div`
   position: relative;
   top: -10px;
   flex-direction: column;
-  /* height: 368px; */
   width: 640px;
   gap: 12px;
 `
@@ -218,24 +217,22 @@ export default function NewFile() {
   }
 
   const handleSubmit = () => {
-    // eslint-disable-next-line no-console
-    console.log(typeof formData.file)
-    // fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
-    //   method: 'POST',
-    //   headers: {
-    //     Authorization:
-    //       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMzNzYyMzcsImV4cCI6MTY4MzQ2MjYzN30.LnSi6Et38luT5IRgjIFcLgJiQl3Y_S2bHzY7UBsK_A8',
+    fetch('https://wexer-example-backend.vercel.app/api/occurrence', {
+      method: 'POST',
+      headers: {
+        Authorization:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODM1MDQxODIsImV4cCI6MTY4MzU5MDU4Mn0.YH8Zgj9RBtIYv8kj7TwD4LImlfKXHxt5dC-K8nax3mU',
 
-    //     'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(formData)
-    // })
-    //   .then(response => response.json())
-    //   .then(() => {
-    //     window.location.reload()
-    //   })
-    //   .catch(error => console.error(error))
+        'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(response => response.json())
+      .then(() => {
+        window.location.reload()
+      })
+      .catch(error => console.error(error))
   }
 
   return (

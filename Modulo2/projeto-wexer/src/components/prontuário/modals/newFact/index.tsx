@@ -181,7 +181,7 @@ export default function NewFact() {
       method: 'POST',
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODMzNzYyMzcsImV4cCI6MTY4MzQ2MjYzN30.LnSi6Et38luT5IRgjIFcLgJiQl3Y_S2bHzY7UBsK_A8',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODM1MDQxODIsImV4cCI6MTY4MzU5MDU4Mn0.YH8Zgj9RBtIYv8kj7TwD4LImlfKXHxt5dC-K8nax3mU',
 
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'

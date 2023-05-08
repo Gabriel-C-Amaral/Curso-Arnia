@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import ImgarrowDoubleUP from '../../images/arrowDoubleUP.svg'
 
 export default function ScrollToTopButton() {
   const [showButton, setShowButton] = useState(false)
@@ -52,7 +53,7 @@ export default function ScrollToTopButton() {
     <IfButton>
       {showButton && (
         <StyledButton onClick={scrollToTop}>
-          <img src="src\images\arrowDoubleUP.svg" /> Voltar para o topo
+          <img src={ImgarrowDoubleUP} /> Voltar para o topo
         </StyledButton>
       )}
     </IfButton>

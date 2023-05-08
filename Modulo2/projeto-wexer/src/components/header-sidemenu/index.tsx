@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import SideMenu from '../sidemenu'
-// import DropdownMenu from '../dropdownmenu'
+import ImglogoIcon from '../../images/logoIcon.svg'
+import Imgmenu from '../../images/menu.svg'
+import ImgarrowDown from '../../images/arrowDown.svg'
 
 type nameType = {
   name: string
@@ -69,15 +71,15 @@ function HeaderMenu(name: nameType) {
   return (
     <Container>
       <WexerIcon>
-        <img src="src\images\logoIcon.svg" width="28,85px" height="44,33px" />{' '}
+        <img src={ImglogoIcon} width="28,85px" height="44,33px" />{' '}
       </WexerIcon>
       <FixedHeader>
-        <img src="src\images\menu.svg" width="28px" height="28px" onClick={toggleMenuOff} />
+        <img src={Imgmenu} width="28px" height="28px" onClick={toggleMenuOff} />
         <BoxName>
           <div>
             Bem vindo(a), <BoldName>{name.name}</BoldName>
           </div>{' '}
-          <img src="src\images\arrowDown.svg" width="12px" height="9px" />
+          <img src={ImgarrowDown} width="12px" height="9px" />
         </BoxName>
       </FixedHeader>
       <div onClick={toggleMenu}>

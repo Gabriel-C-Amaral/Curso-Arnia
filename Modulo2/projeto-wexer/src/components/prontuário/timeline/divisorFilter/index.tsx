@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ImgarrowDown from '../../../../images/arrowDown.svg'
 
 function DivisorFilter() {
   const Container = styled.div`
@@ -43,7 +44,7 @@ function DivisorFilter() {
       <Filter>
         Filtrar por: <Forte>Todos</Forte>
       </Filter>
-      <ArrowDown src="src\images\arrowDown.svg" />
+      <ArrowDown src={ImgarrowDown} />
     </Container>
   )
 }

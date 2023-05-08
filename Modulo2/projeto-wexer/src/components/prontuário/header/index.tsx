@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ImgsearchIcon from '../../../images/searchIcon.svg'
 
 function Header() {
   const Container = styled.div`
@@ -85,7 +86,7 @@ function Header() {
       <Selected>Prontuário</Selected>
       <SearchBar>
         <SearchText> O que você está procurando?</SearchText>
-        <SearchIcon src="../../../src/images/searchIcon.svg" />
+        <SearchIcon src={ImgsearchIcon} />
       </SearchBar>
     </Container>
   )

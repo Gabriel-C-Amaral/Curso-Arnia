@@ -5,6 +5,13 @@ import NewSession from '../modals/newSession'
 import NewFact from '../modals/newFact'
 import NewFile from '../modals/newFile'
 import NewAvaluation from '../modals/newAvaluation'
+import ImgarrowDownReto from '../../../images/arrowDownReto.svg'
+import ImgeditIcon from '../../../images/editIcon.svg'
+import ImgeraseIcon from '../../../images/eraseIcon.svg'
+import ImgheadHeart from '../../../images/headHeart.svg'
+import ImgpinIcon from '../../../images/pinIcon.svg'
+import ImgClipsIcon from '../../../images/ClipsIcon.svg'
+import ImgBoardIcon from '../../../images/ClipsIcon.svg'
 
 function HeadMenu() {
   const [open, setOpen] = React.useState(false)
@@ -130,27 +137,27 @@ function HeadMenu() {
       <Top>
         <Bolder>Serviço: </Bolder>
         <NewList>
-          Novo Acompanhamento <ArrowDown src="src\images\arrowDownReto.svg" />
+          Novo Acompanhamento <ArrowDown src={ImgarrowDownReto} />
         </NewList>
         <Bolder>Data Inicial: </Bolder>
         <InicialDate>18/10/2022</InicialDate>
-        <img src="src\images\editIcon.svg" />
-        <img src="src\images\eraseIcon.svg" />
+        <img src={ImgeditIcon} />
+        <img src={ImgeraseIcon} />
       </Top>
       <Options onClick={() => handleOptionClick('Sessão')}>
-        <img src="src\images\headHeart.svg" />
+        <img src={ImgheadHeart} />
         Sessão
       </Options>
       <Options onClick={() => handleOptionClick('Fato relevante')}>
-        <img src="src\images\pinIcon.svg" />
+        <img src={ImgpinIcon} />
         Fato Relevante
       </Options>
       <Options onClick={() => handleOptionClick('Anexo')}>
-        <img src="src\images\ClipsIcon.svg" />
+        <img src={ImgClipsIcon} />
         Anexo
       </Options>
       <Options onClick={() => handleOptionClick('Avaliação Psicológica')}>
-        <img src="src\images\BoardIcon.svg" />
+        <img src={ImgBoardIcon} />
         Avaliação Psicológica
       </Options>
       <Divisor />

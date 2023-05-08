@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import ModalContainer from '../modals'
 import * as React from 'react'
 import TextEditor from '../modals/textEditor'
+import ImgEditButton from '../../../images/editIcon.svg'
 
 type Prop = {
   content: string
@@ -64,7 +65,7 @@ function Anotations(prop: Prop) {
         isOpen={open}
       />
       <Title>Anotações Pessoais</Title>
-      <EditIcon src="src\images\editIcon.svg" onClick={() => setOpen(true)} />
+      <EditIcon src={ImgEditButton} onClick={() => setOpen(true)} />
       <Content>{prop.content}</Content>
     </Card>
   )

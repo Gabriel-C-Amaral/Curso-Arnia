@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Imgarrowright from '../../images/arrowright.svg'
 
 type Menu = {
   title: string
@@ -53,7 +54,7 @@ function DropdownMenu(props: Menu) {
       <MenuTitle>
         <Icons src={props.icon} />
         <MenuItems> {props.title}</MenuItems>
-        <DropDownIcon src="src\images\arrowright.svg" />
+        <DropDownIcon src={Imgarrowright} />
       </MenuTitle>
       <MenuItems>{props.item1}</MenuItems>
       <MenuItems>{props.item2}</MenuItems>

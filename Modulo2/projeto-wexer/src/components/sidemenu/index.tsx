@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
 import DropdownMenu from '../dropdownmenu'
+import Imgpeople from '../../images/people.svg'
+import ImgToDo from '../../images/todo-fill.svg'
+import Imgarrowright from '../../images/arrowright.svg'
+import Imgpluscircle from '../../images/plus-circle.svg'
+import Imgsettings2 from '../../images/settings-2.svg'
+import Imgtodofill from '../../images/todo-fill.svg'
 
 type IsToggled = {
   toggle: boolean
@@ -75,22 +81,22 @@ function SideMenu(active: IsToggled) {
       return (
         <Toggled>
           <MenuItensRetracted>
-            <Icons src="src\images\people.svg" />
+            <Icons src={Imgpeople} />
             <MenuItems> Meus Pacientes</MenuItems>
           </MenuItensRetracted>
 
           <MenuItensRetracted>
-            <Icons src="src\images\todo-fill.svg" />
+            <Icons src={ImgToDo} />
             <MenuItems> Modelos</MenuItems>
-            <DropDownIcon src="src\images\arrowright.svg" onClick={expandMenu} />
+            <DropDownIcon src={Imgarrowright} onClick={expandMenu} />
           </MenuItensRetracted>
           <MenuItensRetracted>
-            <Icons src="src\images\plus-circle.svg" />
+            <Icons src={Imgpluscircle} />
             <MenuItems> Cadastros</MenuItems>
-            <DropDownIcon src="src\images\arrowright.svg" onClick={expandMenu} />
+            <DropDownIcon src={Imgarrowright} onClick={expandMenu} />
           </MenuItensRetracted>
           <MenuItensRetracted>
-            <Icons src="src\images\settings-2.svg" />
+            <Icons src={Imgsettings2} />
             <MenuItems> Preferências</MenuItems>
           </MenuItensRetracted>
         </Toggled>
@@ -99,25 +105,19 @@ function SideMenu(active: IsToggled) {
       return (
         <Toggled>
           <MenuItensRetracted>
-            <Icons src="src\images\people.svg" />
+            <Icons src={Imgpeople} />
             <MenuItems> Meus Pacientes</MenuItems>
           </MenuItensRetracted>
           <DropdownMenu
-            icon="src\images\todo-fill.svg"
+            icon={ImgToDo}
             title="Modelos"
             item1="Entrevistas"
             item2="Roteiro de testes"
             item3="Documentos"
           />
-          <DropdownMenu
-            icon="src\images\todo-fill.svg"
-            title="Cadastros"
-            item1="Perguntas"
-            item2="Testes"
-            item3="Tipos de avaliações"
-          />
+          <DropdownMenu icon={ImgToDo} title="Cadastros" item1="Perguntas" item2="Testes" item3="Tipos de avaliações" />
           <MenuItensRetracted>
-            <Icons src="src\images\settings-2.svg" />
+            <Icons src={Imgsettings2} />
             <MenuItems> Preferências</MenuItems>
           </MenuItensRetracted>
         </Toggled>
@@ -126,11 +126,11 @@ function SideMenu(active: IsToggled) {
   } else {
     return (
       <NotToggled>
-        <Icons src="src\images\people.svg" />
-        <Icons src="src\images\todo-fill.svg" />
+        <Icons src={Imgpeople} />
+        <Icons src={Imgtodofill} />
 
-        <Icons src="src\images\plus-circle.svg" />
-        <Icons src="src\images\settings-2.svg" />
+        <Icons src={Imgpluscircle} />
+        <Icons src={Imgsettings2} />
       </NotToggled>
     )
   }

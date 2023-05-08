@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
 import Testes from './testes'
+import ImgAddButton from '../../../../images/addButton.svg'
 
 export default function PopOver() {
   const [showPopover, setShowPopover] = useState(false)
@@ -113,7 +114,7 @@ export default function PopOver() {
       <PopOverContainer>
         <AddField onClick={handlePopoverClick}>
           <PleaseText>Por favor, adicione um teste </PleaseText>
-          <ImgButton src="src\images\addButton.svg" />
+          <ImgButton src={ImgAddButton} />
         </AddField>
         {showPopover && (
           <Teste>

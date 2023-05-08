@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import TextEditor from '@/components/prontuário/modals/textEditor'
+import ImgsaveBtn from '../../../../images/saveBtn.svg'
 
 export default function Step3() {
   const Container = styled.div`
@@ -41,7 +42,7 @@ export default function Step3() {
         <InputTitle>Síntese das observações comportamentais</InputTitle>
         <TextEditor default="" name="" />
       </TextEditorContainer>
-      <SaveButton src="src\images\saveBtn.svg" />
+      <SaveButton src={ImgsaveBtn} />
     </Container>
   )
 }

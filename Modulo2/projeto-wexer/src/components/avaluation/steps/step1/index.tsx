@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import jsonData from './questions.json'
 import QuestionProps from './question'
 import { Link } from 'react-router-dom'
+import ImgSavebttn from '../../../../images/saveBtn.svg'
+import ImgskipBtn from '../../../../images/skipBtn.svg'
+import Imgquestion from '../../../../images/questionMarkIcon.svg'
 
 type QuestionData = {
   title?: string
@@ -87,7 +90,7 @@ export default function Step1() {
       <div>
         <TitleQuestion>
           <Title>Sistese da Entrevista</Title>
-          <img src="src\images\questionMarkIcon.svg" />
+          <img src={Imgquestion} />
         </TitleQuestion>
         <Sintese placeholder=" Nos dados registrados e observados durante a entrevista o(a) avaliado(a) declarou estar..." />
       </div>
@@ -112,10 +115,10 @@ export default function Step1() {
       <BottomButtons>
         <Link to={'/avaluationstep2'}>
           {' '}
-          <img src="src\images\saveBtn.svg" />
+          <img src={ImgSavebttn} />
         </Link>{' '}
         <Link to={'/avaluationstep2'}>
-          <img src="src\images\skipBtn.svg" />
+          <img src={ImgskipBtn} />
         </Link>
       </BottomButtons>
     </Content>

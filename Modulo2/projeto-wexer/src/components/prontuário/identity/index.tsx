@@ -1,4 +1,8 @@
 import styled from 'styled-components'
+import ImgProfile from '../../../images/profileIcon.svg'
+import ImgdateIcon from '../../../images/dateIcon.svg'
+import ImgprofessionIcon from '../../../images/professionIcon.svg'
+import ImgeducationIcon from '../../../images/educationIcon.svg'
 
 type person = {
   name: string
@@ -68,19 +72,19 @@ function Identity(pacient: person) {
     <Card>
       <CardName>Identificação do Paciente</CardName>
       <Title>
-        <Icon src="src\images\profileIcon.svg" /> Paciente
+        <Icon src={ImgProfile} /> Paciente
       </Title>
       <Subtitle>{pacient.name}</Subtitle>
       <Title>
-        <Icon src="src\images\dateIcon.svg" /> Nascimento
+        <Icon src={ImgdateIcon} /> Nascimento
       </Title>
       <Subtitle>{pacient.birthday}</Subtitle>
       <Title>
-        <Icon src="src\images\professionIcon.svg" /> Profissão
+        <Icon src={ImgprofessionIcon} /> Profissão
       </Title>
       <Subtitle>{pacient.occupation}</Subtitle>
       <Title>
-        <Icon src="src\images\educationIcon.svg" /> Escolaridade
+        <Icon src={ImgeducationIcon} /> Escolaridade
       </Title>
       <Subtitle>{pacient.education}</Subtitle>
     </Card>

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import ImgEraseButton from '../../../../images/eraseIcon.svg'
 
 type Props = {
   title: string
@@ -92,7 +93,7 @@ export default function Testes(props: Props) {
   return (
     <Container>
       <Header>
-        <Title>{props.title}</Title> <EraseIcon src="src\images\eraseIcon.svg" />
+        <Title>{props.title}</Title> <EraseIcon src={ImgEraseButton} />
       </Header>
       <Body>
         <InputContainer>

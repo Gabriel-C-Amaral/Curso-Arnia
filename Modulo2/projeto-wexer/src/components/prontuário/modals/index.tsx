@@ -1,6 +1,7 @@
 import * as React from 'react'
 import Modal from '@mui/material/Modal'
 import styled from 'styled-components'
+import ImgcloseButton from '../../../images/closeButton.svg'
 
 type EditProp = {
   editId: string
@@ -70,7 +71,7 @@ export default function ModalContainer(props: Props) {
             onClick={() => {
               onClose()
             }}
-            src="src\images\closeButton.svg"
+            src={ImgcloseButton}
           />
         </Header>
         <Content>

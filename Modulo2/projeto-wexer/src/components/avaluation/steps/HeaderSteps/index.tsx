@@ -1,4 +1,13 @@
 import styled from 'styled-components'
+import Imgstep1active from '../../../../images/step1active.svg'
+import Imgstep2active from '../../../../images/step2active.svg'
+import Imgstep3active from '../../../../images/step3active.svg'
+import Imgstep2waiting from '../../../../images/step2waiting.svg'
+import Imgstep3waiting from '../../../../images/step3waiting.svg'
+import Imgstep1done from '../../../../images/step1done.svg'
+import Imgstep2done from '../../../../images/step2done.svg'
+import ImgSavebttn from '../../../../images/saveBtn.svg'
+import ImgskipBtn from '../../../../images/skipBtn.svg'
 
 type Props = {
   steps: string
@@ -11,21 +20,21 @@ export default function HeaderSteps(prop: Props) {
   let steptitle
 
   if (prop.steps === 'step1') {
-    img1 = 'src/images/step1active.svg'
-    img2 = 'src/images/step2waiting.svg'
-    img3 = 'src/images/step3waiting.svg'
+    img1 = Imgstep1active
+    img2 = Imgstep2waiting
+    img3 = Imgstep3waiting
     steptitle = 'Entrevista Psicológica'
   }
   if (prop.steps === 'step2') {
-    img1 = 'src/images/step1done.svg'
-    img2 = 'src/images/step2active.svg'
-    img3 = 'src/images/step3waiting.svg'
+    img1 = Imgstep1done
+    img2 = Imgstep2active
+    img3 = Imgstep3waiting
     steptitle = 'Aplicação de Teste'
   }
   if (prop.steps === 'step3') {
-    img1 = 'src/images/step1done.svg'
-    img2 = 'src/images/step2done.svg'
-    img3 = 'src/images/step3active.svg'
+    img1 = Imgstep1done
+    img2 = Imgstep2done
+    img3 = Imgstep3active
     steptitle = 'Observação Comportamental'
   }
 
@@ -87,8 +96,8 @@ export default function HeaderSteps(prop: Props) {
         <ContentHeader>
           {steptitle}
           <Buttons>
-            <img src="src\images\saveBtn.svg" />
-            <img src="src\images\skipBtn.svg" />
+            <img src={ImgSavebttn} />
+            <img src={ImgskipBtn} />
           </Buttons>
         </ContentHeader>
       </Content>

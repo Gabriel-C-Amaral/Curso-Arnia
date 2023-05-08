@@ -6,6 +6,7 @@ import Step3 from './steps/step3'
 import ScrollToTopButton from '../backtotop'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import ImgArrowLeftBack from '../../images/arrowLeftBack.svg'
 
 const Container = styled.div`
   display: flex;
@@ -68,7 +69,7 @@ export default function AvaluationPage(prop: Props) {
       <Header>
         <Link to={'/'}>
           <InsideHeader>
-            <img src="src\images\arrowLeftBack.svg" /> Voltar
+            <img src={ImgArrowLeftBack} /> Voltar
           </InsideHeader>
         </Link>
         <InsideHeader>|</InsideHeader>

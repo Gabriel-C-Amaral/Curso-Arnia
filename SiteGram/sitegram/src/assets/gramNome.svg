@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Creator: CorelDRAW X8 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="2480px" height="3508px" version="1.0" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 248000000 350742857"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil1 {fill:url(#id0)}
+    .fil0 {fill:url(#id1)}
+    .fil3 {fill:url(#id2)}
+    .fil2 {fill:url(#id3)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="-7.14569e+07" y1="4.63434e+08" x2="-9.28664e+07" y2="4.73814e+08">
+   <stop offset="0" style="stop-opacity:1; stop-color:#555FA9"/>
+   <stop offset="0.309804" style="stop-opacity:1; stop-color:#2B3994"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#01137F"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" x1="-7.14572e+07" y1="4.63434e+08" x2="-9.28666e+07" y2="4.73814e+08">
+   <stop offset="0" style="stop-opacity:1; stop-color:#555FA9"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#01137F"/>
+  </linearGradient>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="-7.14571e+07" y1="4.63434e+08" x2="-9.28664e+07" y2="4.73814e+08">
+  </linearGradient>
+  <linearGradient id="id3" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="-7.14571e+07" y1="4.63434e+08" x2="-9.28666e+07" y2="4.73814e+08">
+  </linearGradient>
+ </defs>
+ <g id="Camada_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path class="fil0" d="M-105713425 474928975l4517615 0 0 -5749466 -3301942 0 0 3097165 -237136 0c-757462,0 -1399074,-248000 -1924598,-744000 -644209,-630746 -964956,-1474419 -964956,-2525584 0,-684717 158956,-1312747 474389,-1881494 525523,-956926 1331523,-1436746 2415165,-1436746l2892153 0 806000 -2652301 -4676690 0 0 0c-1695375,10864 -3053943,620000 -4075585,1832956 -913702,1115882 -1371912,2482480 -1371912,4105108 0,1474537 388179,2752092 1167135,3838450 1021524,1409703 2447524,2115912 4280362,2115912z"/>
+  <path class="fil1" d="M-99759063 474928975l3301943 0 0 -4043226 725105 0 2401585 4043226 3773615 0 -2857078 -4296541c431165,-167104 816628,-404358 1153554,-708925 768328,-727821 1151074,-1671166 1151074,-2827555 0,-916419 -245402,-1744030 -741284,-2479882 -727821,-1053882 -1757493,-1579523 -3094449,-1579523l-5814065 0 -806000 2652301 806000 0 0 2544598 0 6695527zm3301943 -9240125l0 2544598 1530987 0c579493,0 970388,-253433 1169851,-760179 62000,-167105 94358,-336926 94358,-504031 0,-506747 -199463,-878747 -601105,-1121314 -199462,-105105 -420537,-159074 -663104,-159074l-1530987 0z"/>
+  <path class="fil2" d="M-83931230 466683566l-1153673 4202183 2304629 0 -1150956 -4202183zm-5717109 8245409l3458301 0 393493 -1390807 3727795 0 396327 1390807 3458183 0 -3743973 -11892426 -3965048 0 -3725078 11892426z"/>
+  <polygon class="fil3" points="-77427135,474928975 -74125192,474928975 -74125192,468942373 -72656206,474928975 -68691158,474928975 -67224770,468942373 -67224770,474928975 -63922827,474928975 -63922827,463036549 -68408084,463036549 -70666891,471295539 -72925699,463036549 -77427135,463036549 -78233135,465688850 -77427135,465688850 "/>
+ </g>
+</svg>

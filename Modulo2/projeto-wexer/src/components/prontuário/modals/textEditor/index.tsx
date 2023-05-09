@@ -67,7 +67,7 @@ const TextEditor = (prop: PropEditor) => {
       method: 'PUT',
       headers: {
         Authorization:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODM1MDQxODIsImV4cCI6MTY4MzU5MDU4Mn0.YH8Zgj9RBtIYv8kj7TwD4LImlfKXHxt5dC-K8nax3mU',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0M2MwNjVkNTZlYjNmZGZkZDg1YjIyZSIsIm5hbWUiOiJHYWJyaWVsIEFtYXJhbCIsImVtYWlsIjoiZ2FicmllbGFtYXJhbEBhcm5pYS5jb20iLCJpYXQiOjE2ODM2NzI3NTUsImV4cCI6MTY4Mzc1OTE1NX0.W30GVvRCIqAY7K4GgJNKCnTzOKQw42iZdc3SWBPd50w',
         'x-api-key': '1e7977ea-d97e-11ed-afa1-0242ac120002',
         'Content-Type': 'application/json'
       },
